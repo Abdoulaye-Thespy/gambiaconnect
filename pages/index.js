@@ -28,7 +28,7 @@ const Index = () => {
               <div className="col-lg-8">
                 <div className="hero-content">
                   <h1 className="wow fadeInUp" wow-data-delay="30mss">
-                    Dream Explore Discover
+                    here
                   </h1>
                   <h3 className="wow fadeInDown" wow-data-delay="50ms">
                     People Don’t Take,Trips Take People

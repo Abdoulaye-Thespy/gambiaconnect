@@ -28,7 +28,7 @@ const Index3 = () => {
         <div
           className="hero-wrapper-three bg_cover"
           style={{
-            backgroundImage: "url(assets/images/hero/hero-three-bg-1.jpg)",
+            backgroundImage: "url(assets/images/flags.png)",
           }}
         >
           <div className="container">
@@ -36,10 +36,10 @@ const Index3 = () => {
               <div className="col-lg-12">
                 <div className="hero-content text-center">
                   <h1 className="wow fadeInUp" data-wow-delay=".30s">
-                    Explore The Worlds
+                    Gambia Connect
                   </h1>
                   <h3 className="wow fadeInDown" data-wow-delay=".50s">
-                    People Don’t Take,Trips Take People
+                    Linking Businesses, Empowering Communities - Welcome to Gambia Connect!
                   </h3>
                   <div
                     className="hero-search-wrapper wow fadeInUp"
