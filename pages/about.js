@@ -55,9 +55,9 @@ const About = () => {
                         <i className="flaticon-place" />
                       </div>
                       <div className="content">
-                        <h5>Entrepreneurship Corner</h5>
+                        <h5>Bringing Insights</h5>
                         <p>
-                        Discuss startup strategies, challenges, and success stories with like-minded individuals.
+                        Providing detailed organization and business data to empower Gambians and visitors navigating the vibrant commercial landscape of The Gambia.
                         </p>
                       </div>
                     </li>
@@ -69,10 +69,9 @@ const About = () => {
                         <i className="flaticon-social-care" />
                       </div>
                       <div className="content">
-                        <h5>Market Trends</h5>
+                        <h5>Empowering Exploration</h5>
                         <p>
-                        Stay informed about the latest industry trends and insights shaping the business landscape.
-                        </p>
+                        With information readily available, GambiaConnect puts the essence of The Gambia's commercial world within easy reach, enhancing experiences for all.</p>
                       </div>
                     </li>
                   </ul>
@@ -87,22 +86,21 @@ const About = () => {
       <section className="cta-area">
         <div
           className="cta-wrapper-two bg_cover b"
-          style={{ backgroundImage: "url(assets/images/bg/cta-bg-2.jpg)" }}
+          style={{ backgroundImage: "url(assets/images/long-flag.png)" }}
         >
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-7">
-                <div className="company-name wow fadeInLeft">Fioxen</div>
+                <div className="company-name wow fadeInLeft"></div>
               </div>
               <div className="col-lg-5">
                 <div className="cta-content-box wow fadeInRight">
-                  <h2>Visit the Best Places</h2>
+                  <h2>Abous Us</h2>
                   <p>
-                    Pharetra venenatis ante pulvinar fermentum dignissim one
-                    malesuada laoreet ridiculus fringilla quam
+                  GambiaConnect: Your gateway to a wealth of organization and business details, tailored for both Gambians and visitors exploring The Smiling Coast.
                   </p>
-                  <Link href="/listing-grid">
-                    <a className="main-btn icon-btn">Explore Now</a>
+                  <Link href="/add-listing">
+                    <a className="main-btn icon-btn">ADD LISTING</a>
                   </Link>
                 </div>
               </div>
@@ -112,72 +110,8 @@ const About = () => {
       </section>
       {/*====== End CTA Section ======*/}
       {/*====== Start Testimonial Section ======*/}
-      <section
-        className="testimonial-area bg_cover pt-110 pb-265"
-        style={{
-          backgroundImage: "url(assets/images/bg/testimonial-bg-2.jpg)",
-        }}
-      >
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6">
-              <div className="section-title text-center mb-60 wow fadeInUp">
-                <span className="sub-title">Our Testimoinals</span>
-                <h2>Happy User Feedback</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="testimonial-wrapper-one text-center wow fadeInUp">
-                <div className="testimonial-review-area">
-                  <TestimoinalSlider />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Newsletter Section ======*/}
-      <section className="newsletter-area">
-        <div className="container">
-          <div
-            className="newsletter-wrapper newsletter-wrapper-one bg_cover"
-            style={{
-              backgroundImage: "url(assets/images/bg/newsletter-bg-1.jpg)",
-            }}
-          >
-            <div className="row">
-              <div className="col-lg-5">
-                <div className="newsletter-content-box-one wow fadeInLeft">
-                  <div className="icon">
-                    <i className="flaticon-email" />
-                  </div>
-                  <div className="content">
-                    <h2>Get Special Rewards</h2>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-7">
-                <div className="newsletter-form wow fadeInRight">
-                  <div className="form_group">
-                    <input
-                      type="email"
-                      className="form_control"
-                      placeholder="Enter Address"
-                      name="email"
-                      required=""
-                    />
-                    <i className="ti-location-pin" />
-                    <button className="main-btn icon-btn">Subscribe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/*====== End Newsletter Section ======*/}
       {/*====== Start Team Section ======*/}
       <section className="team-area pt-115 pb-85">
