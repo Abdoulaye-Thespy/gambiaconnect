@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { About, Blog, Contact, Home, Listing, Pages } from "../Menu";
+import { About, Contact, Home, Listing } from "../Menu";
 
 const Header3 = () => {
   return (
@@ -45,10 +45,7 @@ const Header3 = () => {
             <div className="col-md-4">
               <div className="top-content text-center">
                 <p>
-                  We Have Special Offers Every{" "}
-                  <Link href="/">
-                    <a>Find your offer</a>
-                  </Link>
+                 email{" info@gambiaconnect.cm"}
                 </p>
               </div>
             </div>
@@ -59,23 +56,7 @@ const Header3 = () => {
                     <Link href="/">
                       <a>
                         <i className="ti-search" />
-                        <span>Search here</span>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>
-                        <i className="ti-heart" />
-                        <span>Wishlist</span>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>
-                        <i className="ti-shopping-cart" />
-                        <span>Cart</span>
+                        <span>email{" info@gambiaconnect.cm"}</span>
                       </a>
                     </Link>
                   </li>
@@ -103,45 +84,8 @@ const Header3 = () => {
                   </div>
                   <nav className="main-menu">
                     <ul>
-                      <li className="menu-item has-children">
-                        <Link href="/">
-                          <a>Home</a>
-                        </Link>
-                        <ul className="sub-menu">
-                          <Home />
-                        </ul>
-                        <span className="dd-trigger">
-                          <i className="ti-arrow-down" />
-                        </span>
-                      </li>
+                      <Home />
                       <About />
-                      <li className="menu-item has-children">
-                        <a href="#">Listings</a>
-                        <ul className="sub-menu">
-                          <Listing />
-                        </ul>
-                        <span className="dd-trigger">
-                          <i className="ti-arrow-down" />
-                        </span>
-                      </li>
-                      <li className="menu-item has-children">
-                        <a href="#">Pages</a>
-                        <ul className="sub-menu">
-                          <Pages />
-                        </ul>
-                        <span className="dd-trigger">
-                          <i className="ti-arrow-down" />
-                        </span>
-                      </li>
-                      <li className="menu-item has-children">
-                        <a href="#">Article</a>
-                        <ul className="sub-menu">
-                          <Blog />
-                        </ul>
-                        <span className="dd-trigger">
-                          <i className="ti-arrow-down" />
-                        </span>
-                      </li>
                       <Contact />
                       <li className="nav-btn">
                         <Link href="/add-listing">

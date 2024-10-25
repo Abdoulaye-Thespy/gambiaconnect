@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import PageBanner from "../src/components/PageBanner";
-import TestimoinalSlider from "../src/components/Slider/TestimonialSlider";
 import Layout from "../src/layouts/Layout";
 
 const About = () => {
