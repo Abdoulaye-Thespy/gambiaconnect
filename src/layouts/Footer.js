@@ -98,7 +98,6 @@ const Footer = () => {
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; 2024. All rights reserved to{" GAMBIACONNECT"}
-                    <span>Webtend</span>
                   </p>
                 </div>
               </div>
