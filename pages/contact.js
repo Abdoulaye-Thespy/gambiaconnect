@@ -37,10 +37,10 @@ const Contact = () => {
                   <div className="info">
                     <h5>Phone</h5>
                     <p>
-                      <a href="tel:445555552580">44 (555) 555 2580</a>
+                      <a href="tel:445555552580">+220 769 8318</a>
                     </p>
                     <p>
-                      <a href="tel:445555552580">31 (555) 222 2560</a>
+                      <a href="tel:445555552580">+220 769 8318</a>
                     </p>
                   </div>
                 </div>
@@ -51,10 +51,10 @@ const Contact = () => {
                   <div className="info">
                     <h5>Email</h5>
                     <p>
-                      <a href="mailto:info@fioxen20.com">info@fioxen20.com</a>
+                      <a href="mailto:info@fioxen20.com">contact@gambiaconnect.com</a>
                     </p>
                     <p>
-                      <a href="mailto:info@fioxen20.com">info@fioxen22.com</a>
+                      <a href="mailto:info@fioxen20.com">info@gambiaconnect.com</a>
                     </p>
                   </div>
                 </div>
