@@ -10,102 +10,6 @@ const About = () => {
       <PageBanner title={"About us"} />
 
       {/*====== Start Features Section ======*/}
-      <section className="features-area">
-        <div className="features-wrapper-three pt-110">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-6">
-                <div className="section-title text-center mb-60 wow fadeInUp">
-                  <span className="sub-title">Some Feature</span>
-                  <h2>Caring Your Hobbies</h2>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-3 col-md-6 col-sm-12">
-                <div
-                  className="features-item features-item-two text-center mb-40 wow fadeInUp"
-                  data-wow-delay="10ms"
-                >
-                  <div className="icon">
-                    <i className="flaticon-add-user" />
-                  </div>
-                  <div className="content">
-                    <h3 className="title">User Friendly</h3>
-                    <p>
-                      Congue men porttitor blandit erat to loborti lacinia
-                      sapien pretium disenty
-                    </p>
-                    <Link href="/how-work">
-                      <a className="btn-link icon-btn">More Details</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-12">
-                <div
-                  className="features-item features-item-two text-center mb-40 wow fadeInDown"
-                  data-wow-delay="20ms"
-                >
-                  <div className="icon">
-                    <i className="flaticon-gift-box" />
-                  </div>
-                  <div className="content">
-                    <h3 className="title">Daily Offers</h3>
-                    <p>
-                      Congue men porttitor blandit erat to loborti lacinia
-                      sapien pretium disenty
-                    </p>
-                    <Link href="/how-work">
-                      <a className="btn-link icon-btn">More Details</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-12">
-                <div
-                  className="features-item features-item-two text-center mb-40 wow fadeInUp"
-                  data-wow-delay="30ms"
-                >
-                  <div className="icon">
-                    <i className="flaticon-laptop" />
-                  </div>
-                  <div className="content">
-                    <h3 className="title">Quick Search</h3>
-                    <p>
-                      Congue men porttitor blandit erat to loborti lacinia
-                      sapien pretium disenty
-                    </p>
-                    <Link href="/how-work">
-                      <a className="btn-link icon-btn">More Details</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-12">
-                <div
-                  className="features-item features-item-two text-center mb-40 wow fadeInDown"
-                  data-wow-delay="40ms"
-                >
-                  <div className="icon">
-                    <i className="flaticon-headphone" />
-                  </div>
-                  <div className="content">
-                    <h3 className="title">Live Support</h3>
-                    <p>
-                      Congue men porttitor blandit erat to loborti lacinia
-                      sapien pretium disenty
-                    </p>
-                    <Link href="/how-work">
-                      <a className="btn-link icon-btn">More Details</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/*====== End Features Section ======*/}
       {/*====== Start Features Section ======*/}
       <section className="features-area">
@@ -123,13 +27,10 @@ const About = () => {
               <div className="col-lg-6">
                 <div className="features-content-box features-content-box-one">
                   <div className="section-title section-title-left mb-30 wow fadeInUp">
-                    <span className="sub-title">Our Speciality</span>
-                    <h2>Comprehnsive All Great Destination Here</h2>
-                  </div>
+                    <span className="sub-title">What we do</span>
+                </div>
                   <h5>
-                    Risus urnas Iaculis per amet vestibulum luctus.tincidunt
-                    ultricies aenean quam eros eleifend sodales cubilia mattis
-                    quam.
+                  At Gambia Connect, we unite businesses and customers, fostering growth within The Gambia's vibrant commercial landscape.
                   </h5>
                   <ul className="features-list-one">
                     <li
@@ -140,10 +41,9 @@ const About = () => {
                         <i className="flaticon-find" />
                       </div>
                       <div className="content">
-                        <h5>Find What You Want</h5>
+                        <h5>Business Networking</h5>
                         <p>
-                          Rhoncus dolor quam etiam mattis, tincidunt nec
-                          lobortis sociis facilisi aenean netus tempor duis.
+                        Connect with fellow professionals, share insights, and explore collaboration opportunities.
                         </p>
                       </div>
                     </li>
@@ -155,10 +55,9 @@ const About = () => {
                         <i className="flaticon-place" />
                       </div>
                       <div className="content">
-                        <h5>Easy Choose Your Place</h5>
+                        <h5>Entrepreneurship Corner</h5>
                         <p>
-                          Rhoncus dolor quam etiam mattis, tincidunt nec
-                          lobortis sociis facilisi aenean netus tempor duis.
+                        Discuss startup strategies, challenges, and success stories with like-minded individuals.
                         </p>
                       </div>
                     </li>
@@ -170,10 +69,9 @@ const About = () => {
                         <i className="flaticon-social-care" />
                       </div>
                       <div className="content">
-                        <h5>Live Online Assistance</h5>
+                        <h5>Market Trends</h5>
                         <p>
-                          Rhoncus dolor quam etiam mattis, tincidunt nec
-                          lobortis sociis facilisi aenean netus tempor duis.
+                        Stay informed about the latest industry trends and insights shaping the business landscape.
                         </p>
                       </div>
                     </li>
