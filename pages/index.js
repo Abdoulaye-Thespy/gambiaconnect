@@ -156,212 +156,6 @@ const Index3 = () => {
       </section>
       {/*====== End Hero Section ======*/}
       {/*====== Start Place Section ======*/}
-      <section className="place-area masonry-place-area light-bg pt-115 pb-90">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6">
-              <div className="section-title text-center mb-60 wow fadeInUp">
-                <span className="sub-title">Featured List</span>
-                <h2>
-                  <span className="line">Popular</span> Destination
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div className="row masonry-place-row">
-            <div className="col-lg-4 col-md-6 col-sm-12 place-column">
-              <div
-                className="place-item place-item-three mb-30 wow fadeInUp"
-                data-wow-delay=".2s"
-              >
-                <div className="place-thumbnail">
-                  <img
-                    src="assets/images/place/place-11.jpg"
-                    alt="place image"
-                  />
-                  <div className="place-overlay">
-                    <div className="place-content">
-                      <h4>Rialto Bridge</h4>
-                      <ul className="ratings ratings-four">
-                        <li>
-                          <span>Venezia, Italy</span>
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 place-column">
-              <div
-                className="place-item place-item-three mb-30 wow fadeInUp"
-                data-wow-delay=".25s"
-              >
-                <div className="place-thumbnail">
-                  <img
-                    src="assets/images/place/place-12.jpg"
-                    alt="place image"
-                  />
-                  <div className="place-overlay">
-                    <div className="place-content">
-                      <h4>Flatiron Building</h4>
-                      <ul className="ratings ratings-four">
-                        <li>
-                          <span>Venezia, Italy</span>
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 place-column">
-              <div
-                className="place-item place-item-three mb-30 wow fadeInUp"
-                data-wow-delay=".30s"
-              >
-                <div className="place-thumbnail">
-                  <img
-                    src="assets/images/place/place-13.jpg"
-                    alt="place image"
-                  />
-                  <div className="place-overlay">
-                    <div className="place-content">
-                      <h4>Grimentz, Switzerland</h4>
-                      <ul className="ratings ratings-four">
-                        <li>
-                          <span>Venezia, Italy</span>
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 place-column">
-              <div
-                className="place-item place-item-three mb-30 wow fadeInUp"
-                data-wow-delay=".35s"
-              >
-                <div className="place-thumbnail">
-                  <img
-                    src="assets/images/place/place-14.jpg"
-                    alt="place image"
-                  />
-                  <div className="place-overlay">
-                    <div className="place-content">
-                      <h4>Arc De Triomphe, Place</h4>
-                      <ul className="ratings ratings-four">
-                        <li>
-                          <span>Venezia, Italy</span>
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 place-column">
-              <div
-                className="place-item place-item-three mb-30 wow fadeInUp"
-                data-wow-delay=".40s"
-              >
-                <div className="place-thumbnail">
-                  <img
-                    src="assets/images/place/place-15.jpg"
-                    alt="place image"
-                  />
-                  <div className="place-overlay">
-                    <div className="place-content">
-                      <h4>Gili Trawangan, Indah</h4>
-                      <ul className="ratings ratings-four">
-                        <li>
-                          <span>Venezia, Italy</span>
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                        <li className="star">
-                          <i className="fas fa-star" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/*====== End Hero Section ======*/}
       {/*====== Start category Section ======*/}
       <section className="category-area">
@@ -479,8 +273,8 @@ const Index3 = () => {
           <div className="row justify-content-center">
             <div className="col-lg-6">
               <div className="section-title text-center mb-60 wow fadeInUp">
-                <span className="sub-title">Featured List</span>
-                <h2>Explore Destination</h2>
+                <span className="sub-title">Featured Business</span>
+                <h2>Explore Listing</h2>
               </div>
             </div>
           </div>
@@ -510,7 +304,7 @@ const Index3 = () => {
                       src="assets/images/listing/thumb-1.jpg"
                       alt="city image"
                     />
-                    Doha, Qatar
+                    Gambia
                   </span>
                   <ul className="ratings ratings-three">
                     <li className="star">
@@ -564,7 +358,7 @@ const Index3 = () => {
                       src="assets/images/listing/thumb-2.jpg"
                       alt="city image"
                     />
-                    Venezia, Italy
+                    Gambia
                   </span>
                   <ul className="ratings ratings-five">
                     <li className="star">
@@ -671,7 +465,7 @@ const Index3 = () => {
                       src="assets/images/listing/thumb-2.jpg"
                       alt="city image"
                     />
-                    Venezia, Italy
+                    Gambia
                   </span>
                   <ul className="ratings ratings-three">
                     <li className="star">
@@ -820,7 +614,7 @@ const Index3 = () => {
               <div className="col-lg-6">
                 <div className="section-title section-title-white text-center mb-50 wow fadeInUp">
                   <span className="sub-title">Working Process</span>
-                  <h2>How Does We Works</h2>
+                  <h2>How Does It Works</h2>
                 </div>
               </div>
             </div>
@@ -831,10 +625,9 @@ const Index3 = () => {
                     <i className="flaticon-map" />
                   </div>
                   <div className="content">
-                    <h4>Find Your Places</h4>
+                    <h4>Explore Listings</h4>
                     <p>
-                      Amet consectetur adipiscing elitsed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua suspe
+                    Browse through our comprehensive directory of organizations and businesses in The Gambia.
                     </p>
                   </div>
                 </div>
@@ -848,10 +641,9 @@ const Index3 = () => {
                     <i className="flaticon-star" />
                   </div>
                   <div className="content">
-                    <h4>Customer Reviews</h4>
+                    <h4>Search and Discover</h4>
                     <p>
-                      Amet consectetur adipiscing elitsed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua suspe
+                    Utilize our search function to find specific information or simply explore various categories.
                     </p>
                   </div>
                 </div>
@@ -862,323 +654,12 @@ const Index3 = () => {
                     <i className="flaticon-calendar" />
                   </div>
                   <div className="content">
-                    <h4>Find Your Places</h4>
+                    <h4>Connect and Engage</h4>
                     <p>
-                      Amet consectetur adipiscing elitsed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua suspe
+                    Connect with businesses, access key details, and embark on a seamless journey through The Smiling Coast's commercial landscape.
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*====== End Features Section ======*/}
-      {/*====== Start CTA Section ======*/}
-      <div className="cta-area">
-        <div
-          className="cta-wrapper-three bg_cover pt-50 pb-50"
-          style={{ backgroundImage: "url(assets/images/bg/cta-bg-3.jpg)" }}
-        >
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-lg-9">
-                <div className="cta-content-box wow fadeInLeft">
-                  <h3>Splash Yourself Bigger Offer on Everyday</h3>
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="button text-center wow fadeInRight">
-                  <Link href="/listing-grid">
-                    <a className="main-btn icon-btn">Explore Now</a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*====== End CTA Section ======*/}
-      {/*====== Start Testimonial Section ======*/}
-      <section className="testimonial-area pt-120 pb-120">
-        <div className="container">
-          <div className="testimonial-wrapper-two">
-            <div className="row no-gutters">
-              <div className="col-lg-6">
-                <div
-                  className="testimonial-bg bg_cover wow fadeInLeft"
-                  style={{
-                    backgroundImage:
-                      "url(assets/images/testimonial/testimonial-img-1.jpg)",
-                  }}
-                />
-              </div>
-              <div className="col-lg-6">
-                <div
-                  className="testimonial-content-box bg_cover wow fadeInRight"
-                  style={{
-                    backgroundImage:
-                      "url(assets/images/bg/testimonial-bg-3.jpg)",
-                  }}
-                >
-                  <div className="section-title section-title-left mb-45">
-                    <span className="sub-title">Customer Feedback</span>
-                    <h2>Customer Say</h2>
-                  </div>
-                  <div className="testimonial-review-area">
-                    <TestimoinalSlider2 />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*====== End Testimonial Section ======*/}
-      {/*====== Start Client Section ======*/}
-      <section className="client-area">
-        <div
-          className="client-wrapper-two bg_cover pt-120 pb-70"
-          style={{
-            backgroundImage: "url(assets/images/bg/testimonial-bg-1.jpg)",
-          }}
-        >
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-lg-5">
-                <div className="client-content-box mb-50 wow fadeInLeft">
-                  <div className="section-title section-title-left section-title-white mb-35">
-                    <span className="sub-title">Premium Partners</span>
-                    <h2>Glod Sponsors</h2>
-                  </div>
-                  <p>
-                    Sed ut perspiciatis omnis iste natus error voluptatem
-                    accusantium doloremque laudantiu totam rem aperiam eaque
-                    quae abillo inventore veritatis quasi architectos beatae
-                    vitae dicta sunt explicabo.
-                  </p>
-                  <Link href="/listing-grid">
-                    <a className="main-btn icon-btn">Explore Now</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="col-lg-7">
-                <div className="client-item-wrapper mb-50 wow fadeInRight">
-                  <div className="client-item client-item-two">
-                    <a href="#">
-                      <img
-                        src="assets/images/client/05.png"
-                        alt="client image"
-                      />
-                    </a>
-                  </div>
-                  <div className="client-item client-item-two">
-                    <a href="#">
-                      <img
-                        src="assets/images/client/06.png"
-                        alt="client image"
-                      />
-                    </a>
-                  </div>
-                  <div className="client-item client-item-two">
-                    <a href="#">
-                      <img
-                        src="assets/images/client/07.png"
-                        alt="client image"
-                      />
-                    </a>
-                  </div>
-                  <div className="client-item client-item-two">
-                    <a href="#">
-                      <img
-                        src="assets/images/client/08.png"
-                        alt="client image"
-                      />
-                    </a>
-                  </div>
-                  <div className="client-item client-item-two">
-                    <a href="#">
-                      <img
-                        src="assets/images/client/09.png"
-                        alt="client image"
-                      />
-                    </a>
-                  </div>
-                  <div className="client-item client-item-two">
-                    <a href="#">
-                      <img
-                        src="assets/images/client/10.png"
-                        alt="client image"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*====== End Client Section ======*/}
-      {/*====== Start Blog Section ======*/}
-      <section className="blog-area pt-115 pb-120">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6">
-              <div className="section-title text-center mb-60 wow fadeInUp">
-                <span className="sub-title">Recent Articles</span>
-                <h2>Every Single Journal</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="blog-post-item blog-post-item-three mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <Link href="/blog-details">
-                    <a>
-                      <img
-                        src="assets/images/blog/blog-7.jpg"
-                        alt="Blog Image"
-                      />
-                    </a>
-                  </Link>
-                  <div className="post-date">
-                    <a href="#">
-                      20 <span>Oct</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="entry-content">
-                  <a href="#" className="cat-btn">
-                    <i className="ti-bookmark-alt" />
-                    Tours &amp; Travel
-                  </a>
-                  <h3 className="title">
-                    <Link href="/blog-details">
-                      <a>Duis nonummy socios mattis tempus penatibus</a>
-                    </Link>
-                  </h3>
-                  <div className="post-meta">
-                    <ul>
-                      <li>
-                        <span>
-                          <i className="ti-comments-smiley" />
-                          <a href="#">0 Comment</a>
-                        </span>
-                      </li>
-                      <li>
-                        <span>
-                          <i className="ti-id-badge" />
-                          <a href="#">By admin</a>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div
-                className="blog-post-item blog-post-item-three mb-40 wow fadeInDown"
-                data-wow-delay="20ms"
-              >
-                <div className="post-thumbnail">
-                  <Link href="/blog-details">
-                    <a>
-                      <img
-                        src="assets/images/blog/blog-8.jpg"
-                        alt="Blog Image"
-                      />
-                    </a>
-                  </Link>
-                  <div className="post-date">
-                    <a href="#">
-                      20 <span>Oct</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="entry-content">
-                  <a href="#" className="cat-btn">
-                    <i className="ti-bookmark-alt" />
-                    Tours &amp; Travel
-                  </a>
-                  <h3 className="title">
-                    <Link href="/blog-details">
-                      <a>Litora phasellus in phasellus curabitur porta eun</a>
-                    </Link>
-                  </h3>
-                  <div className="post-meta">
-                    <ul>
-                      <li>
-                        <span>
-                          <i className="ti-comments-smiley" />
-                          <a href="#">0 Comment</a>
-                        </span>
-                      </li>
-                      <li>
-                        <span>
-                          <i className="ti-id-badge" />
-                          <a href="#">By admin</a>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="blog-post-item blog-post-item-three mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <Link href="/blog-details">
-                    <a>
-                      <img
-                        src="assets/images/blog/blog-9.jpg"
-                        alt="Blog Image"
-                      />
-                    </a>
-                  </Link>
-                  <div className="post-date">
-                    <a href="#">
-                      20 <span>Oct</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="entry-content">
-                  <a href="#" className="cat-btn">
-                    <i className="ti-bookmark-alt" /> Tours &amp; Travel
-                  </a>
-                  <h3 className="title">
-                    <Link href="/blog-details">
-                      <a>Mattis parturent tortor lectus lestie sapien Dapus</a>
-                    </Link>
-                  </h3>
-                  <div className="post-meta">
-                    <ul>
-                      <li>
-                        <span>
-                          <i className="ti-comments-smiley" />
-                          <a href="#">0 Comment</a>
-                        </span>
-                      </li>
-                      <li>
-                        <span>
-                          <i className="ti-id-badge" />
-                          <a href="#">By admin</a>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="button text-center mt-40 wow fadeInUp">
-                <Link href="/blog">
-                  <a className="main-btn icon-btn">View Blog</a>
-                </Link>
               </div>
             </div>
           </div>

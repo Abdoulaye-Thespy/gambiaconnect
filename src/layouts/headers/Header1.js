@@ -42,16 +42,7 @@ const Header1 = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="top-content text-center">
-                <p>
-                  We Have Special Offers Every{" "}
-                  <Link href="/">
-                    <a>Find your offer</a>
-                  </Link>
-                </p>
-              </div>
-            </div>
+
             <div className="col-md-4">
               <div className="top-right">
                 <ul className="d-flex">
@@ -64,20 +55,8 @@ const Header1 = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
-                      <a>
-                        <i className="ti-heart"></i>
-                        <span>Wishlist</span>
-                      </a>
-                    </Link>
                   </li>
                   <li>
-                    <Link href="/">
-                      <a>
-                        <i className="ti-shopping-cart"></i>
-                        <span>Cart</span>
-                      </a>
-                    </Link>
                   </li>
                 </ul>
               </div>
@@ -108,33 +87,8 @@ const Header1 = () => {
                   </div>
                   <nav className="main-menu">
                     <ul>
-                      <li className="menu-item has-children">
-                        <Link href="/">
-                          <a>Home</a>
-                        </Link>
-                        <ul className="sub-menu">
-                          <Home />
-                        </ul>
-                      </li>
+                      <Home />
                       <About />
-                      <li className="menu-item has-children">
-                        <a href="#">Listings</a>
-                        <ul className="sub-menu">
-                          <Listing />
-                        </ul>
-                      </li>
-                      <li className="menu-item has-children">
-                        <a href="#">Pages</a>
-                        <ul className="sub-menu">
-                          <Pages />
-                        </ul>
-                      </li>
-                      <li className="menu-item has-children">
-                        <a href="#">Article</a>
-                        <ul className="sub-menu">
-                          <Blog />
-                        </ul>
-                      </li>
                       <Contact />
                       <li className="nav-btn">
                         <Link href="/add-listing">
