@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/add-listing": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/add-listing.js"
-    ],
     "/listing-grid": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
