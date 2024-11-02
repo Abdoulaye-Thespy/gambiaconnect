@@ -1017,8 +1017,7 @@ button {
   z-index: 999;
 }
 .header-area-one .header-navigation .container-fluid {
-  padding-left: 150px;
-  padding-right: 150px;
+  padding: 0px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .header-area-one .header-navigation .container-fluid {
@@ -1035,7 +1034,7 @@ button {
 @media (max-width: 991px) {
   .header-area-one .header-navigation .container-fluid {
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 15px
   }
 }
 .header-area-one .header-navigation .primary-menu {
@@ -1052,7 +1051,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #ff344f;
+  background-color: #f7f7f7;
 }
 .header-area-one .header-navigation .nav-menu {
   display: -webkit-box;
