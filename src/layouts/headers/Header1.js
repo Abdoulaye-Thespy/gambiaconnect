@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { About, Blog, Contact, Home, Listing, Pages } from "../Menu";
+import { About, Blog, Contact, Home, Listing, Pages, Event } from "../Menu";
 
 const Header1 = () => {
   return (
@@ -89,6 +89,10 @@ const Header1 = () => {
                     <ul>
                       <Home />
                       <About />
+{/* --------------- Nouveau Element integrer ------------*/}
+                      <Event />
+                      <Blog />
+{/* --------------- Fin Element integrer ------------*/}
                       <Contact />
                       <li className="nav-btn">
                         <Link href="/add-listing">

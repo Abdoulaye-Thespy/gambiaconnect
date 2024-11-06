@@ -8,8 +8,8 @@ export const Home = () => (
     </li>
   </Fragment>
 );
-/* ---------------- Nouveau bouton Ajoueté pour l'évènement ---------------- */
-export const Events = () => (
+/* -------- Nouveau bouton Ajoueté pour l'évènement ----------- */
+export const Event = () => (
   <Fragment>
     <li className="menu-item">
       <Link href="/event">Events</Link>

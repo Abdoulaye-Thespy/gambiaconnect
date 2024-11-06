@@ -135,7 +135,7 @@ input, textarea {
 }
 
 img {
-  max-width: 100%;
+  max-width: 50%;
 }
 
 body {
@@ -150,7 +150,7 @@ body {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
   }
 }
 .bg_cover {

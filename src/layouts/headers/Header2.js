@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { About, Blog, Contact, Home, Listing, Pages } from "../Menu";
+import { About, Blog, Contact, Home, Listing, Pages, Event } from "../Menu";
 
 const Header2 = () => {
   return (
