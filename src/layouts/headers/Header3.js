@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { About, Contact, Home, Listing } from "../Menu";
+import { About, Contact, Home, Blog, Event, Listing } from "../Menu";
 
 const Header3 = () => {
   return (
@@ -45,7 +45,7 @@ const Header3 = () => {
             <div className="col-md-4">
               <div className="top-content text-center">
                 <p>
-                 email{" info@gambiaconnect.cm"}
+                 email{" info@gambiaconnect.com"}
                 </p>
               </div>
             </div>
@@ -56,7 +56,7 @@ const Header3 = () => {
                     <Link href="/">
                       <a>
                         <i className="ti-search" />
-                        <span>email{" info@gambiaconnect.cm"}</span>
+                        <span>email{" info@gambiaconnect.com"}</span>
                       </a>
                     </Link>
                   </li>
@@ -86,6 +86,10 @@ const Header3 = () => {
                     <ul>
                       <Home />
                       <About />
+                      {/* --------------- Nouveau Element integrer ------------*/}
+                      <Event />
+                      <Blog />
+                      {/* --------------- Fin Element integrer ------------*/}
                       <Contact />
                       <li className="nav-btn">
                         <Link href="/add-listing">
