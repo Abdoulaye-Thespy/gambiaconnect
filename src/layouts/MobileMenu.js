@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { About, Blog, Contact, Home, Listing, Pages } from "./Menu";
+import { About, Blog, Contact, Home, Listing, Pages, Event } from "./Menu";
 
 const MobileMenu = () => {
   const [toggle, setToggle] = useState(false);
@@ -131,6 +131,21 @@ const MobileMenu = () => {
                           <i className="ti-arrow-down"></i>
                         </span>
                       </li>
+                      {/* --------Nouveau element Ajoute-------- */}
+                      <Event />
+                      <li className="menu-item has-children">
+                        <a href="#">Event</a>
+                        <ul className="sub-menu" style={activeLi("Event")}>
+                          <Event />
+                        </ul>
+                        <span
+                          className="dd-trigger"
+                          onClick={() => activeMenuSet("Event")}
+                        >
+                          <i className="ti-arrow-down"></i>
+                        </span>
+                      </li>
+                      {/* Fin nouveau element */}
                       <About />
                       <li className="menu-item has-children">
                         <a href="#">Listings</a>

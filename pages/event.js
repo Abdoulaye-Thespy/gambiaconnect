@@ -468,4 +468,4 @@ const Event = () => {
     </Layout>
   );
 };
-export default Blog;
+export default Event;
