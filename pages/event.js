@@ -1,471 +1,160 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import PageBanner from "../src/components/PageBanner";
-import VideoPopup from "../src/components/VideoPopup";
-import Layout from "../src/layouts/Layout";
-import { getPagination, pagination } from "../src/utils";
+'use client'
 
-const Event = () => {
-  let sort = 2;
-  const [active, setActive] = useState(1);
-  const [state, setstate] = useState([]);
-  useEffect(() => {
-    pagination(".blog-post-item", sort, active);
-    let list = document.querySelectorAll(".blog-post-item");
-    setstate(getPagination(list.length, sort));
-  }, [active]);
-  const [video, setVideo] = useState(false);
+import Link from "next/link"
+import React, { useState } from "react"
+import { Container, Row, Col, Card, Button, Modal, Form } from "react-bootstrap"
+import PageBanner from "../src/components/PageBanner";
+import Layout from "../src/layouts/Layout";
+import { CalendarIcon, MapPinIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+
+// Mock data for events
+const eventsData = [
+  {
+    id: 1,
+    title: "Summer Music Festival",
+    date: "2023-07-15",
+    location: "Central Park, New York",
+    image: "/placeholder.svg?height=200&width=400",
+    description: "Join us for a day of music and fun in the sun!",
+  },
+  {
+    id: 2,
+    title: "Tech Conference 2023",
+    date: "2023-08-22",
+    location: "Convention Center, San Francisco",
+    image: "/placeholder.svg?height=200&width=400",
+    description: "Explore the latest in technology and innovation.",
+  },
+  // Add more events as needed
+]
+
+const EventCard = ({ event, openPopup }) => (
+  <Card className="mb-4">
+    <Card.Img variant="top" src={event.image} alt={event.title} style={{ height: '200px', objectFit: 'cover' }} />
+    <Card.Body>
+      <Card.Title>{event.title}</Card.Title>
+      <div className="d-flex align-items-center mt-2">
+        <CalendarIcon className="me-2" width={16} height={16} />
+        <span>{event.date}</span>
+      </div>
+      <div className="d-flex align-items-center mt-2">
+        <MapPinIcon className="me-2" width={16} height={16} />
+        <span>{event.location}</span>
+      </div>
+    </Card.Body>
+    <Card.Footer>
+      <Button variant="primary" onClick={() => openPopup(event)}>View Details</Button>
+    </Card.Footer>
+  </Card>
+)
+
+const EventPopup = ({ event, show, handleClose }) => (
+  <Modal show={show} onHide={handleClose}>
+    <Modal.Header closeButton>
+      <Modal.Title>{event.title}</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <img src={event.image} alt={event.title} className="w-100 mb-3" style={{ height: '200px', objectFit: 'cover' }} />
+      <div className="d-flex align-items-center mb-2">
+        <CalendarIcon className="me-2" width={16} height={16} />
+        <span>{event.date}</span>
+      </div>
+      <div className="d-flex align-items-center mb-2">
+        <MapPinIcon className="me-2" width={16} height={16} />
+        <span>{event.location}</span>
+      </div>
+      <p>{event.description}</p>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={handleClose}>
+        Close
+      </Button>
+    </Modal.Footer>
+  </Modal>
+)
+
+const Events = () => {
+  const [events, setEvents] = useState(eventsData)
+  const [selectedEvent, setSelectedEvent] = useState(null)
+  const [showPopup, setShowPopup] = useState(false)
+
+  const openPopup = (event) => {
+    setSelectedEvent(event)
+    setShowPopup(true)
+  }
+
+  const closePopup = () => {
+    setShowPopup(false)
+  }
+
   return (
-    <Layout>
-      {video && <VideoPopup close={setVideo} />}
-      <PageBanner title={"Our Blog"} />
-      <section className="blog-area pt-120 pb-70">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="blog-standard-wrapper pb-50">
-                <div className="blog-post-item blog-post-item-four mb-50 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <Link href="/blog-details">
-                      <a>
-                        <img
-                          src="assets/images/blog/blog-standard-1.jpg"
-                          alt="Blog Image"
-                        />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="entry-content">
-                    <a href="#" className="cat-btn">
-                      02 Sep - 2021
-                    </a>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-comments-smiley" />
-                            <a href="#">0 Comment</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-id-badge" />
-                            <a href="#">By admin</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="title">
-                      <Link href="/blog-details">
-                        <a>Duis nonumer socios gem mattis</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Penatibus cursus Luctus taciti nibh congue sollicitudin
-                      placerat an tempus turpis magnis tempus inte vivamus
-                      rhoncus roin habitasse diam
-                    </p>
-                    <a href="#" className="btn-link">
-                      Continue Reading
-                    </a>
-                  </div>
-                </div>
-                <div className="blog-post-item blog-post-item-four mb-50 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <Link href="/blog-details">
-                      <a>
-                        <img
-                          src="assets/images/blog/blog-standard-2.jpg"
-                          alt="Blog Image"
-                        />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="entry-content">
-                    <a href="#" className="cat-btn">
-                      02 Sep - 2021
-                    </a>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-comments-smiley" />
-                            <a href="#">0 Comment</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-id-badge" />
-                            <a href="#">By admin</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="title">
-                      <Link href="/blog-details">
-                        <a>Duis nonumer socios gem mattis</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Penatibus cursus Luctus taciti nibh congue sollicitudin
-                      placerat an tempus turpis magnis tempus inte vivamus
-                      rhoncus roin habitasse diam
-                    </p>
-                    <a href="#" className="btn-link">
-                      Continue Reading
-                    </a>
-                  </div>
-                </div>
-                <div className="blog-post-item blog-post-item-four mb-50 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <Link href="/blog-details">
-                      <a>
-                        <img
-                          src="assets/images/blog/blog-standard-3.jpg"
-                          alt="Blog Image"
-                        />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="entry-content">
-                    <a href="#" className="cat-btn">
-                      02 Sep - 2021
-                    </a>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-comments-smiley" />
-                            <a href="#">0 Comment</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-id-badge" />
-                            <a href="#">By admin</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="title">
-                      <Link href="/blog-details">
-                        <a>Duis nonumer socios gem mattis</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Penatibus cursus Luctus taciti nibh congue sollicitudin
-                      placerat an tempus turpis magnis tempus inte vivamus
-                      rhoncus roin habitasse diam
-                    </p>
-                    <a href="#" className="btn-link">
-                      Continue Reading
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className="blog-post-item blog-post-item-four blog-post-with-bg mb-50 bg_cover wow fadeInUp"
-                  style={{
-                    backgroundImage:
-                      "url(assets/images/blog/blog-standard-4.jpg)",
-                  }}
-                >
-                  <div className="entry-content">
-                    <a href="#" className="cat-btn">
-                      02 Sep - 2021
-                    </a>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-comments-smiley" />
-                            <a href="#">0 Comment</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-id-badge" />
-                            <a href="#">By admin</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="title">
-                      <a href="#">Duis nonumer socios gem mattis</a>
-                    </h3>
-                    <p>
-                      Penatibus cursus Luctus taciti nibh congue sollicitudin
-                      placerat an tempus turpis magnis tempus inte vivamus
-                      rhoncus roin habitasse diam
-                    </p>
-                    <a href="#" className="btn-link">
-                      Continue Reading
-                    </a>
-                  </div>
-                </div>
-                <div className="blog-post-item blog-post-item-four blog-post-video mb-50 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <Link href="/blog-details">
-                      <a>
-                        <img
-                          src="assets/images/blog/blog-standard-5.jpg"
-                          alt="Blog Image"
-                        />
-                      </a>
-                    </Link>
-                    <div className="play-content play-content-two text-center">
-                      <a
-                        href="#"
-                        className="video-popup"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setVideo(true);
-                        }}
-                      >
-                        <i className="flaticon-play-button" />
-                      </a>
-                      <h5>Play Video</h5>
-                    </div>
-                  </div>
-                  <div className="entry-content">
-                    <a href="#" className="cat-btn">
-                      02 Sep - 2021
-                    </a>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-comments-smiley" />
-                            <a href="#">0 Comment</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-id-badge" />
-                            <a href="#">By admin</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="title">
-                      <Link href="/blog-details">
-                        <a>Duis nonumer socios gem mattis</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Penatibus cursus Luctus taciti nibh congue sollicitudin
-                      placerat an tempus turpis magnis tempus inte vivamus
-                      rhoncus roin habitasse diam
-                    </p>
-                    <a href="#" className="btn-link">
-                      Continue Reading
-                    </a>
-                  </div>
-                </div>
-                <div className="fioxen-pagination text-center wow fadeInUp">
-                  <ul className="pagination-list">
-                    <li>
-                      <a
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setActive(active === 1 ? 1 : active - 1);
-                        }}
-                      >
-                        <i className="ti-arrow-left" />
-                      </a>
-                    </li>
-                    {state &&
-                      state.map((s, i) => (
-                        <li key={i}>
-                          <a
-                            className={` ${active === s ? "active" : ""}`}
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setActive(s);
-                            }}
-                          >
-                            {s}
-                          </a>
-                        </li>
-                      ))}
-                    <li>
-                      <a
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setActive(
-                            active === state.length ? state.length : active + 1
-                          );
-                        }}
-                      >
-                        <i className="ti-arrow-right" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="sidebar-widget-area mb-20">
-                <div className="widget search-widget mb-30 wow fadeInUp">
-                  <h4 className="widget-title">Search</h4>
-                  <form onSubmit={(e) => e.preventDefault()}>
-                    <div className="form_group">
-                      <input
-                        type="email"
-                        className="form_control"
-                        placeholder="Search..."
-                        name="email"
-                        required=""
-                      />
-                      <i className="ti-location-arrow" />
-                    </div>
-                  </form>
-                </div>
-                <div className="widget categories-widget mb-30 wow fadeInUp">
-                  <h4 className="widget-title">Categories</h4>
-                  <ul className="categories-nav">
-                    <li>
-                      <a href="#">
-                        Restaurant <span>(10)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Museums <span>(12)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Business <span>(05)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Tour &amp; Travel <span>(10)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Uncategory <span>(03)</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="widget recent-post-widget mb-30 wow fadeInUp">
-                  <h4 className="widget-title">Popular Post</h4>
-                  <ul className="recent-post-list">
-                    <li className="post-thumbnail-content">
-                      <img
-                        src="assets/images/elements/thumb-1.jpg"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <div className="post-title-date">
-                        <span className="posted-on">
-                          <i className="ti-calendar" />
-                          <a href="#">02 Sep - 2021</a>
-                        </span>
-                        <h6>
-                          <Link href="/blog-details">
-                            <a>Inceptos pharetra accusan tusto scelerisque</a>
-                          </Link>
-                        </h6>
-                      </div>
-                    </li>
-                    <li className="post-thumbnail-content">
-                      <img
-                        src="assets/images/elements/thumb-2.jpg"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <div className="post-title-date">
-                        <span className="posted-on">
-                          <i className="ti-calendar" />
-                          <a href="#">02 Sep - 2021</a>
-                        </span>
-                        <h6>
-                          <Link href="/blog-details">
-                            <a>Inceptos pharetra accusan tusto scelerisque</a>
-                          </Link>
-                        </h6>
-                      </div>
-                    </li>
-                    <li className="post-thumbnail-content">
-                      <img
-                        src="assets/images/elements/thumb-3.jpg"
-                        className="img-fluid"
-                        alt=""
-                      />
-                      <div className="post-title-date">
-                        <span className="posted-on">
-                          <i className="ti-calendar" />
-                          <a href="#">02 Sep - 2021</a>
-                        </span>
-                        <h6>
-                          <Link href="/blog-details">
-                            <a>Inceptos pharetra accusan tusto scelerisque</a>
-                          </Link>
-                        </h6>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div className="widget add-widget mb-30 wow fadeInUp">
-                  <div className="add-img-box">
-                    <img
-                      src="assets/images/elements/add-1.jpg"
-                      alt="Add Image"
-                    />
-                  </div>
-                </div>
-                <div className="widget tag-cloud-widget mb-30 wow fadeInUp">
-                  <h4 className="widget-title">Popular Tag</h4>
-                  <a href="#">Decor</a>
-                  <a href="#">Love</a>
-                  <a href="#">Trendy</a>
-                  <a href="#">Interior</a>
-                  <a href="#">Architect</a>
-                  <a href="#">Feature</a>
-                  <a href="#">Modern</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
-  );
-};
-export default Event;
+<>
+  <Layout>
+  <PageBanner title={"Events"} />
+    <Container className="py-5">
+      <h1 className="mb-4">Upcoming Events</h1>
+      <Row>
+        <Col md={8}>
+          {events.map((event) => (
+            <EventCard key={event.id} event={event} openPopup={openPopup} />
+          ))}
+        </Col>
+        <Col md={4}>
+          <Card className="mb-4">
+            <Card.Header>
+              <Card.Title>Search Events</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Control type="text" placeholder="Search events..." />
+                </Form.Group>
+                <Button variant="primary" type="submit" className="w-100">
+                  <MagnifyingGlassIcon className="me-2" width={16} height={16} />
+                  Search
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Card.Title>Categories</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <ul className="list-unstyled">
+                <li className="mb-2">
+                  <Link href="#" className="text-decoration-none">
+                    Music Festivals
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="#" className="text-decoration-none">
+                    Tech Conferences
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="#" className="text-decoration-none">
+                    Art Exhibitions
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="#" className="text-decoration-none">
+                    Food & Drink
+                  </Link>
+                </li>
+              </ul>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      {selectedEvent && (
+        <EventPopup event={selectedEvent} show={showPopup} handleClose={closePopup} />
+      )}
+    </Container>
+  </Layout>
+</>
+
+  )
+}
+
+export default Events
