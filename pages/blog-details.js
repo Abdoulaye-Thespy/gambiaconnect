@@ -53,11 +53,11 @@ const BlogDetails = () => {
                     <article className="max-w-4xl mx-auto px-4 py-8">
 
                       <p className="mb-6">
-                        Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you're often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
+                        Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you&aposre often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
                       </p>
 omment (2)
                       <p className="mb-6">
-                        In this blog post, we've compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.
+                        In this blog post, we&aposve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.
                       </p>
 
                       {[
@@ -193,13 +193,13 @@ omment (2)
                       ))}
 
                       <p className="mt-8 mb-6">
-                        Starting and growing a small business in The Gambia is a journey that requires persistence, creativity, and access to the right resources. The organizations listed above provide essential support for entrepreneurs, whether it's through training, funding, networking, or advocacy. Take advantage of these resources to help your business thrive and contribute to the economy of The Gambia.
+                        Starting and growing a small business in The Gambia is a journey that requires persistence, creativity, and access to the right resources. The organizations listed above provide essential support for entrepreneurs, whether it&aposs through training, funding, networking, or advocacy. Take advantage of these resources to help your business thrive and contribute to the economy of The Gambia.
                       </p>
 
                       <div className="bg-gray-100 p-6 rounded-lg">
                         <h2 className="text-2xl font-bold mb-4">Share Your Experience</h2>
                         <p>
-                          Are there any other organizations or resources you've found useful in your entrepreneurial journey? Let us know in the comments below!
+                          Are there any other organizations or resources you&aposve found useful in your entrepreneurial journey? Let us know in the comments below!
                         </p>
                       </div>
                     </article>
