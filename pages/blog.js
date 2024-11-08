@@ -182,11 +182,14 @@ const Blog = () => {
                       <div className="post-title-date">
                         <span className="posted-on">
                           <i className="ti-calendar" />
-                          <a href="#">11 OCT - 2024</a>
+
+                          <Link href="/blog-details">
+                          11 OCT - 2024
+                          </Link>
                         </span>
                         <h6>
                           <Link href="/blog-details">
-                            <a>Resource Guide for Gambian Small Business Owners: Organizations That Can Help You</a>
+                            Resource Guide for Gambian Small Business Owners: Organizations That Can Help You
                           </Link>
                         </h6>
                       </div>
