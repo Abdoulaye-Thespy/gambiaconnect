@@ -49,76 +49,162 @@ const BlogDetails = () => {
                       </ul>
                     </div>
                     <h3 className="title">Resource Guide for Gambian Small Business Owners: Organizations That Can Help You  </h3>
-                    <p>
-                    Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you’re often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
 
-In this blog post, we’ve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.{" "}
-                    </p>
-                    <p>
-                      pretium hac litora eu{" "}
-                      <span className="highlight">molestie</span> aptent. Eget
-                      mollis vehicula cursus ated netus iaculis vel praesent
-                      aliquam malesuada faucibus in condimentum egestas vivamus
-                      quisque condimen drutum purus dapibus accumsan fames nisi
-                      dapibus ultrices velit urna. Enim fats etiam elementum
-                      ipsum sem netus dapibus fallen molestie dictum aenean.
-                      Montes ridiculus{" "}
-                      <span className="highlight">bibendum</span> malesuada cras
-                      nis nibh porttitor site facilisi lacinia consequat integer
-                      sed mattis nec ultricies vulputate velit congue pede
-                      nceptos elit vulputat{" "}
-                    </p>
-                    <h4>Traveling is the spice of life</h4>
-                    <p>
-                      Suspendisse malesuada felis diam arcu sed velit nisi
-                      auctor dolor tempor phasellus varius nisl elit donece
-                      malesuada suscipit ide natoque commodo dictumst facilisi
-                      risus vehicula iaculis dolor ener ligula bibendum
-                      Dignissim, nunc vulputate. Fringilla porta conubia neque
-                      eros lacinia hymenaeos dictumst placerat sed cum vivamus
-                      tellus consequat magnis dis auctor hymenaeos turpis et
-                      metus orci aliquet fermentum tincidunt parturient eget
-                      montes convallis nunc lacus feugiat nonummy
-                    </p>
-                    <blockquote className="fioxen-blockquote text-center">
-                      <img src="assets/images/quote-1.png" alt="quote" />
-                      <h5>
-                        Eleifend metus commodo taciti purus dictum porttitor
-                        etiam condimen blandit lacus libero tristique donec
-                        ornarehac{" "}
-                      </h5>
-                      <h6>Emelie Marchent</h6>
-                    </blockquote>
-                    <p>
-                      Malesuada felis diam arcu sed velit nisi auctor an dolor
-                      tempor phasellus varius nisl elit donece malesuada
-                      suscipit ide natoque commodo dictumst facilisi risus
-                      vehicula iaculis dolor ener to ligula bibendum digniss
-                      imergen from the nunc vulputate fringilla porta conubia
-                      neque eros lacinia hymenaeos dictumst placerat sed cum
-                      vivamus tellus consequat magnis dis auctor hymenaeos
-                      turpis et metus orci th aliquet fermentum tincidunt
-                      parturient eget montes convallis nunc lacus feugiat
-                      nonummy sociis phasellus etiam auctor inte justo semper
-                      volutpat mi morbi ornare ultrices vehicula augue
-                      parturient placerat{" "}
-                    </p>
-                    <h4>We make dreams come true!</h4>
-                    <p>
-                      Ligula bibendum digniss imergen from the nunc vulputate
-                      fringilla porta conubia neque eros lacinia hymenaeos
-                      dictumst placerat sed cum vivamus tellus consequat magnis
-                      dis auctor hymenaeos turpis et metus orci th aliquet
-                      fermentum tincidunt parturient eget montes convallis nunc
-                      lacus feugiat nonummy sociis phasellus etiam auctor inte
-                      justo semper volutpat mi morbi ornare
-                    </p>
-                    <div className="content-img">
-                      <img
-                        src="assets/images/blog/blog-single-2.jpg"
-                        alt="Blog Image"
-                      />
-                    </div>
+                    <article className="max-w-4xl mx-auto px-4 py-8">
+
+                      <p className="mb-6">
+                        Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you're often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
+                      </p>
+omment (2)
+                      <p className="mb-6">
+                        In this blog post, we've compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.
+                      </p>
+
+                      {[
+                        {
+                          name: "The Gambia Chamber of Commerce and Industry (GCCI)",
+                          description: "The GCCI is a leading organization supporting the growth of the private sector in The Gambia. They offer advocacy, networking opportunities, and business development programs. As a member, you can access market information, participate in business forums, and connect with potential business partners both locally and internationally.",
+                          services: [
+                            "Networking events and business forums",
+                            "Capacity building and training for entrepreneurs",
+                            "Advocacy for policies that support small businesses",
+                            "Business information and market intelligence"
+                          ],
+                          contact: {
+                            address: "40-41, Kairaba Avenue, Banjul, The Gambia",
+                            phone: "+220 422 6977",
+                            email: "info@gcci.gm",
+                            website: "http://www.gcci.gm"
+                          }
+                        },
+                        {
+                          name: "National Enterprise Development Initiative (NEDI)",
+                          description: "NEDI is dedicated to supporting the growth of small and medium-sized enterprises (SMEs) in The Gambia. The initiative provides training, mentorship, and financial assistance to entrepreneurs in key sectors such as agriculture, trade, and manufacturing. They also offer access to business development services and help entrepreneurs secure funding.",
+                          services: [
+                            "Business skills training and workshops",
+                            "Access to microfinance and funding opportunities",
+                            "Mentorship and business coaching",
+                            "Support in developing business plans and proposals"
+                          ],
+                          contact: {
+                            address: "Kairaba Avenue, Banjul, The Gambia",
+                            phone: "+220 449 7452",
+                            email: "info@nedi.gm",
+                            website: "http://www.nedi.gm"
+                          }
+                        },
+                        {
+                          name: "The Gambia Investment and Export Promotion Agency (GIEPA)",
+                          description: "GIEPA is focused on creating an enabling environment for businesses to grow and attract investment in The Gambia. They provide information and support on the investment climate, incentives available to small businesses, and how to access export markets. GIEPA is a great resource for those looking to scale their business or expand into international markets.",
+                          services: [
+                            "Investment facilitation and advisory services",
+                            "Export promotion and market access support",
+                            "Business registration and regulatory compliance assistance",
+                            "Access to business development programs"
+                          ],
+                          contact: {
+                            address: "Kairaba Avenue, Banjul, The Gambia",
+                            phone: "+220 437 1616",
+                            email: "info@giepa.gm",
+                            website: "http://www.giepa.gm"
+                          }
+                        },
+                        {
+                          name: "The Gambia Women Chamber of Commerce and Industry (GWCCI)",
+                          description: "The GWCCI is an advocacy and business development organization that focuses on empowering women entrepreneurs in The Gambia. Through training, networking events, and access to finance, they help women-led businesses build capacity and scale up. Their goal is to reduce the barriers women face in business and to promote gender equality in entrepreneurship.",
+                          services: [
+                            "Training and capacity building for women entrepreneurs",
+                            "Access to markets and networking opportunities",
+                            "Financial literacy and access to funding",
+                            "Advocacy for policies that support women in business"
+                          ],
+                          contact: {
+                            address: "Banjul, The Gambia",
+                            phone: "+220 998 8327",
+                            email: "info@gwcci.org",
+                            website: "http://www.gwcci.org"
+                          }
+                        },
+                        {
+                          name: "The Gambia Youth Chamber of Commerce (GYCC)",
+                          description: "GYCC is an organization that focuses on empowering young entrepreneurs in The Gambia. Through training programs, mentorship, and business development services, they provide youth with the tools they need to succeed in business. GYCC also advocates for youth-friendly policies and initiatives to support young business owners.",
+                          services: [
+                            "Entrepreneurship training and workshops",
+                            "Business mentoring and coaching",
+                            "Networking opportunities and events",
+                            "Youth-led business advocacy and policy support"
+                          ],
+                          contact: {
+                            address: "25 Bakau New Town, The Gambia",
+                            phone: "+220 342 5084",
+                            email: "info@gycc.gm",
+                            website: "http://www.gycc.gm"
+                          }
+                        },
+                        {
+                          name: "United Nations Development Programme (UNDP) - The Gambia",
+                          description: "UNDP The Gambia provides various programs aimed at supporting entrepreneurship and sustainable business practices. They assist with funding opportunities, particularly in the areas of renewable energy, agriculture, and innovation. Their focus is on ensuring that small businesses contribute to sustainable development in the country.",
+                          services: [
+                            "Access to grants and funding opportunities",
+                            "Business development support for sustainable ventures",
+                            "Advisory services on inclusive and green business models",
+                            "Capacity building and knowledge transfer programs"
+                          ],
+                          contact: {
+                            address: "16 Kairaba Avenue, Banjul, The Gambia",
+                            phone: "+220 449 6644",
+                            email: "registry.gm@undp.org",
+                            website: "https://www.gm.undp.org"
+                          }
+                        },
+                        {
+                          name: "Gambia Microfinance Guarantee Facility (GMGF)",
+                          description: "The GMGF offers financial products designed to help micro, small, and medium-sized businesses in The Gambia access loans and financial support. They provide guarantees for microfinance institutions to extend credit to small businesses, which is especially valuable for entrepreneurs who may lack collateral.",
+                          services: [
+                            "Loan guarantees for small businesses",
+                            "Training on financial management and access to finance",
+                            "Partnerships with microfinance institutions to expand business opportunities",
+                            "Financial literacy programs"
+                          ],
+                          contact: {
+                            address: "Banjul, The Gambia",
+                            phone: "+220 422 3951",
+                            email: "info@gmgf.gm",
+                            website: "http://www.gmgf.gm"
+                          }
+                        }
+                      ].map((org, index) => (
+                        <section key={index} className="mb-8 bg-white rounded-lg shadow-md p-6">
+                          <h2 className="text-2xl font-semibold mb-4">{index + 1}. {org.name}</h2>
+                          <h3 className="text-xl font-medium mb-2">How They Can Help:</h3>
+                          <p className="mb-4">{org.description}</p>
+                          <h3 className="text-xl font-medium mb-2">Services Offered:</h3>
+                          <ul className="list-disc pl-5 mb-4">
+                            {org.services.map((service, i) => (
+                              <li key={i} className="mb-1">{service}</li>
+                            ))}
+                          </ul>
+                          <h3 className="text-xl font-medium mb-2">Contact Information:</h3>
+                          <p>Address: {org.contact.address}</p>
+                          <p>Phone: {org.contact.phone}</p>
+                          <p>Email: {org.contact.email}</p>
+                          <p>Website: <a href={org.contact.website} className="text-blue-600 hover:underline">{org.contact.website}</a></p>
+                        </section>
+                      ))}
+
+                      <p className="mt-8 mb-6">
+                        Starting and growing a small business in The Gambia is a journey that requires persistence, creativity, and access to the right resources. The organizations listed above provide essential support for entrepreneurs, whether it's through training, funding, networking, or advocacy. Take advantage of these resources to help your business thrive and contribute to the economy of The Gambia.
+                      </p>
+
+                      <div className="bg-gray-100 p-6 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">Share Your Experience</h2>
+                        <p>
+                          Are there any other organizations or resources you've found useful in your entrepreneurial journey? Let us know in the comments below!
+                        </p>
+                      </div>
+                    </article>
+
+
                     <p>
                       Consequat magnis dis auctor hymenaeos turpis et metus orci
                       th aliquet fermentum tincidunt parturient eget montes
@@ -131,15 +217,6 @@ In this blog post, we’ve compiled a list of organizations that offer services 
                         Class Lorem convallis nibh quam te enim consectetuer
                         nunc nisi interdum mollis risu per ultricies nulla
                         nostra tortor primis libero elementum nunc pede enim
-                      </li>
-                      <li className="item">
-                        Nnunc nisi interdum mollis risu per ultricies nulla
-                        nostra tortor primis libero elementum nunc pede
-                      </li>
-                      <li className="item">
-                        Adipiscing mattis dis risus rutrum feugiat maecenas nunc
-                        nullam congue pe placerat potenti hendreri felis odio ad
-                        dignissim posuere.
                       </li>
                     </ul>
                     <div className="post-tag">
@@ -179,58 +256,7 @@ In this blog post, we’ve compiled a list of organizations that offer services 
                   </div>
                 </div>
                 <div className="comments-area">
-                  <h4 className="comments-title mb-35">Comment (2)</h4>
-                  <ul className="comments-list">
-                    <li className="comment">
-                      <div className="comment-avatar">
-                        <img
-                          src="assets/images/blog/comment-avatar-1.jpg"
-                          alt="comment author one"
-                        />
-                      </div>
-                      <div className="comment-wrap">
-                        <div className="comment-author-content">
-                          <span className="author-name">
-                            Moriana Steve
-                            <span className="date">Sep 02, 2021</span>
-                          </span>
-                          <p>
-                            Musutrum orci montes hac at neque mollis taciti
-                            parturient vehicula interdum verra cubilia ipsum
-                            duis amet nullam sit ut ornare mattis urna.{" "}
-                          </p>
-                          <a href="#comment-respond" className="reply">
-                            <i className="ti-share-alt" />
-                            Reply
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="comment">
-                      <div className="comment-avatar">
-                        <img
-                          src="assets/images/blog/comment-avatar-2.jpg"
-                          alt="comment author two"
-                        />
-                      </div>
-                      <div className="comment-wrap">
-                        <div className="comment-author-content">
-                          <span className="author-name">
-                            Richard Coleum
-                            <span className="date">Sep 02, 2021</span>
-                          </span>
-                          <p>
-                            Musutrum orci montes hac at neque mollis taciti
-                            parturient vehicula interdum verra cubilia ipsum
-                            duis amet nullam sit ut ornare mattis urna.{" "}
-                          </p>
-                          <a href="#comment-respond" className="reply">
-                            <i className="ti-share-alt" /> Reply
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
+                  <h4 className="comments-title mb-35">Comment (0)</h4>
                 </div>
                 <div className="comments-respond">
                   <h4 className="comments-heading mb-20">Write a Review</h4>
@@ -354,13 +380,8 @@ In this blog post, we’ve compiled a list of organizations that offer services 
                       <div className="post-title-date">
                         <span className="posted-on">
                           <i className="ti-calendar" />
-                          <a href="#">02 Sep - 2021</a>
+                          <a href="#">11 OCT - 2024</a>
                         </span>
-                        <h6>
-                          <Link href="/blog-details">
-                            <a>Inceptos pharetra accusan tusto scelerisque</a>
-                          </Link>
-                        </h6>
                       </div>
                     </li>
                     <li className="post-thumbnail-content">
@@ -387,17 +408,6 @@ In this blog post, we’ve compiled a list of organizations that offer services 
                         className="img-fluid"
                         alt=""
                       />
-                      <div className="post-title-date">
-                        <span className="posted-on">
-                          <i className="ti-calendar" />
-                          <a href="#">02 Sep - 2021</a>
-                        </span>
-                        <h6>
-                          <Link href="/blog-details">
-                            <a>Inceptos pharetra accusan tusto scelerisque</a>
-                          </Link>
-                        </h6>
-                      </div>
                     </li>
                   </ul>
                 </div>
