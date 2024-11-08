@@ -26,13 +26,13 @@ class RangeSlider extends React.Component {
     const { start, end } = this.state;
     return (
       <div>
-        <Nouislider
-          connect
-          range={{ min: 0, max: 1000 }}
-          start={[20, 800]}
-          onSlide={this.onSlide}
-          onUpdate={(value) => this.updateValues(value)}
-        />
+{/* <Nouislider
+  connect
+  range={{ min: 0, max: 1000 }}
+  start={[20, 800]}
+  onSlide={this.onSlide}
+  onUpdate={(value) => this.updateValues(value)}
+/> */}
         {start && end && (
           <div className="price-number mt-3">
             <span className="amount">
