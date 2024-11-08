@@ -53,15 +53,6 @@ const BlogDetails = () => {
                     Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you’re often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
 
 In this blog post, we’ve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.{" "}
-                      <span className="highlight">condimentum</span> egestas
-                      vivamus quisque condimen tum purus dapibus accumsan fames
-                      nisi dapibus ultrices velit urna. Enim fats etiam
-                      elementum ipsum sem netus dapibus molestie dictum aenean.
-                      Montes ridiculus bibendum malesuada cras nisi nibh
-                      porttitor site facilisi lacinia consequat integer sed
-                      mattis nec ultricies vulputate velit congue pede nceptos
-                      elit vulputat metus suspendisse faller the sociology
-                      nullam.
                     </p>
                     <p>
                       pretium hac litora eu{" "}
