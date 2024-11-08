@@ -40,10 +40,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
     ],
-    "/contact": [
+    "/event": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contact.js"
+      "static/chunks/pages/event.js"
     ]
   },
   "ampFirstPages": []

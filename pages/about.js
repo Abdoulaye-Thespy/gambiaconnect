@@ -29,7 +29,7 @@ const About = () => {
                     <span className="sub-title">What we do</span>
                 </div>
                   <h5>
-                  At Gambia Connect, we unite businesses and customers, fostering growth within The Gambia's vibrant commercial landscape.
+                  At Gambia Connect, we unite businesses and customers, fostering growth within The Gambia&aposs vibrant commercial landscape.
                   </h5>
                   <ul className="features-list-one">
                     <li
@@ -70,7 +70,7 @@ const About = () => {
                       <div className="content">
                         <h5>Empowering Exploration</h5>
                         <p>
-                        With information readily available, GambiaConnect puts the essence of The Gambia's commercial world within easy reach, enhancing experiences for all.</p>
+                        With information readily available, GambiaConnect puts the essence of The Gambia&aposs commercial world within easy reach, enhancing experiences for all.</p>
                       </div>
                     </li>
                   </ul>

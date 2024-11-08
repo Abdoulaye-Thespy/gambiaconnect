@@ -656,7 +656,7 @@ const Index3 = () => {
                   <div className="content">
                     <h4>Connect and Engage</h4>
                     <p>
-                    Connect with businesses, access key details, and embark on a seamless journey through The Smiling Coast's commercial landscape.
+                    Connect with businesses, access key details, and embark on a seamless journey through The Smiling Coast&aposs commercial landscape.
                     </p>
                   </div>
                 </div>

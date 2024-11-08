@@ -27,15 +27,15 @@ const Index = () => {
             <div className="row">
               <div className="col-lg-8">
                 <div className="hero-content">
-                  <h1 className="wow fadeInUp" wow-data-delay="30mss">
+                  <h1 className="wow fadeInUp">
                     here
                   </h1>
-                  <h3 className="wow fadeInDown" wow-data-delay="50ms">
+                  <h3 className="wow fadeInDown">
                     People Don’t Take,Trips Take People
                   </h3>
                   <div
                     className="hero-search-wrapper wow fadeInUp"
-                    wow-data-delay="70ms"
+
                   >
                     <form onSubmit={(e) => e.preventDefault()}>
                       <div className="row">
@@ -202,7 +202,6 @@ const Index = () => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-one mb-45 wow fadeInUp"
-                dta-wow-delay="10ms"
               >
                 <div className="listing-thumbnail">
                   <img
@@ -278,7 +277,6 @@ const Index = () => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-one mb-45 wow fadeInUp"
-                dta-wow-delay="20ms"
               >
                 <div className="listing-thumbnail">
                   <img
@@ -354,7 +352,7 @@ const Index = () => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-one mb-45 wow fadeInUp"
-                dta-wow-delay="30ms"
+
               >
                 <div className="listing-thumbnail">
                   <img
@@ -430,7 +428,6 @@ const Index = () => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-one mb-45 wow fadeInUp"
-                dta-wow-delay="40ms"
               >
                 <div className="listing-thumbnail">
                   <img
@@ -506,7 +503,6 @@ const Index = () => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-one mb-45 wow fadeInUp"
-                dta-wow-delay="50ms"
               >
                 <div className="listing-thumbnail">
                   <img
@@ -582,7 +578,6 @@ const Index = () => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-one mb-45 wow fadeInUp"
-                dta-wow-delay="60ms"
               >
                 <div className="listing-thumbnail">
                   <img

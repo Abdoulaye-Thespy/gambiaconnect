@@ -1,8 +1,8 @@
 {
-  "../node_modules/next/dist/client/index.js -> ../pages/_error": {
-    "id": "../node_modules/next/dist/client/index.js -> ../pages/_error",
+  "../node_modules/.pnpm/next@12.1.0_react-dom@17.0.2_react@17.0.2__react@17.0.2/node_modules/next/dist/client/index.js -> ../pages/_error": {
+    "id": "../node_modules/.pnpm/next@12.1.0_react-dom@17.0.2_react@17.0.2__react@17.0.2/node_modules/next/dist/client/index.js -> ../pages/_error",
     "files": [
-      "static/chunks/node_modules_next_dist_pages__error_js.js"
+      "static/chunks/node_modules_pnpm_next_12_1_0_react-dom_17_0_2_react_17_0_2__react_17_0_2_node_modules_next_d-866987.js"
     ]
   }
 }
