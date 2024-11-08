@@ -27,12 +27,11 @@ const Blog = () => {
                 <div className="blog-post-item blog-post-item-four mb-50 wow fadeInUp">
                   <div className="post-thumbnail">
                     <Link href="/blog-details">
-                      <a>
                         <img
                           src="assets/images/blog/blog-standard-1.jpg"
                           alt="Blog Image"
                         />
-                      </a>
+
                     </Link>
                   </div>
                   <div className="entry-content">
@@ -71,9 +70,11 @@ const Blog = () => {
 
                       In this blog post, we’ve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.
                     </p>
-                    <a href="/blog-details" className="btn-link">
-                      Continue Reading
-                    </a>
+                     <Link href="/blog-details">
+                        <a> Continue Reading</a>
+                      </Link>
+                    
+
                   </div>
                 </div>
 
