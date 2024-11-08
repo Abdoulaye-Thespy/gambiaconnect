@@ -37,14 +37,14 @@ const Blog = () => {
                   </div>
                   <div className="entry-content">
                     <a href="#" className="cat-btn">
-                      02 Sep - 2021
+                      11 OCT - 2024
                     </a>
                     <div className="post-meta">
                       <ul>
                         <li>
                           <span>
                             <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
+                            <a href="#">Guide</a>
                           </span>
                         </li>
                         <li>
@@ -63,13 +63,15 @@ const Blog = () => {
                     </div>
                     <h3 className="title">
                       <Link href="/blog-details">
-                        <a>Duis nonumer socios gem mattis</a>
+                        <a>Resource Guide for Gambian Small Business Owners: Organizations That Can Help You</a>
                       </Link>
                     </h3>
                     <p>
-                        New Blog
+                      Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you’re often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
+
+                      In this blog post, we’ve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.
                     </p>
-                    <a href="#" className="btn-link">
+                    <a href="/blog-details" className="btn-link">
                       Continue Reading
                     </a>
                   </div>
@@ -180,11 +182,11 @@ const Blog = () => {
                       <div className="post-title-date">
                         <span className="posted-on">
                           <i className="ti-calendar" />
-                          <a href="#">02 Sep - 2021</a>
+                          <a href="#">11 OCT - 2024</a>
                         </span>
                         <h6>
                           <Link href="/blog-details">
-                            <a>Inceptos pharetra accusan tusto scelerisque</a>
+                            <a>Resource Guide for Gambian Small Business Owners: Organizations That Can Help You</a>
                           </Link>
                         </h6>
                       </div>

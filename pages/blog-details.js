@@ -25,7 +25,7 @@ const BlogDetails = () => {
                         <li>
                           <span>
                             <i className="ti-bookmark-alt" />
-                            <a href="#">Tours &amp; Travel</a>
+                            <a href="#">Guide</a>
                           </span>
                         </li>
                         <li>
@@ -43,22 +43,16 @@ const BlogDetails = () => {
                         <li>
                           <span>
                             <i className="ti-calendar" />
-                            <a href="#">02 Sep, 2021</a>
+                            <a href="#">11 OCT, 2024</a>
                           </span>
                         </li>
                       </ul>
                     </div>
-                    <h3 className="title">Duis nonumer socios gem mattis</h3>
+                    <h3 className="title">Resource Guide for Gambian Small Business Owners: Organizations That Can Help You  </h3>
                     <p>
-                      Penatibus cursus Luctus taciti nibheren congue
-                      sollicitudin placerat an tempus turpis magnis tempus inte
-                      vivamus rhoncus roin habitasse diam mattis vivamus per.
-                      Neque nibh purus, donec taciti donec parturient Nec neque
-                      facilisi etiam nibh urna taciti tortor auctor ullamcorper
-                      ridiculus hendrerit duis accumsan iaculis elit per gravida
-                      vel gravida magnis pretium hac litora eu molestie aptent.
-                      Eget mollis vehicula cursus ate netus iaculis vel praesent
-                      aliquam malesuada faucibus in{" "}
+                    Starting and growing a small business can be both exciting and challenging. As an entrepreneur, you’re often juggling many roles, from finance and marketing to customer service and operations. One thing that can make all the difference is having access to resources and support from organizations dedicated to helping small businesses thrive.
+
+In this blog post, we’ve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.{" "}
                       <span className="highlight">condimentum</span> egestas
                       vivamus quisque condimen tum purus dapibus accumsan fames
                       nisi dapibus ultrices velit urna. Enim fats etiam
