@@ -40,6 +40,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
     ],
+    "/contact": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/contact.js"
+    ],
     "/event": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

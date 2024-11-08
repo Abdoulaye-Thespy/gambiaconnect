@@ -1,5 +1,5 @@
-import Nouislider from "nouislider-react";
-import "nouislider/distribute/nouislider.css";
+// import Nouislider from "nouislider-react";
+// import "nouislider/distribute/nouislider.css";
 import React from "react";
 
 class RangeSlider extends React.Component {
