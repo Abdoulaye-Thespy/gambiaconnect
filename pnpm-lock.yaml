@@ -17,6 +17,9 @@ importers:
       isotope-layout:
         specifier: ^3.0.6
         version: 3.0.6
+      lucide-react:
+        specifier: ^0.460.0
+        version: 0.460.0(react@17.0.2)
       next:
         specifier: 12.1.0
         version: 12.1.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -900,6 +903,11 @@ packages:
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
+
+  lucide-react@0.460.0:
+    resolution: {integrity: sha512-BVtq/DykVeIvRTJvRAgCsOwaGL8Un3Bxh8MbDxMhEWlZay3T4IpEKDEpwt5KZ0KJMHzgm6jrltxlT5eXOWXDHg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
   masonry-layout@4.2.2:
     resolution: {integrity: sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA==}
@@ -2362,6 +2370,10 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+
+  lucide-react@0.460.0(react@17.0.2):
+    dependencies:
+      react: 17.0.2
 
   masonry-layout@4.2.2:
     dependencies:
