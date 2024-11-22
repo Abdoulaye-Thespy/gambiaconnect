@@ -6,8 +6,33 @@ import PageBanner from "../src/components/PageBanner";
 import ProductSlider from "../src/components/Slider/ProductSlider";
 import Layout from "../src/layouts/Layout";
 import { reletedProductSlider } from "../src/sliderProps";
+import { Facebook, Twitter, Globe } from 'lucide-react';
+
+
 
 const ProductDetails = () => {
+
+  /* ------Début---- */
+
+  const socialLinks = [
+    { 
+      icon: Facebook, 
+      href: "https://facebook.com", 
+      color: "text-blue-600 hover:text-blue-800" 
+    },
+    { 
+      icon: Twitter, 
+      href: "https://twitter.com", 
+      color: "text-sky-500 hover:text-sky-700" 
+    },
+    { 
+      icon: Globe, 
+      href: "https://www.votre-entreprise.com", 
+      color: "text-green-600 hover:text-green-800"  
+    }
+  ];
+  /* -----Fin----- */
+
   return (
     <Layout>
       <PageBanner title={"More details Business"} />
@@ -19,21 +44,7 @@ const ProductDetails = () => {
               <div className="col-lg-4 col-md-12">
                 <div className="product-info mt-30">
                   <ul className="ratings ratings-three">
-                    {/* <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li> */}
+                    
                     <li>
                       <h3> <span>Jamano Media and Products  </span></h3>
                     </li>
@@ -47,20 +58,7 @@ const ProductDetails = () => {
                     elit prae sent tinc tristique senectus
                   </p>
                   <div className="quantity-cart mb-25">
-                   {/*  <div className="quantity-input">
-                      <div className="quantity-down" id="quantityDown">
-                        <i className="ti-minus" />
-                      </div>
-                      <input
-                        id="quantity"
-                        type="text"
-                        name="quantity"
-                        defaultValue={1}
-                      />
-                      <div className="quantity-up" id="quantityUP">
-                        <i className="ti-plus" />
-                      </div>
-                    </div> */}
+                   
                     <div className="cart-button">
                       <a href="#" className="main-btn">
                       📞 220 380 8647
@@ -71,23 +69,31 @@ const ProductDetails = () => {
                     <a href="#" className="wishlist-btn">
                     📧 jamanomediaandproducts@gmail.com 
                     </a>
-                    <span className="variation">
-                      <span className="title">Color:</span>
-                      <span className="color color-1" />
-                      <span className="color color-2" />
-                      <span className="color color-3" />
-                      <span className="color color-4" />
-                    </span>
-                    <span className="category">
-                      <span className="title">Category:</span>
-                      <a href="#">Light</a>,<a href="#">Titan</a>,
-                      <a href="#">Plastic</a>
-                    </span>
-                    <span className="tags">
-                      <span className="title">Tags:</span>
-                      <a href="#">elcctric</a>,<a href="#">modern</a>,
-                      <a href="#">lase</a>
-                    </span>
+
+                    {/* ------- Début SocialLinks ------- */}
+                     <div className="flex items-center justify-center space-x-6 p-4">
+                      {socialLinks.map((link, index) => (
+                        <a 
+                          key={index} 
+                          href={link.href} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className={`
+                            ${link.color} 
+                            transition-all duration-300 
+                            transform hover:scale-125 
+                            hover:rotate-6 
+                            opacity-70 
+                            hover:opacity-100
+                          `}
+                        >
+                          <link.icon size={32} />
+                        </a>
+                      ))}
+                    </div>                  
+                
+                  {/* ------- Fin SocialLinks ------- */}
+
                   </div>
                 </div>
               </div>

@@ -284,92 +284,56 @@ const Index3 = () => {
               </div>
             </div>
           </div>
+
+                    {/* ------Début Cards------ */}          
           <div className="row">
-
-          <div className="col-lg-4 col-md-6 col-sm-12">
-              <div
-                className="listing-item listing-grid-item-three mb-30 wow fadeInUp"
-                data-wow-delay=".15s"
-              >
-                <div className="listing-thumbnail">
-            <Card style={{ width: '26rem' }}>
-              <Card.Img 
-              variant="top" 
-              src="assets/images/listing/listing-grid-10.jpg" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card's content.
-                </Card.Text>
-                <Link href="/product-details">
-                  <a><Button variant="primary">Get More 👁️ </Button></a>
-                </Link>
-                
-              </Card.Body>
-            </Card>
-            
-           
-
-
-
-            </div>
-            </div>
-          </div>
-
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-item-three mb-30 wow fadeInUp"
                 data-wow-delay=".15s"
               >
-                <div className="listing-thumbnail">
+                <div className="d-flex align-item-center justify-content-center listing-thumbnail">
                   <img
                     src="assets/images/listing/listing-grid-10.jpg"
                     alt="listing image"
+                    className="
+                    border 
+                    border-primary 
+                    rounded-circle
+                    shadow 
+                    float-end
+                    "
                   />
-                  <a href="#" className="wishlist-btn">
-                    <i className="ti-heart" />
-                  </a>
                 </div>
                 <div className="listing-content">
-                  <h3 className="title">
-                    <Link href="/listing-details-1">
-                      <a>Museum of Islamic Art,</a>
-                    </Link>
-                  </h3>
+                    <h3 className="title">
+                      <Link href="/listing-details-1" >
+                        <a>Museum of Islamic Art,</a>
+                      </Link>
+                    </h3>
                   <span className="city">
-                    <img
+                  git 
+                  <img
                       src="assets/images/listing/thumb-1.jpg"
                       alt="city image"
+                      className="img-fluid mb-8 mt-8"
                     />
                     Gambia
-                  </span>
-                  <ul className="ratings ratings-three">
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li className="star">
-                      <i className="flaticon-star-1" />
-                    </li>
-                    <li>
+                  </span>     
+                  <div className="mb-4">          
                       <span>
-                        <a href="#">(02 Reviews)</a>
+                      Some quick example text to build on the card title and make up the
+                      bulk of the card's content...
                       </span>
-                    </li>
-                  </ul>
-                  <span className="price">$05.00 - $80.00</span>
+                  </div>
+                  <Link href="/product-details" className="align-item-align">
+                  <a><Button variant="primary">Read More 👁️ </Button></a>
+                </Link>
                 </div>
               </div>
-            </div>
+           </div>
+                        {/* ------Fin Cards------ */}
+
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-item-three mb-30 wow fadeInUp"
