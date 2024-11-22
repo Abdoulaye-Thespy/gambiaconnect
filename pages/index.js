@@ -287,6 +287,38 @@ const Index3 = () => {
 
                     {/* ------Début Cards------ */}          
           <div className="row">
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+              <div
+                className="listing-item listing-grid-item-three mb-30 wow fadeInUp"
+                data-wow-delay=".15s"
+              >
+                <div className="listing-thumbnail">
+            <Card style={{ width: '26rem' }}>
+              <Card.Img 
+              variant="top" 
+              src="assets/images/listing/listing-grid-10.jpg" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </Card.Text>
+                <Link href="/product-details">
+                  <a><Button variant="primary">Get More 👁️ </Button></a>
+                </Link>
+                
+              </Card.Body>
+            </Card>
+            
+           
+
+
+
+            </div>
+            </div>
+          </div>
+
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div
                 className="listing-item listing-grid-item-three mb-30 wow fadeInUp"

@@ -91,7 +91,7 @@ export default function BusinDetails() {
                 <h3 className="mb-2 font-semibold text-gray-900">Description</h3>
                 <p className="text-gray-600">
                   Experience the rich Islamic heritage through this magnificent museum. The Museum of Islamic Art houses one of
-                  the world's most comprehensive collections of Islamic art, with items dating from the 7th to the 19th century.
+                  the world&aposs most comprehensive collections of Islamic art, with items dating from the 7th to the 19th century.
                 </p>
               </div>
 
