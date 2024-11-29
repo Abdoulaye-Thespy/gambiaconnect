@@ -1,4 +1,4 @@
-[
+ const data = [
   {
     "OrganizationName":"Jamano Media and Products",
     "Address":"Near Yayha Jammeh Hospital, Kanifing, The Gambia",
@@ -6354,3 +6354,5 @@
     "Business Category":null
   }
 ]
+
+export default data;
