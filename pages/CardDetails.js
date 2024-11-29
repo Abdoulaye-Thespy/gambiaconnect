@@ -125,7 +125,7 @@ const CardDetails = ({ id, onBack }) => {
   );
 };
 
-const OrganizationCards = () => {
+const CardDetail = () => {
   const [selectedCardId, setSelectedCardId] = useState(null);
 
   const handleCardClick = (id) => {
@@ -149,7 +149,7 @@ const OrganizationCards = () => {
                   <img
                     src="assets/images/listing/listing-grid-10.jpg"
                     alt="listing image"
-                    className="shadow"
+                    className="border border-primary rounded-circle shadow"
                   />
                 </div>
                 {/* Content */}
@@ -175,5 +175,7 @@ const OrganizationCards = () => {
   );
 };
 
+export default CardDetail;
 
-export default OrganizationCards;
+/* CardDetails */
+
