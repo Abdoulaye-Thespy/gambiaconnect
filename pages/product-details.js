@@ -12,26 +12,6 @@ import { Facebook, Twitter, Globe } from 'lucide-react';
 
 const ProductDetails = () => {
 
-  /* ------Début---- */
-
-  const socialLinks = [
-    { 
-      icon: Facebook, 
-      href: "https://facebook.com", 
-      color: "text-blue-600 hover:text-blue-800" 
-    },
-    { 
-      icon: Twitter, 
-      href: "https://twitter.com", 
-      color: "text-sky-500 hover:text-sky-700" 
-    },
-    { 
-      icon: Globe, 
-      href: "https://www.votre-entreprise.com", 
-      color: "text-green-600 hover:text-green-800"  
-    }
-  ];
-  /* -----Fin----- */
 
   return (
     <Layout>
