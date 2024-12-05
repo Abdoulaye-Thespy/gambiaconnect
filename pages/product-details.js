@@ -8,78 +8,135 @@ import Layout from "../src/layouts/Layout";
 import { reletedProductSlider } from "../src/sliderProps";
 import { Facebook, Twitter, Globe } from 'lucide-react';
 
+import CardComponent from "./CardComponent";
+import CardDetail from "./CardDetails";
+
+
 
 
 const ProductDetails = () => {
 
+  /* ------Début---- */
+
+  const socialLinks = [
+    { 
+      icon: Facebook, 
+      href: "https://facebook.com", 
+      color: "text-blue-600 hover:text-blue-800" 
+    },
+    { 
+      icon: Twitter, 
+      href: "https://twitter.com", 
+      color: "text-sky-500 hover:text-sky-700" 
+    },
+    { 
+      icon: Globe, 
+      href: "https://www.votre-entreprise.com", 
+      color: "text-green-600 hover:text-green-800"  
+    }
+  ];
+
+  const CardDetails = ({ id, onBack }) => {
+    // Filtre pour récupérer les données spécifiques de la carte en fonction de l'ID
+    const card = organizations.find((org) => org.id === id);
+  
+    if (!card) {
+      return <div>Card not found!</div>;
+    }
+  
+    return (
+      <div className="container mt-4">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="card-details shadow p-4 rounded">
+              {/* Nom de l'organisation */}
+              <h2 className="text-primary mb-3">{card.OrganizationName}</h2>
+  
+              {/* Adresse */}
+              <h5 className="text-secondary mb-3">{card.Address}</h5>
+  
+              {/* Description */}
+              <p className="text-muted">{card.Description}</p>
+  
+              {/* Contact Section */}
+              <div className="contact-info mt-4">
+                {card.PhoneNumber && (
+                  <p>
+                    📞 <a href={`tel:${card.PhoneNumber}`}>{card.PhoneNumber}</a>
+                  </p>
+                )}
+                {card.Email && (
+                  <p>
+                    📧{" "}
+                    <a href={`mailto:${card.Email}`} className="text-decoration-none">
+                      {card.Email}
+                    </a>
+                  </p>
+                )}
+                {card.CompanyWebsite && (
+                  <p>
+                    🌐{" "}
+                    <a
+                      href={card.CompanyWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none"
+                    >
+                      Visit Website
+                    </a>
+                  </p>
+                )}
+              </div>
+  
+              {/* Boutons Réseaux Sociaux */}
+              {card.SocialMediaHandle && (
+                <div className="mt-4">
+                  <a
+                    href={card.SocialMediaHandle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    Follow on Social Media
+                  </a>
+                </div>
+              )}
+  
+              {/* Bouton retour */}
+              <Button variant="secondary" className="mt-4" onClick={onBack}>
+                Back to Home
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  /* -----Fin----- */
 
   return (
+    /* Layout */
     <Layout>
+
+    {/* PageBanner */}
       <PageBanner title={"More details Business"} />
       <section className="product-details-section pt-120 pb-115">
         <div className="container">
           <div className="product-details-wrapper mb-30">
             <div className="row">
+
+            {/* ProductSlider */}
               <ProductSlider />
-              <div className="col-lg-4 col-md-12">
-                <div className="product-info mt-30">
-                  <ul className="ratings ratings-three">
-                    
-                    <li>
-                      <h3> <span>Jamano Media and Products  </span></h3>
-                    </li>
-                  </ul>
-                  <h3 className="title">Near Yayha Jammeh Hospital, Kanifing, The Gambia</h3>
-                  <p>
-                    Fringilla commodo veli taciti porttitor sempe ma aliquet.
-                    Scelerisque montes laoreet aptent socios donec duis donec
-                    egestas tempus facilisis congu pretium pellentesque posuere
-                    a tempus vele felis nulla posuere eros ultrices non interdum
-                    elit prae sent tinc tristique senectus
-                  </p>
-                  <div className="quantity-cart mb-25">
-                   
-                    <div className="cart-button">
-                      <a href="#" className="main-btn">
-                      📞 220 380 8647
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-meta">
-                    <a href="#" className="wishlist-btn">
-                    📧 jamanomediaandproducts@gmail.com 
-                    </a>
 
-                    {/* ------- Début SocialLinks ------- */}
-                     <div className="flex items-center justify-center space-x-6 p-4">
-                      {socialLinks.map((link, index) => (
-                        <a 
-                          key={index} 
-                          href={link.href} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className={`
-                            ${link.color} 
-                            transition-all duration-300 
-                            transform hover:scale-125 
-                            hover:rotate-6 
-                            opacity-70 
-                            hover:opacity-100
-                          `}
-                        >
-                          <link.icon size={32} />
-                        </a>
-                      ))}
-                    </div>                  
-                
-                  {/* ------- Fin SocialLinks ------- */}
+              {/* CardDetails */}
+{/*               <CardDetail/>
+ */}
 
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          <div className="description-wrapper mb-45">
+
+          {/* Reviews */}
+         {/*  <div className="description-wrapper mb-45">
             <div className="row">
               <div className="col-lg-12">
                 <Tab.Container defaultActiveKey={"description"}>
@@ -291,8 +348,10 @@ const ProductDetails = () => {
                 </Tab.Container>
               </div>
             </div>
-          </div>
-          <div className="releted-product-area">
+          </div> */}
+
+          {/* Related Product */}
+          {/* <div className="releted-product-area">
             <h3 className="releted-title">Related Product</h3>
             <Slider
               {...reletedProductSlider}
@@ -429,7 +488,12 @@ const ProductDetails = () => {
                 </div>
               </div>
             </Slider>
-          </div>
+          </div> */}
+
+          {/* CardDetails */}
+          <CardComponent />
+
+          
         </div>
       </section>
     </Layout>

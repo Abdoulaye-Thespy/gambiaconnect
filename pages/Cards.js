@@ -48,4 +48,5 @@ const OrganizationCards = () => {
   );
 };
 
+
 export default OrganizationCards;
