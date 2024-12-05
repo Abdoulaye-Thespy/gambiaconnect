@@ -21,7 +21,7 @@ const OrganizationCards = () => {
               </div>
               <div className="listing-content">
                 <h3 className="title">
-                  <Link href="/listing-details-1">
+                  <Link href="/product-details">
                     <a>{org.OrganizationName}</a>
                   </Link>
                 </h3>
