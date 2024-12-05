@@ -2,25 +2,24 @@
   {
     "OrganizationName":"Jamano Media and Products",
     "Address":"Near Yayha Jammeh Hospital, Kanifing, The Gambia",
-    "Phone Number":"220 380 8647",
+    "PhoneNumber":"220 380 8647",
     "Email":"jamanomediaandproducts@gmail.com",
     "Company Website":null,
-    "Social Media Handle":"https://www.facebook.com/JamanoMedia",
+    "facebook":"https://www.facebook.com/JamanoMedia",
     "Business Category":null
   },
   {
     "OrganizationName":"algasimou",
     "Address":"Banjul",
-    "Phone Number":" 220 4380361",
+    "PhoneNumber":" 220 4380361",
     "Email":"Email: info@algsgambia.com",
-    "Company Website":"https://algasimou.com/",
-    "Social Media Handle":null,
+    "CompanyWebsite":"https://algasimou.com/",
     "Business Category":null
   },
   {
     "OrganizationName":"Lang Karamo Suwareh",
     "Address":"Banjul area Head OfficeOld Jeshwang",
-    "Phone Number":"220 9906344",
+    "PhoneNumber":"220 9906344",
     "Email":null,
     "Company Website":null,
     "Social Media Handle":null,
@@ -58,8 +57,8 @@
     "Address":"Suite 1, 2nd FloorStandard Chartered HouseKairaba AvenueFajara",
     "Phone Number":"220 439 9014-5",
     "Email":"life.gambia@enterprisegroup.com.gh",
-    "Company Website":"https://myenterprisegroup.io/gm/",
-    "Social Media Handle":"https://www.facebook.com/enterprisegroupgh",
+    "CompanyWebsite":"https://myenterprisegroup.io/gm/",
+    "facebook":"https://www.facebook.com/enterprisegroupgh",
     "Business Category":null
   },
   {
