@@ -33,6 +33,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@shadcn/ui": "^0.0.4",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0"
   }
