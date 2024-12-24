@@ -2,8 +2,6 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import Layout from "../src/layouts/Layout";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BusinDetails from './BusinDetails';
 import "bootstrap/dist/css/bootstrap.min.css";

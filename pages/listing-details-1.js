@@ -568,7 +568,7 @@ const ListingDetails1 = () => {
                         <div className="form_group">
                           <div className="single-checkbox d-flex">
                             <input
-                              type="checkbox"
+                              type="checkbox"s
                               id="check4"
                               name="checkbox"
                             />

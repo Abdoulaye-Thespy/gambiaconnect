@@ -29,7 +29,7 @@ export const About = () => (
 export const Listing = () => (
   <Fragment>
     <li className="menu-item">
-      <Link href="/listing-list">Listing List</Link>
+      <Link href="/newbusiness">Listing List</Link>
     </li>
     <li className="menu-item">
       <Link href="/listing-grid">Listing Grid</Link>
@@ -48,7 +48,7 @@ export const Listing = () => (
 export const Pages = () => (
   <Fragment>
     <li className="menu-item">
-      <Link href="/add-listing">Add Listing</Link>
+      <Link href="/newbusiness">Add Listing</Link>
     </li>
     <li>
       <Link href="/products">Our Products</Link>

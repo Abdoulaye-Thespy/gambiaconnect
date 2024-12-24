@@ -92,7 +92,7 @@ const Header3 = () => {
                       {/* --------------- Fin Element integrer ------------*/}
                       <Contact />
                       <li className="nav-btn">
-                        <Link href="/add-listing">
+                        <Link href="/newbusiness">
                           <a className="main-btn icon-btn">Add Listing</a>
                         </Link>
                       </li>
@@ -111,7 +111,7 @@ const Header3 = () => {
                       </Link>
                     </li>
                     <li className="hero-nav-btn">
-                      <Link href="/add-listing">
+                      <Link href="/newbusiness">
                         <a className="main-btn icon-btn">Add Listing</a>
                       </Link>
                     </li>
