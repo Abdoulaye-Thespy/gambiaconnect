@@ -14,10 +14,10 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <Fragment>
       <Head>
-        <title>Fioxen - Directory & Listings React NextJs Template</title>
+        <title>Gambia Connect</title>
         <link
           rel="shortcut icon"
-          href="assets/images/favicon.ico"
+          href="assets/images/logo-1.ico"
           type="image/png"
         />
         <link
