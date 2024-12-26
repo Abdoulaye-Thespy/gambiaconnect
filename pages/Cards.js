@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "react-bootstrap";
-import data from "./GambiaConnectDB";
+import data from "../src/GambiaConnectDB";
 import Pagination from "./pagination";
 
 const OrganizationCards = () => {

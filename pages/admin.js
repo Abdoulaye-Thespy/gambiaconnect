@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Layout from "../src/layouts/Layout";
 import Col from 'react-bootstrap/Col';
 import Link from 'next/link';
-import initialData from "./GambiaConnectDB";
+import initialData from "../src/GambiaConnectDB";
 
 // Make sure you have this import at the top of your file
 import 'bootstrap/dist/css/bootstrap.min.css';

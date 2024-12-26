@@ -6,7 +6,9 @@
     "Email":"jamanomediaandproducts@gmail.com",
     "Company Website":null,
     "facebook":"https://www.facebook.com/JamanoMedia",
-    "Business Category":null
+    "twitter":"https://www.facebook.com/JamanoMedia",
+    "linkedin":"https://www.facebook.com/JamanoMedia",
+    "BusinessCategory":null
   },
   {
     "OrganizationName":"algasimou",
