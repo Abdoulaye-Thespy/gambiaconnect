@@ -278,7 +278,7 @@ const Index3 = () => {
           <div className="row justify-content-center">
             <div className="col-lg-6">
               <div className="section-title text-center mb-60 wow fadeInUp">
-                <span className="sub-title">Featured Business</span>
+                <span className="sub-title">Our listing</span>
                 <h2>Explore Listing</h2>
               </div>
             </div>

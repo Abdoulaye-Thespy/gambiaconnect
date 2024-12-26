@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Nav, Tab } from "react-bootstrap";
+import { Button  } from "react-bootstrap";
 import Slider from "react-slick";
 import PageBanner from "../src/components/PageBanner";
 import ProductSlider from "../src/components/Slider/ProductSlider";
