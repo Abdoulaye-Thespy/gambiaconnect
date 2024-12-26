@@ -4,7 +4,7 @@ import PageBanner from "../src/components/PageBanner";
 import RangeSlider from "../src/components/RangeSlider";
 import Layout from "../src/layouts/Layout";
 import { Button } from "react-bootstrap"; // Assurez-vous que react-bootstrap est installé
-import initialData from "./GambiaConnectDB";
+import initialData from "../src/GambiaConnectDB";
 
 
 const ListingGrid = () => {

@@ -6356,4 +6356,4 @@
   }
 ]
 
-export default data;
+export default initialData;
