@@ -6355,5 +6355,3 @@ const data = [
     "BusinessCategory": null
   }
 ];
-
-export default data;
