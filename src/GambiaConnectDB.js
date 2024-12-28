@@ -5,9 +5,7 @@ const data = [
     "PhoneNumber": "220 380 8647",
     "Email": "jamanomediaandproducts@gmail.com",
     "CompanyWebsite": null,
-    "Facebook": "https://www.facebook.com/JamanoMedia",
-    "Twitter": "https://www.facebook.com/JamanoMedia",
-    "Linkedin": "https://www.facebook.com/JamanoMedia",
+    "SocialMediaHandle": "https://www.facebook.com/JamanoMedia",
     "BusinessCategory": null
   },
   {
@@ -60,7 +58,7 @@ const data = [
     "PhoneNumber": "220 439 9014-5",
     "Email": "life.gambia@enterprisegroup.com.gh",
     "CompanyWebsite": "https://myenterprisegroup.io/gm/",
-    "Facebook": "https://www.facebook.com/enterprisegroupgh",
+    "SocialMediaHandle": "https://www.facebook.com/enterprisegroupgh",
     "BusinessCategory": null
   },
   {
