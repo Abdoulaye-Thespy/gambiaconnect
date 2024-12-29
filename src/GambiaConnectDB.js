@@ -12,7 +12,7 @@ const data = [
     "OrganizationName": "algasimou",
     "Address": "Banjul",
     "PhoneNumber": " 220 4380361",
-    "Email": "Email: info@algsgambia.com",
+    "Email": "info@algsgambia.com",
     "CompanyWebsite": "https://algasimou.com/",
     "BusinessCategory": null
   },
