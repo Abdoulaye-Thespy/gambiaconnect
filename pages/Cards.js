@@ -1,12 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "react-bootstrap";
-import data from "../src/GambiaConnectDB";
 import Pagination from "./pagination";
 
 const OrganizationCards = () => {
+  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [organizationsPerPage] = useState(30);
+  const [organizationsPerPage] = useState(10);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch data from the JSON file
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/GambiaConnectDB.json');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch data: ${response.statusText}`);
+        }
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const indexOfLastOrganization = currentPage * organizationsPerPage;
   const indexOfFirstOrganization = indexOfLastOrganization - organizationsPerPage;
@@ -17,6 +39,14 @@ const OrganizationCards = () => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <>
@@ -43,7 +73,7 @@ const OrganizationCards = () => {
                 </span>
                 <div className="listing-meta">
                   <span>
-                    <Button variant="primary">Read More</Button>
+                    <Button variant="primary">See Details</Button>
                   </span>
                 </div>
               </div>
@@ -53,11 +83,9 @@ const OrganizationCards = () => {
       </div>
       <div className="row">
         <div className="col-12 d-flex justify-content-center mt-4">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
+          <Link href="/listing-grid">
+            <a className="btn btn-primary">SEE MORE</a>
+          </Link>
         </div>
       </div>
     </>
@@ -65,4 +93,3 @@ const OrganizationCards = () => {
 };
 
 export default OrganizationCards;
-

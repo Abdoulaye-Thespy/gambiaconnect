@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from "../../src/layouts/Layout";
+import data from "../../src/GambiaConnectDB";
 import Head from 'next/head';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function ModifyBusiness({ categories, businessData }) {
+export default function ModifyBusiness({ categories, businessData, id }) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState(businessData);
@@ -16,6 +17,7 @@ export default function ModifyBusiness({ categories, businessData }) {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    console.log(formData)
     setFormData(prevData => ({
       ...prevData,
       [name]: value
@@ -27,7 +29,8 @@ export default function ModifyBusiness({ categories, businessData }) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`/api/modify-business/${businessData.id}`, {
+    
+      const response = await fetch(`/api/modify/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -35,19 +38,24 @@ export default function ModifyBusiness({ categories, businessData }) {
         body: JSON.stringify(formData),
       });
 
+      console.log("here we are trying");
+
       if (response.ok) {
         alert('Business updated successfully!');
-        router.push('/businesses');
+        router.push('/admin');
       } else {
-        throw new Error('Failed to update business');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to update business');
       }
     } catch (error) {
       console.error('Error updating business:', error);
       alert('There was a problem updating the business.');
+      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   const handleCancel = () => {
     router.back();
@@ -87,13 +95,13 @@ export default function ModifyBusiness({ categories, businessData }) {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="Phone" className="form-label">Phone</label>
+            <label htmlFor="PhoneNumber" className="form-label">Phone</label>
             <input
               type="text"
               className="form-control"
-              id="Phone"
-              name="Phone"
-              value={formData.Phone}
+              id="PhoneNumber"
+              name="PhoneNumber"
+              value={formData.PhoneNumber}
               onChange={handleInputChange}
             />
           </div>
@@ -111,43 +119,44 @@ export default function ModifyBusiness({ categories, businessData }) {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="Website" className="form-label">Website</label>
+            <label htmlFor="CompanyWebsite" className="form-label">Website</label>
             <input
               type="url"
               className="form-control"
-              id="Website"
-              name="Website"
-              value={formData.Website}
+              id="CompanyWebsite"
+              name="CompanyWebsite"
+              value={formData.CompanyWebsite}
               onChange={handleInputChange}
             />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="Facebook" className="form-label">Facebook</label>
+            <label htmlFor="SocialMediaHandle" className="form-label">Facebook</label>
             <input
               type="url"
               className="form-control"
-              id="Facebook"
-              name="Facebook"
-              value={formData.Facebook}
+              id="SocialMediaHandle"
+              name="SocialMediaHandle"
+              value={formData.SocialMediaHandle}
               onChange={handleInputChange}
             />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="Category" className="form-label">Category</label>
+            <label htmlFor="BusinessCategory" className="form-label">Category</label>
             <select
               className="form-select"
-              id="Category"
-              name="Category"
-              value={formData.Category}
+              id="BusinessCategory"
+              name="BusinessCategory"
               onChange={handleInputChange}
-              required
-            >
+            > 
               <option value="">Select a category</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>{category}</option>
-              ))}
+              <option value="Technology">Technology</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Education">Education</option>
+              <option value="Media">Media</option>
+              <option value="Finance">Finance</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -200,20 +209,19 @@ export default function ModifyBusiness({ categories, businessData }) {
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
-  
-  // In a real application, you would fetch the business data from your API or database
-  // For this example, we'll use mock data
-  const businessData = {
-    id: id,
-    OrganizationName: 'Sample Business',
-    Address: '123 Main St, City, Country',
-    Phone: '+1234567890',
-    Email: 'sample@business.com',
-    Website: 'https://www.samplebusiness.com',
-    Facebook: 'https://www.facebook.com/samplebusiness',
-    Category: 'Technology',
-    Description: 'This is a sample business description.',
-  };
+  const idx = parseInt(id, 10);
+
+  // Import the data array from GambiaConnectDB
+  const data = await import('../../src/GambiaConnectDB').then(mod => mod.default);
+
+  // Validate the index
+  if (isNaN(idx) || idx < 0 || idx >= data.length) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const businessData = data[idx];
 
   const categories = ["Technology", "Media", "Healthcare", "Education", "Finance", "Other"];
 
@@ -221,7 +229,7 @@ export async function getServerSideProps(context) {
     props: {
       categories,
       businessData,
+      id: idx,
     },
   };
 }
-
