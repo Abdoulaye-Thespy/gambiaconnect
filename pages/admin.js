@@ -49,8 +49,8 @@ export default function AdminListingGrid() {
   };
 
   return (
-    <Layout header={3}>
-      <Container className="mt-200 mb-200">
+    <Layout>
+      <Container className="mt-100 mb-200">
         <h1 className="mb-4">Admin Panel</h1>
 
         <Row className="mb-4">

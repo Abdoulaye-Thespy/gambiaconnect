@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from "../../src/layouts/Layout";
-import data from "../../src/GambiaConnectDB";
 import Head from 'next/head';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function ModifyBusiness({ categories, businessData, id }) {
+export default function ModifyBusiness({ businessData, id }) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState(businessData);
@@ -17,7 +16,7 @@ export default function ModifyBusiness({ categories, businessData, id }) {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(formData)
+    console.log(formData);
     setFormData(prevData => ({
       ...prevData,
       [name]: value
@@ -62,8 +61,8 @@ export default function ModifyBusiness({ categories, businessData, id }) {
   };
 
   return (
-    <Layout header={3}> 
-      <div className="container mt-200 mb-200">
+    <Layout> 
+      <div className="container mt-100 mb-200">
         <Head>
           <title>Modify Business</title>
         </Head>
@@ -210,24 +209,34 @@ export default function ModifyBusiness({ categories, businessData, id }) {
 export async function getServerSideProps(context) {
   const { id } = context.params;
   const idx = parseInt(id, 10);
+  let data = [];
+  let businessData = null;
 
-  // Import the data array from GambiaConnectDB
-  const data = await import('../../src/GambiaConnectDB').then(mod => mod.default);
+  try {
+    // Use an absolute URL to fetch the JSON file
+    const response = await fetch(`http://localhost:3000/GambiaConnectDB.json`); // Replace with your actual base URL
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    data = await response.json();
 
-  // Validate the index
-  if (isNaN(idx) || idx < 0 || idx >= data.length) {
+    // Validate the index
+    if (isNaN(idx) || idx < 0 || idx >= data.length) {
+      return {
+        notFound: true,
+      };
+    }
+
+    businessData = data[idx];
+  } catch (error) {
+    console.error('Error fetching data:', error);
     return {
       notFound: true,
     };
   }
 
-  const businessData = data[idx];
-
-  const categories = ["Technology", "Media", "Healthcare", "Education", "Finance", "Other"];
-
   return {
     props: {
-      categories,
       businessData,
       id: idx,
     },

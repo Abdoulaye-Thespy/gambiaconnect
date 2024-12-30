@@ -15,11 +15,13 @@ fs.readFile(filePath, 'utf8', (err, data) => {
     // Parse the JSON data
     const jsonArray = JSON.parse(data);
 
-    // Add an id to each element
-    const updatedArray = jsonArray.map((item, index) => ({
-      id: index,
-      ...item
-    }));
+    // Add a Description field to each object if it doesn't exist
+    const updatedArray = jsonArray.map(item => {
+      if (!item.hasOwnProperty('Description')) {
+        item.Description = ''; // Add a default empty string or any default value you prefer
+      }
+      return item;
+    });
 
     // Convert the updated array back to JSON
     const updatedJson = JSON.stringify(updatedArray, null, 2);
@@ -30,7 +32,7 @@ fs.readFile(filePath, 'utf8', (err, data) => {
         console.error('Error writing file:', err);
         return;
       }
-      console.log('IDs added successfully!');
+      console.log('Description field added successfully!');
     });
   } catch (parseError) {
     console.error('Error parsing JSON:', parseError);
