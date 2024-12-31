@@ -23,9 +23,6 @@ importers:
       isotope-layout:
         specifier: ^3.0.6
         version: 3.0.6
-      leaflet:
-        specifier: ^1.9.4
-        version: 1.9.4
       lucide-react:
         specifier: ^0.460.0
         version: 0.460.0(react@17.0.2)
@@ -2635,7 +2632,7 @@ snapshots:
       eslint: 8.10.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 2.7.1(eslint-plugin-import@2.31.0(eslint@8.10.0))(eslint@8.10.0)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.10.0)(typescript@5.7.2))(eslint-import-resolver-typescript@2.7.1)(eslint@8.10.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.10.0)(typescript@5.7.2))(eslint-import-resolver-typescript@2.7.1(eslint-plugin-import@2.31.0(eslint@8.10.0))(eslint@8.10.0))(eslint@8.10.0)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.10.0)
       eslint-plugin-react: 7.37.3(eslint@8.10.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.10.0)
@@ -2658,7 +2655,7 @@ snapshots:
     dependencies:
       debug: 4.4.0
       eslint: 8.10.0
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.10.0)(typescript@5.7.2))(eslint-import-resolver-typescript@2.7.1)(eslint@8.10.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.10.0)(typescript@5.7.2))(eslint-import-resolver-typescript@2.7.1(eslint-plugin-import@2.31.0(eslint@8.10.0))(eslint@8.10.0))(eslint@8.10.0)
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.10
@@ -2677,7 +2674,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.10.0)(typescript@5.7.2))(eslint-import-resolver-typescript@2.7.1)(eslint@8.10.0):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.10.0)(typescript@5.7.2))(eslint-import-resolver-typescript@2.7.1(eslint-plugin-import@2.31.0(eslint@8.10.0))(eslint@8.10.0))(eslint@8.10.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
