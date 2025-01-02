@@ -214,7 +214,7 @@ export async function getServerSideProps(context) {
 
   try {
     // Use an absolute URL to fetch the JSON file
-    const response = await fetch(`http://localhost:3000/GambiaConnectDB.json`); // Replace with your actual base URL
+    const response = await fetch(`https://gambiaconnect.com/GambiaConnectDB.json`); // Replace with your actual base URL
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
