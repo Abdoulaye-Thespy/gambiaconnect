@@ -51,6 +51,8 @@ export default function AddBusiness({ categories }) {
         </Head>
         <h1 className="mb-4">Add New Business</h1>
         <form onSubmit={handleSubmit}>
+          <input type="hidden" name="Status" value="Pending" />
+
           <div className="mb-3">
             <label htmlFor="OrganizationName" className="form-label">Organization Name</label>
             <input
