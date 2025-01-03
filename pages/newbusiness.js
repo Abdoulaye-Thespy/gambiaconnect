@@ -31,7 +31,7 @@ export default function AddBusiness({ categories }) {
 
       if (response.ok) {
         alert('Business added successfully!');
-        router.push('/');
+        router.push('/admin');
       } else {
         throw new Error('Failed to add business');
       }

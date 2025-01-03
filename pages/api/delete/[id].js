@@ -1,11 +1,12 @@
 import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
-import { s3Client } from '../../utils/s3';
-import { v4 as uuidv4 } from 'uuid'; // Import the uuid library
+import { s3Client } from '../../../utils/s3';
 
 export default async function handler(req, res) {
-  if (req.method === 'POST') {
+  const { id } = req.query; // The index of the element to delete
+  console.log(id);
+
+  if (req.method === 'DELETE') {
     try {
-      const formData = req.body; // The new data to add
       const bucketName = process.env.MYAWS_S3_BUCKET_NAME;
       const fileKey = 'GambiaConnectDB.json';
 
@@ -27,14 +28,16 @@ export default async function handler(req, res) {
       const fileContent = await streamToString(getObjectResponse.Body);
       const dataArray = JSON.parse(fileContent);
 
-      // Generate a unique ID using uuid
-      const newId = uuidv4();
+      // Convert id to an integer
+      const index = parseInt(id, 10);
 
-      // Assign the new ID to the formData
-      const newElement = { id: newId, ...formData };
+      // Validate the index
+      if (isNaN(index) || index < 0 || index >= dataArray.length) {
+        return res.status(400).json({ error: 'Invalid id' });
+      }
 
-      // Add the new object to the end of the array
-      dataArray.push(newElement);
+      // Remove the object at the specified index
+      dataArray.splice(index, 1);
 
       // Write the updated data back to the S3 bucket
       const putObjectCommand = new PutObjectCommand({
@@ -47,14 +50,14 @@ export default async function handler(req, res) {
       await s3Client.send(putObjectCommand);
 
       // Respond with a success message
-      res.status(200).json({ message: 'Business added successfully!', id: newId });
+      res.status(200).json({ message: 'Business deleted successfully!' });
     } catch (error) {
-      console.error('Error adding business:', error);
+      console.error('Error deleting business:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
   } else {
-    // Handle any non-POST requests
-    res.setHeader('Allow', ['POST']);
+    // Handle any non-DELETE requests
+    res.setHeader('Allow', ['DELETE']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

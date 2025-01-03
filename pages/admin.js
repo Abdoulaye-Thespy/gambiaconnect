@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -9,8 +7,6 @@ import Row from 'react-bootstrap/Row';
 import Layout from "../src/layouts/Layout";
 import Col from 'react-bootstrap/Col';
 import Link from 'next/link';
-
-// Make sure you have this import at the top of your file
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AdminListingGrid() {
@@ -19,20 +15,21 @@ export default function AdminListingGrid() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    checkFileExists()
-  }, [])
+    checkFileExists();
+  }, []);
 
   const checkFileExists = async () => {
     try {
-      const response = await fetch('/api/s3', { method: 'GET' })
-      const dataResponse = await response.json()
+      const response = await fetch('/api/s3', { method: 'GET' });
+      const dataResponse = await response.json();
       const data = dataResponse.data;
       setData(data);
-      console.log(data.data);
+      setFilteredData(data);
     } catch (error) {
-      console.error('Error checking file existence:', error)
+      console.error('Error checking file existence:', error);
     }
-  }
+  };
+
   useEffect(() => {
     const filtered = data.filter(org =>
       org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -42,6 +39,26 @@ export default function AdminListingGrid() {
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleDelete = async (id) => {
+    console.log(id);
+    const confirmDelete = window.confirm("Are you sure you want to delete this business?");
+    if (confirmDelete) {
+      try {
+        const response = await fetch(`/api/delete/${id}`, { method: 'DELETE' });
+        if (response.ok) {
+          alert('Business deleted successfully!');
+          setData(data.filter(org => org.id !== id));
+          setFilteredData(filteredData.filter(org => org.id !== id));
+        } else {
+          throw new Error('Failed to delete business');
+        }
+      } catch (error) {
+        console.error('Error deleting business:', error);
+        alert('There was a problem deleting the business.');
+      }
+    }
   };
 
   return (
@@ -90,10 +107,11 @@ export default function AdminListingGrid() {
                     </div>
                   )}
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer className="d-flex justify-content-between">
                   <Link href={`/modify/${org.id}`} passHref>
                     <Button as="a">Modify</Button>
                   </Link>
+                  <Button variant="danger" onClick={() => handleDelete(org.id)}>Delete</Button>
                 </Card.Footer>
               </Card>
             </Col>
