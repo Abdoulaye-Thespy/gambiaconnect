@@ -66,7 +66,7 @@ async function handlePost(req, res) {
 // Handle GET requests (Read operation)
 async function handleGet(req, res) {
   try {
-    const bucketName = process.env.AWS_S3_BUCKET_NAME;
+    const bucketName = process.env.MYAWS_S3_BUCKET_NAME;
     const fileKey = 'GambiaConnectDB.json';
 
     // Log the bucket name to ensure it's being retrieved correctly
