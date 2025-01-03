@@ -19,24 +19,20 @@ export default function AdminListingGrid() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Fetch data from the JSON file
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/GambiaConnectDB.json');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-        setFilteredData(jsonData); // Initialize filtered data
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    checkFileExists()
+  }, [])
 
-    fetchData();
-  }, []);
-
+  const checkFileExists = async () => {
+    try {
+      const response = await fetch('/api/s3', { method: 'GET' })
+      const dataResponse = await response.json()
+      const data = dataResponse.data;
+      setData(data);
+      console.log(data.data);
+    } catch (error) {
+      console.error('Error checking file existence:', error)
+    }
+  }
   useEffect(() => {
     const filtered = data.filter(org =>
       org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase())

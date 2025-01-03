@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from "../../src/layouts/Layout";
 import Head from 'next/head';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ModifyBusiness({ businessData, id }) {
@@ -16,7 +15,6 @@ export default function ModifyBusiness({ businessData, id }) {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(formData);
     setFormData(prevData => ({
       ...prevData,
       [name]: value
@@ -28,7 +26,6 @@ export default function ModifyBusiness({ businessData, id }) {
     setIsSubmitting(true);
 
     try {
-    
       const response = await fetch(`/api/modify/${id}`, {
         method: 'PUT',
         headers: {
@@ -36,8 +33,6 @@ export default function ModifyBusiness({ businessData, id }) {
         },
         body: JSON.stringify(formData),
       });
-
-      console.log("here we are trying");
 
       if (response.ok) {
         alert('Business updated successfully!');
@@ -49,19 +44,17 @@ export default function ModifyBusiness({ businessData, id }) {
     } catch (error) {
       console.error('Error updating business:', error);
       alert('There was a problem updating the business.');
-      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
   };
-
 
   const handleCancel = () => {
     router.back();
   };
 
   return (
-    <Layout> 
+    <Layout>
       <div className="container mt-100 mb-200">
         <Head>
           <title>Modify Business</title>
@@ -80,7 +73,6 @@ export default function ModifyBusiness({ businessData, id }) {
               required
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="Address" className="form-label">Address</label>
             <input
@@ -92,7 +84,6 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="PhoneNumber" className="form-label">Phone</label>
             <input
@@ -104,7 +95,6 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="Email" className="form-label">Email</label>
             <input
@@ -116,7 +106,6 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="CompanyWebsite" className="form-label">Website</label>
             <input
@@ -128,7 +117,6 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="SocialMediaHandle" className="form-label">Facebook</label>
             <input
@@ -140,15 +128,15 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
             <select
               className="form-select"
               id="BusinessCategory"
               name="BusinessCategory"
+              value={formData.BusinessCategory}
               onChange={handleInputChange}
-            > 
+            >
               <option value="">Select a category</option>
               <option value="Technology">Technology</option>
               <option value="Healthcare">Healthcare</option>
@@ -158,7 +146,6 @@ export default function ModifyBusiness({ businessData, id }) {
               <option value="Other">Other</option>
             </select>
           </div>
-
           <div className="mb-3">
             <label htmlFor="Description" className="form-label">Description</label>
             <textarea
@@ -170,7 +157,6 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             ></textarea>
           </div>
-
           <div className="mb-3">
             <label htmlFor="Pictures" className="form-label">Pictures</label>
             <input
@@ -183,7 +169,6 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
-
           <div className="d-flex justify-content-between">
             <button
               type="button"
@@ -213,14 +198,16 @@ export async function getServerSideProps(context) {
   let businessData = null;
 
   try {
-    // Use an absolute URL to fetch the JSON file
-    const response = await fetch(`https://gambiaconnect.com/GambiaConnectDB.json`); // Replace with your actual base URL
+    const baseUrl = `http://${context.req.headers.host}`;
+    const response = await fetch(`${baseUrl}/api/s3`, { method: 'GET' });
+
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
-    data = await response.json();
 
-    // Validate the index
+    const result = await response.json();
+    data = result.data;
+
     if (isNaN(idx) || idx < 0 || idx >= data.length) {
       return {
         notFound: true,
