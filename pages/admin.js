@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from "react";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Layout from "../src/layouts/Layout";
 import Col from 'react-bootstrap/Col';
 import Link from 'next/link';
+import Layout from "../src/layouts/Layout";
+import Cookies from 'js-cookie';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AdminListingGrid() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
-    checkFileExists();
-  }, []);
+    const isAdminAuthenticated = Cookies.get('isAdminAuthenticated');
+    console.log("Session status:", status);
+    console.log("Is admin authenticated (cookie):", isAdminAuthenticated);
+
+    if (status === 'unauthenticated' || !isAdminAuthenticated) {
+      console.log("Redirecting to login page");
+      router.push('/login');
+    } else if (status === 'authenticated' && isAdminAuthenticated) {
+      console.log("Admin authenticated, fetching data");
+      checkFileExists();
+    }
+  }, [status, router]);
 
   const checkFileExists = async () => {
     try {
@@ -61,10 +76,31 @@ export default function AdminListingGrid() {
     }
   };
 
+  const handleLogout = async () => {
+    Cookies.remove('isAdminAuthenticated');
+    await signOut({ redirect: false });
+    router.push('/admin/login');
+  };
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (!session || !Cookies.get('isAdminAuthenticated')) {
+    return null;
+  }
+
   return (
     <Layout>
-      <Container className="mt-100 mb-200">
-        <h1 className="mb-4">Admin Panel</h1>
+      <Container className="mt-5 mb-5">
+        <Row className="mb-4 align-items-center">
+          <Col>
+            <h1>Admin Panel</h1>
+          </Col>
+          <Col xs="auto">
+            <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
+          </Col>
+        </Row>
 
         <Row className="mb-4">
           <Col>
@@ -121,3 +157,4 @@ export default function AdminListingGrid() {
     </Layout>
   );
 }
+
