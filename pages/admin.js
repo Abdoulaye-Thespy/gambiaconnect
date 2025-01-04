@@ -79,7 +79,7 @@ export default function AdminListingGrid() {
   const handleLogout = async () => {
     Cookies.remove('isAdminAuthenticated');
     await signOut({ redirect: false });
-    router.push('/admin/login');
+    router.push('/login');
   };
 
   if (status === 'loading') {
