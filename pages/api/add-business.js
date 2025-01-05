@@ -1,6 +1,5 @@
 import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { s3Client } from '../../utils/s3';
-import { v4 as uuidv4 } from 'uuid'; // Import the uuid library
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -27,11 +26,12 @@ export default async function handler(req, res) {
       const fileContent = await streamToString(getObjectResponse.Body);
       const dataArray = JSON.parse(fileContent);
 
-      // Generate a unique ID using uuid
-      const newId = uuidv4();
+      // Determine the new ID based on the last element
+      const lastElement = dataArray[dataArray.length - 1];
+      const newId = lastElement ? lastElement.id + 1 : 1; // Start from 1 if the array is empty
 
       // Assign the new ID to the formData
-      const newElement = { id: newId, ...formData };
+      const newElement = { ...formData, id: newId };
 
       // Add the new object to the end of the array
       dataArray.push(newElement);
