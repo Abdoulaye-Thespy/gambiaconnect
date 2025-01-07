@@ -1,24 +1,48 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import Layout from "../src/layouts/Layout";
 import Head from 'next/head';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function AddBusiness({ categories }) {
+export default function AddBusiness({ categories, cities }) {
+  const { data: session } = useSession();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    OrganizationName: '',
+    Address: '',
+    PhoneNumber: '',
+    Email: '',
+    CompanyWebsite: '',
+    BusinessCategory: '',
+    Location: '',
+    Description: '',
+    Pictures: [],
+    Status: 'Pending',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (event) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      Pictures: Array.from(event.target.files),
+    }));
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(event.target);
-    const businessData = Object.fromEntries(formData);
-
-    // Extract file names from the Pictures input
-    const pictures = formData.getAll('Pictures').map(file => file.name);
-    businessData.Pictures = pictures;
+    const businessData = { ...formData };
+    businessData.Pictures = formData.Pictures.map(file => file.name);
 
     try {
       const response = await fetch('/api/add-business', {
@@ -60,6 +84,8 @@ export default function AddBusiness({ categories }) {
               className="form-control"
               id="OrganizationName"
               name="OrganizationName"
+              value={formData.OrganizationName}
+              onChange={handleChange}
               required
             />
           </div>
@@ -71,6 +97,8 @@ export default function AddBusiness({ categories }) {
               className="form-control"
               id="Address"
               name="Address"
+              value={formData.Address}
+              onChange={handleChange}
             />
           </div>
 
@@ -81,6 +109,8 @@ export default function AddBusiness({ categories }) {
               className="form-control"
               id="PhoneNumber"
               name="PhoneNumber"
+              value={formData.PhoneNumber}
+              onChange={handleChange}
             />
           </div>
 
@@ -91,6 +121,8 @@ export default function AddBusiness({ categories }) {
               className="form-control"
               id="Email"
               name="Email"
+              value={formData.Email}
+              onChange={handleChange}
             />
           </div>
 
@@ -101,8 +133,26 @@ export default function AddBusiness({ categories }) {
               className="form-control"
               id="CompanyWebsite"
               name="CompanyWebsite"
+              value={formData.CompanyWebsite}
+              onChange={handleChange}
             />
           </div>
+
+          {session && (
+            <div className="mb-3">
+              <label htmlFor="Status" className="form-label">Status</label>
+              <select
+                className="form-select"
+                id="Status"
+                name="Status"
+                value={formData.Status}
+                onChange={handleChange}
+              >
+                <option value="Pending">Pending Approval</option>
+                <option value="Approved">Approved</option>
+              </select>
+            </div>
+          )}
 
           <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
@@ -110,11 +160,30 @@ export default function AddBusiness({ categories }) {
               className="form-select"
               id="BusinessCategory"
               name="BusinessCategory"
+              value={formData.BusinessCategory}
+              onChange={handleChange}
             >
               <option value="">Select a category</option>
               {categories.map((category) => (
                 <option key={category} value={category}>{category}</option>
               ))}
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="Location" className="form-label">Location</label>
+            <select
+              className="form-select"
+              id="Location"
+              name="Location"
+              value={formData.Location}
+              onChange={handleChange}
+            >
+              <option value="">Select a location</option>
+              {cities.map((city) => (
+                <option key={city} value={city}>{city}</option>
+              ))}
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -125,6 +194,8 @@ export default function AddBusiness({ categories }) {
               id="Description"
               name="Description"
               rows="3"
+              value={formData.Description}
+              onChange={handleChange}
             ></textarea>
           </div>
 
@@ -137,6 +208,7 @@ export default function AddBusiness({ categories }) {
               name="Pictures"
               multiple
               accept="image/*"
+              onChange={handleFileChange}
             />
           </div>
 
@@ -154,12 +226,22 @@ export default function AddBusiness({ categories }) {
 }
 
 export async function getServerSideProps() {
-  // In a real application, you might fetch this data from an API or database
-  const categories = ["Technology", "Media", "Healthcare", "Education", "Finance", "Other"];
+  const categories = [
+    "Restaurant", "Hotel/Lodging", "Shopping", "Government", "Health & Medical",
+    "Entertainment & Arts", "Automotive & Cars", "Non Profit", "Money & Finance",
+    "Real Estate", "Professional Services", "Food & Beverage", "Employment",
+    "News & Media", "Community", "Beauty & Fashion"
+  ];
+
+  const cities = [
+    "Banjul", "Serrekunda", "Bakau", "Sukuta", "Brikama", "Abuko", "Farafenni",
+    "Gunjur", "Lamin", "Brufut", "Kololi", "Yundum", "Brusubi"
+  ];
 
   return {
     props: {
       categories,
+      cities,
     },
   };
 }

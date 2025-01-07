@@ -28,6 +28,7 @@ export default async function handler(req, res) {
 
       // Determine the new ID based on the last element
       const lastElement = dataArray[dataArray.length - 1];
+      console.log(lastElement)
       const newId = lastElement ? lastElement.id + 1 : 1; // Start from 1 if the array is empty
 
       // Assign the new ID to the formData

@@ -1,19 +1,14 @@
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Link from 'next/link';
 import Layout from "../src/layouts/Layout";
+import { Button } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 import Cookies from 'js-cookie';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function AdminListingGrid() {
-  const [data, setData] = useState([]);
+const AdminListingGrid = () => {
+  const [originalData, setOriginalData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const { data: session, status } = useSession();
@@ -21,50 +16,44 @@ export default function AdminListingGrid() {
 
   useEffect(() => {
     const isAdminAuthenticated = Cookies.get('isAdminAuthenticated');
-    console.log("Session status:", status);
-    console.log("Is admin authenticated (cookie):", isAdminAuthenticated);
-
     if (status === 'unauthenticated' || !isAdminAuthenticated) {
-      console.log("Redirecting to login page");
       router.push('/login');
     } else if (status === 'authenticated' && isAdminAuthenticated) {
-      console.log("Admin authenticated, fetching data");
-      checkFileExists();
+      fetchData();
     }
   }, [status, router]);
 
-  const checkFileExists = async () => {
+  const fetchData = async () => {
     try {
       const response = await fetch('/api/s3', { method: 'GET' });
       const dataResponse = await response.json();
       const data = dataResponse.data;
-      setData(data);
+      setOriginalData(data);
       setFilteredData(data);
     } catch (error) {
-      console.error('Error checking file existence:', error);
+      console.error('Error fetching data:', error);
     }
   };
 
   useEffect(() => {
-    const filtered = data.filter(org =>
+    const filtered = originalData.filter(org =>
       org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredData(filtered);
-  }, [searchTerm, data]);
+  }, [searchTerm, originalData]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
   const handleDelete = async (id) => {
-    console.log(id);
     const confirmDelete = window.confirm("Are you sure you want to delete this business?");
     if (confirmDelete) {
       try {
         const response = await fetch(`/api/delete/${id}`, { method: 'DELETE' });
         if (response.ok) {
           alert('Business deleted successfully!');
-          setData(data.filter(org => org.id !== id));
+          setOriginalData(originalData.filter(org => org.id !== id));
           setFilteredData(filteredData.filter(org => org.id !== id));
         } else {
           throw new Error('Failed to delete business');
@@ -92,69 +81,147 @@ export default function AdminListingGrid() {
 
   return (
     <Layout>
-      <Container className="mt-5 mb-5">
-        <Row className="mb-4 align-items-center">
-          <Col>
-            <h1>Admin Panel</h1>
-          </Col>
-          <Col xs="auto">
-            <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
-          </Col>
-        </Row>
-
-        <Row className="mb-4">
-          <Col>
-            <Form.Control
-              type="search"
-              placeholder="Search organizations"
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-          </Col>
-          <Col xs="auto">
-            <Link href="/newbusiness" passHref>
-              <Button as="a">Add New Business</Button>
-            </Link>
-          </Col>
-        </Row>
-
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {filteredData.map((org) => (
-            <Col key={org.id}>
-              <Card className="h-100">
-                <Card.Body>
-                  <Card.Title>{org.OrganizationName}</Card.Title>
-                  <p className="card-text"><strong>Address:</strong> {org.Address}</p>
-                  <p className="card-text"><strong>Phone:</strong> {org.PhoneNumber}</p>
-                  <p className="card-text"><strong>Email:</strong> {org.Email}</p>
-                  <p className="card-text"><strong>Website:</strong> {org.CompanyWebsite || "N/A"}</p>
-                  <p className="card-text"><strong>Facebook:</strong> {org.SocialMediaHandle || "N/A"}</p>
-                  <p className="card-text"><strong>Category:</strong> {org.BusinessCategory || "N/A"}</p>
-                  <p className="card-text"><strong>Description:</strong> {org.Description || "N/A"}</p>
-                  <p className="card-text"><strong>Status:</strong> {org.status || "N/A"}</p>
-                  {org.Pictures && org.Pictures.length > 0 && (
-                    <div className="mt-3">
-                      <strong>Pictures:</strong>
-                      <div className="d-flex flex-wrap gap-2 mt-2">
-                        {org.Pictures.map((pic, picIndex) => (
-                          <img key={picIndex} src={pic} alt={`${org.OrganizationName} - ${picIndex + 1}`} className="img-thumbnail" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
-                        ))}
+      <section className="listing-grid-area pt-120 pb-90">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-4">
+              <div className="sidebar-widget-area">
+                <div className="widget search-listing-widget mb-30 wow fadeInUp">
+                  <h4 className="widget-title">Filter Search</h4>
+                  <form onSubmit={(e) => e.preventDefault()}>
+                    <div className="search-form">
+                      <div className="form_group">
+                        <input
+                          type="search"
+                          className="form_control"
+                          placeholder="Search keyword"
+                          name="search"
+                          required=""
+                          value={searchTerm}
+                          onChange={handleSearch}
+                        />
+                        <i className="ti-search" />
+                      </div>
+                      <div className="form_group">
+                        <select className="wide">
+                          <option disabled selected>
+                            Category
+                          </option>
+                          <option>Restaurant</option>
+                          <option>Hotel/Lodging</option>
+                          <option>Shopping</option>
+                          <option>Government</option>
+                          <option>Health & Medical</option>
+                          <option>Entertainment & Arts</option>
+                          <option>Automotive & Cars</option>
+                          <option>Non Profit</option>
+                          <option>Money & Finance</option>
+                          <option>Real Estate</option>
+                          <option>Professional Services</option>
+                          <option>Food & Beverage</option>
+                          <option>Employment</option>
+                          <option>News & Media</option>
+                          <option>Community</option>
+                          <option>Beauty & Fashion</option>
+                        </select>
+                      </div>
+                      <div className="form_group">
+                        <select className="wide">
+                          <option disabled selected>
+                            Location
+                          </option>
+                          <option>Banjul</option>
+                          <option>Serrekunda</option>
+                          <option>Bakau</option>
+                          <option>Sukuta</option>
+                          <option>Brikama</option>
+                          <option>Abuko</option>
+                          <option>Farafenni</option>
+                          <option>Gunjur</option>
+                          <option>Lamin</option>
+                          <option>Brufut</option>
+                          <option>Kololi</option>
+                          <option>Yundum</option>
+                          <option>Brusubi</option>
+                          <option>Other</option>
+                        </select>
                       </div>
                     </div>
-                  )}
-                </Card.Body>
-                <Card.Footer className="d-flex justify-content-between">
-                  <Link href={`/modify/${org.id}`} passHref>
-                    <Button as="a">Modify</Button>
-                  </Link>
-                  <Button variant="danger" onClick={() => handleDelete(org.id)}>Delete</Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+                    <div className="col-lg-4 text-end">
+                      <Button variant="outline-danger" onClick={handleLogout} className="me-2">Logout</Button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-8">
+              <div className="row mb-4 align-items-center">
+                <div className="col-lg-8">
+                  <h1 className="mb-4">Admin Panel</h1>
+                  <Form.Control
+                    type="search"
+                    placeholder="Search organizations"
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    className="form-control mb-3"
+                  />
+                </div>
+              </div>
+
+              <div className="row">
+                {filteredData.map((org, index) => (
+                  <div key={index} className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
+                      <div className="listing-thumbnail listing-content">
+                        <img
+                          src="assets/images/listing/listing-grid-16.jpg"
+                          alt={`${org.OrganizationName} Listing Image`}
+                        />
+                      </div>
+                      <div className="listing-content">
+                        <h3 className="title">
+                          <Link href={`/modify/${org.id}`}>
+                            <a>{org.OrganizationName}</a>
+                          </Link>
+                        </h3>
+                        <p><strong>Address:</strong> {org.Address}</p>
+                        <p><strong>Town:</strong> {org.Location || "N/A"}</p>
+                        <p><strong>Phone:</strong> {org.PhoneNumber}</p>
+                        <p><strong>Email:</strong> {org.Email}</p>
+                        <p><strong>Website:</strong> {org.CompanyWebsite || "N/A"}</p>
+                        <p><strong>Facebook:</strong> {org.SocialMediaHandle || "N/A"}</p>
+                        <p><strong>Category:</strong> {org.BusinessCategory || "N/A"}</p>
+                        <p><strong>Description:</strong> {org.Description || "N/A"}</p>
+                        <p><strong>Status:</strong> {org.status || "N/A"}</p>
+                        {org.Pictures && org.Pictures.length > 0 && (
+                          <div className="mt-3">
+                            <strong>Pictures:</strong>
+                            <div className="d-flex flex-wrap gap-2 mt-2">
+                              {org.Pictures.map((pic, picIndex) => (
+                                <img key={picIndex} src={pic} alt={`${org.OrganizationName} - ${picIndex + 1}`} className="img-thumbnail" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      <div className="d-flex justify-content-between p-3">
+                        <Link href={`/modify/${org.id}`} passHref>
+                          <Button as="a">Modify</Button>
+                        </Link>
+                        <Button variant="danger" onClick={() => handleDelete(org.id)}>Delete</Button>
+                      </div>
+                      </div>
+
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
-}
+};
 
+export default AdminListingGrid;

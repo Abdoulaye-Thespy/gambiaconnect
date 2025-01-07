@@ -1,26 +1,47 @@
 import Link from "next/link";
-import React, { useState, useEffect }from "react";
-import PageBanner from "../src/components/PageBanner";
-import RangeSlider from "../src/components/RangeSlider";
+import React, { useState, useEffect } from "react";
 import Layout from "../src/layouts/Layout";
-import { Button } from "react-bootstrap"; // Assurez-vous que react-bootstrap est installé
-import initialData from "../src/GambiaConnectDB";
-
+import { Button } from "react-bootstrap";
 
 const ListingGrid = () => {
-  const [data, setData] = useState(initialData)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [originalData, setOriginalData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const filteredData = initialData.filter(org => 
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('/api/s3', { method: 'GET' });
+      const dataResponse = await response.json();
+      const data = dataResponse.data;
+      setOriginalData(data);
+      setFilteredData(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setError(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const filtered = originalData.filter(org =>
       org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    setData(filteredData)
-  }, [searchTerm])
+    );
+    setFilteredData(filtered);
+  }, [searchTerm, originalData]);
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value)
-  }
+    setSearchTerm(event.target.value);
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <Layout>
@@ -47,47 +68,46 @@ const ListingGrid = () => {
                       </div>
                       <div className="form_group">
                         <select className="wide">
-                          <option disabled selected="Category">
+                          <option disabled selected>
                             Category
                           </option>
-                          <option value={1}>Museums</option>
-                          <option value={2}>Restaurant</option>
-                          <option value={3}>Party Center</option>
-                          <option value={4}>Fitness Zone</option>
-                          <option value={5}>Game Field</option>
-                          <option value={6}>Job &amp; Feeds</option>
-                          <option value={7}>Shooping</option>
-                          <option value={8}>Art Gallery</option>
+                          <option>Restaurant</option>
+                          <option>Hotel/Lodging</option>
+                          <option>Shopping</option>
+                          <option>Government</option>
+                          <option>Health & Medical</option>
+                          <option>Entertainment & Arts</option>
+                          <option>Automotive & Cars</option>
+                          <option>Non Profit</option>
+                          <option>Money & Finance</option>
+                          <option>Real Estate</option>
+                          <option>Professional Services</option>
+                          <option>Food & Beverage</option>
+                          <option>Employment</option>
+                          <option>News & Media</option>
+                          <option>Community</option>
+                          <option>Beauty & Fashion</option>
                         </select>
                       </div>
                       <div className="form_group">
                         <select className="wide">
-                          <option disabled selected="Location">
+                          <option disabled selected>
                             Location
                           </option>
-                          <option value={1}>Dhaka</option>
-                          <option value={2}>Delhi</option>
-                          <option value={3}>lahore</option>
-                          <option value={4}>Rome</option>
-                          <option value={5}>New york</option>
-                          <option value={6}>Pris</option>
-                          <option value={7}>Bern</option>
-                          <option value={8}>Bangkok</option>
-                        </select>
-                      </div>
-                      <div className="form_group">
-                        <select className="wide">
-                          <option disabled selected="By place">
-                            By place
-                          </option>
-                          <option value={1}>Dhaka</option>
-                          <option value={2}>Delhi</option>
-                          <option value={3}>lahore</option>
-                          <option value={4}>Rome</option>
-                          <option value={5}>New york</option>
-                          <option value={6}>Pris</option>
-                          <option value={7}>Bern</option>
-                          <option value={8}>Bangkok</option>
+                          <option>Banjul</option>
+                          <option>Serrekunda</option>
+                          <option>Bakau</option>
+                          <option>Sukuta</option>
+                          <option>Brikama</option>
+                          <option>Abuko</option>
+                          <option>Farafenni</option>
+                          <option>Gunjur</option>
+                          <option>Lamin</option>
+                          <option>Brufut</option>
+                          <option>Kololi</option>
+                          <option>Yundum</option>
+                          <option>Brusubi</option>
+                          <option>Other</option>
                         </select>
                       </div>
                     </div>
@@ -108,14 +128,25 @@ const ListingGrid = () => {
                       </div>
                       <div className="sorting-dropdown">
                         <select>
-                          <option disabled selected="Default Sorting">
+                          <option disabled selected>
                             Default Sorting
                           </option>
-                          <option value={1}>Museums</option>
-                          <option value={2}>Restaurant</option>
-                          <option value={3}>Party Center</option>
-                          <option value={4}>Fitness Zone</option>
-                          <option value={5}>Game Field</option>
+                          <option>Restaurant</option>
+                          <option>Hotel/Lodging</option>
+                          <option>Shopping</option>
+                          <option>Government</option>
+                          <option>Health & Medical</option>
+                          <option>Entertainment & Arts</option>
+                          <option>Automotive & Cars</option>
+                          <option>Non Profit</option>
+                          <option>Money & Finance</option>
+                          <option>Real Estate</option>
+                          <option>Professional Services</option>
+                          <option>Food & Beverage</option>
+                          <option>Employment</option>
+                          <option>News & Media</option>
+                          <option>Community</option>
+                          <option>Beauty & Fashion</option>
                         </select>
                       </div>
                     </div>
@@ -135,48 +166,39 @@ const ListingGrid = () => {
                   </div>
                 </div>
               </div>
-          {/* Debut Cards */}
 
               <div className="row">
-                {/* Map pour afficher chaque organisation */}
-                {data.map((org, index) => (
-                  <>
-                    <div className="col-lg-4 col-md-6 col-sm-12">
-                      <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
-                        <div className="listing-thumbnail listing-content">
-                          <img
-                            src="assets/images/listing/listing-grid-16.jpg"
-                            alt="Listing Image"
-                          />
-                        </div>
-                        <div className="listing-content">
-                          <h3 className="title">
-                            <Link href="/listing-details-1">
-                              <a>{org.OrganizationName}</a>
-                            </Link>
-                          </h3>
-                          <p>{org.Address}</p>
-                          <span className="phone-meta">
-                            <i className="ti-tablet" />
-                            <a href="tel:+982653652-05">{org.PhoneNumber}</a>
+                {filteredData.map((org, index) => (
+                  <div key={index} className="col-lg-4 col-md-6 col-sm-12">
+                    <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
+                      <div className="listing-thumbnail listing-content">
+                        <img
+                          src="assets/images/listing/listing-grid-16.jpg"
+                          alt="Listing Image"
+                        />
+                      </div>
+                      <div className="listing-content">
+                        <h3 className="title">
+                          <Link href="/listing-details-1">
+                            <a>{org.OrganizationName}</a>
+                          </Link>
+                        </h3>
+                        <p>{org.Address}</p>
+                        <span className="phone-meta">
+                          <i className="ti-tablet" />
+                          <a href={`tel:${org.PhoneNumber}`}>{org.PhoneNumber}</a>
+                        </span>
+                        <div className="listing-meta">
+                          <span>
+                            <Button variant="primary">Read More</Button>
                           </span>
-                          <div className="listing-meta">
-                            <span>
-                              <a>
-                                <Button variant="primary">Read More</Button>
-                              </a>
-                            </span>
-                          </div>
                         </div>
                       </div>
                     </div>
-                  </>
-
-
+                  </div>
                 ))}
               </div>
 
-          {/* ------Fin Cards------ */}   
             </div>
           </div>
         </div>
@@ -184,4 +206,5 @@ const ListingGrid = () => {
     </Layout>
   );
 };
+
 export default ListingGrid;
