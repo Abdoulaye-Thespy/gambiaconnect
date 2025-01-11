@@ -20,7 +20,7 @@ const ListingGrid = () => {
       const dataResponse = await response.json();
       const data = dataResponse.data;
       setOriginalData(data);
-      setFilteredData(data);
+      setFilteredData(data.filter(org => org.Status === 'Approved'));
       setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -31,7 +31,8 @@ const ListingGrid = () => {
 
   useEffect(() => {
     const filtered = originalData.filter(org =>
-      org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase())
+      org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      org.Status === 'approved'
     );
     setFilteredData(filtered);
   }, [searchTerm, originalData]);
@@ -124,7 +125,7 @@ const ListingGrid = () => {
                   <div className="col-md-8">
                     <div className="filter-left d-flex align-items-center">
                       <div className="show-text">
-                        <span>Showing Result 1-09</span>
+                        <span>Showing Result 1-{filteredData.length}</span>
                       </div>
                       <div className="sorting-dropdown">
                         <select>
@@ -173,13 +174,13 @@ const ListingGrid = () => {
                     <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
                       <div className="listing-thumbnail listing-content">
                         <img
-                          src="assets/images/listing/listing-grid-16.jpg"
-                          alt="Listing Image"
+                          src={org.Pictures && org.Pictures.length > 0 ? org.Pictures[0] : "assets/images/listing/listing-grid-16.jpg"}
+                          alt={org.OrganizationName}
                         />
                       </div>
                       <div className="listing-content">
                         <h3 className="title">
-                          <Link href="/listing-details-1">
+                          <Link href={`/listing-details/${org.id}`}>
                             <a>{org.OrganizationName}</a>
                           </Link>
                         </h3>
@@ -190,7 +191,9 @@ const ListingGrid = () => {
                         </span>
                         <div className="listing-meta">
                           <span>
-                            <Button variant="primary">Read More</Button>
+                            <Link href={`/listing-details/${org.id}`}>
+                              <Button variant="primary">Read More</Button>
+                            </Link>
                           </span>
                         </div>
                       </div>
@@ -208,3 +211,4 @@ const ListingGrid = () => {
 };
 
 export default ListingGrid;
+

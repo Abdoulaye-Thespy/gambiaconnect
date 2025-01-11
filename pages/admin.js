@@ -192,7 +192,7 @@ const AdminListingGrid = () => {
                         <p><strong>Facebook:</strong> {org.SocialMediaHandle || "N/A"}</p>
                         <p><strong>Category:</strong> {org.BusinessCategory || "N/A"}</p>
                         <p><strong>Description:</strong> {org.Description || "N/A"}</p>
-                        <p><strong>Status:</strong> {org.status || "N/A"}</p>
+                        <p><strong>Status:</strong> {org.Status || "N/A"}</p>
                         {org.Pictures && org.Pictures.length > 0 && (
                           <div className="mt-3">
                             <strong>Pictures:</strong>

@@ -19,7 +19,7 @@ export default function AddBusiness({ categories, cities }) {
     Location: '',
     Description: '',
     Pictures: [],
-    Status: 'Pending',
+    Status: 'pending',
   });
 
   const handleChange = (event) => {
@@ -76,7 +76,7 @@ export default function AddBusiness({ categories, cities }) {
         </Head>
         <h1 className="mb-4">Add New Business</h1>
         <form onSubmit={handleSubmit}>
-          <input type="hidden" name="Status" value="Pending" />
+          <input type="hidden" name="Status"  value={session ? 'approved' : 'pending'}  />
 
           <div className="mb-3">
             <label htmlFor="OrganizationName" className="form-label">Organization Name</label>
@@ -149,8 +149,8 @@ export default function AddBusiness({ categories, cities }) {
                 value={formData.Status}
                 onChange={handleChange}
               >
-                <option value="Pending">Pending Approval</option>
-                <option value="Approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
               </select>
             </div>
           )}
