@@ -67,7 +67,7 @@ const HowWork = () => {
                           day image god their night his feed subdue so you rule
                           can.
                         </p>
-                        <Link href="/listing-grid">
+                        <Link href="/listing-grid" legacyBehavior>
                           <a className="btn-link icon-btn">Explore List</a>
                         </Link>
                       </div>
@@ -100,7 +100,7 @@ const HowWork = () => {
                           day image god their night his feed subdue so you rule
                           can.
                         </p>
-                        <Link href="/listing-grid">
+                        <Link href="/listing-grid" legacyBehavior>
                           <a className="btn-link icon-btn">Explore List</a>
                         </Link>
                       </div>
@@ -133,7 +133,7 @@ const HowWork = () => {
                           day image god their night his feed subdue so you rule
                           can.
                         </p>
-                        <Link href="/listing-grid">
+                        <Link href="/listing-grid" legacyBehavior>
                           <a className="btn-link icon-btn">Explore List</a>
                         </Link>
                       </div>

@@ -557,7 +557,7 @@ const ListingList = () => {
                   <div className="listing-content">
                     <h3 className="title">
                       <Link href="/listing-details-1">
-                        <a>Central Plaza</a>
+                        Central Plaza
                       </Link>
                     </h3>
                     <div className="ratings">

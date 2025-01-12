@@ -62,7 +62,7 @@ const Blog = () => {
                     </div>
                     <h3 className="title">
                       <Link href="/blog-details">
-                        <a>Resource Guide for Gambian Small Business Owners: Organizations That Can Help You</a>
+                        Resource Guide for Gambian Small Business Owners: Organizations That Can Help You
                       </Link>
                     </h3>
                     <p>
@@ -71,7 +71,7 @@ const Blog = () => {
                       In this blog post, we’ve compiled a list of organizations that offer services ranging from business advice and funding to training and networking opportunities. These organizations can provide the support you need to grow your small business in The Gambia.
                     </p>
                      <Link href="/blog-details">
-                        <a> Continue Reading</a>
+                        Continue Reading
                       </Link>
                     
 

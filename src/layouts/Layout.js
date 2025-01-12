@@ -8,7 +8,6 @@ import ScrollTop from "./ScrollTop";
 
 const Layout = ({ children, header }) => {
   useEffect(() => {
-    animation();
     niceSelect();
     activeNavMenu();
     window.addEventListener("scroll", stickyNav);

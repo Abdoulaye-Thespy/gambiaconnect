@@ -118,9 +118,8 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                        
                           <i className="ti-link" />
-                        </a>
                       </Link>
                     </div>
                   </div>
@@ -149,9 +148,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                       
                           <i className="ti-link" />
-                        </a>
+    
                       </Link>
                     </div>
                   </div>
@@ -180,9 +179,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                       
                           <i className="ti-link" />
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -211,9 +210,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                       
                           <i className="ti-link" />
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -242,9 +241,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                        
                           <i className="ti-link" />
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -273,9 +272,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                        
                           <i className="ti-link" />
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -304,9 +303,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                        
                           <i className="ti-link" />
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -335,9 +334,9 @@ const Index2 = () => {
                   <div className="category-overlay">
                     <div className="category-content">
                       <Link href="/index-2">
-                        <a>
+                        
                           <i className="ti-link" />
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -428,7 +427,7 @@ const Index2 = () => {
                 <div className="listing-content">
                   <h3 className="title">
                     <Link href="/listing-details-1">
-                      <a>Food House</a>
+                      Food House
                     </Link>
                   </h3>
                   <ul className="ratings ratings-three">
@@ -497,7 +496,7 @@ const Index2 = () => {
                 <div className="listing-content">
                   <h3 className="title">
                     <Link href="/listing-details-1">
-                      <a>State Museum</a>
+                      State Museum
                     </Link>
                   </h3>
                   <ul className="ratings ratings-three">
@@ -566,7 +565,7 @@ const Index2 = () => {
                 <div className="listing-content">
                   <h3 className="title">
                     <Link href="/listing-details-1">
-                      <a>Party Center</a>
+                      Party Center
                     </Link>
                   </h3>
                   <ul className="ratings ratings-three">
@@ -635,7 +634,7 @@ const Index2 = () => {
                 <div className="listing-content">
                   <h3 className="title">
                     <Link href="/listing-details-1">
-                      <a>Gaming Place</a>
+                      Gaming Place
                     </Link>
                   </h3>
                   <ul className="ratings ratings-three">

@@ -181,7 +181,7 @@ const AdminListingGrid = () => {
                       <div className="listing-content">
                         <h3 className="title">
                           <Link href={`/modify/${org.id}`}>
-                            <a>{org.OrganizationName}</a>
+                            {org.OrganizationName}
                           </Link>
                         </h3>
                         <p><strong>Address:</strong> {org.Address}</p>

@@ -2,11 +2,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import Layout from "../src/layouts/Layout";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BusinDetails from './BusinDetails';
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
 import OrganizationCards from './Cards';
 
 const Index3 = () => {
@@ -27,8 +23,6 @@ const Index3 = () => {
 
   return (
     <Layout header={3}>
-      {/*====== End Header Section ======*/}
-      {/*====== Start Hero Section ======*/}
       <section className="hero-area">
         <div
           className="hero-wrapper-three bg_cover"
@@ -92,10 +86,10 @@ const Index3 = () => {
                           <div className="col-lg-6">
                             <p className="tags mb-15">
                               <span>Popular:</span>
-                              <a href="#">Saloon</a>,<a href="#">Restaurant</a>,
-                              <a href="#">Game</a>,<a href="#">Counter</a>,
-                              <a href="#">Train Station</a>,
-                              <a href="#">Parking</a>,<a href="#">Shooping</a>
+                              <Link href="#">Saloon</Link>, <Link href="#">Restaurant</Link>,
+                              <Link href="#">Game</Link>, <Link href="#">Counter</Link>,
+                              <Link href="#">Train Station</Link>,
+                              <Link href="#">Parking</Link>, <Link href="#">Shooping</Link>
                             </p>
                           </div>
                         </div>
@@ -159,10 +153,6 @@ const Index3 = () => {
           </div>
         </div>
       </section>
-      {/*====== End Hero Section ======*/}
-      {/*====== Start Place Section ======*/}
-      {/*====== End Hero Section ======*/}
-      {/*====== Start category Section ======*/}
       <section className="category-area">
         <div
           className="category-wrapper-bg bg_cover pt-75 pb-50"
@@ -185,9 +175,7 @@ const Index3 = () => {
                   </div>
                   <div className="info">
                     <h4 className="title">
-                      <Link href="/listing-grid">
-                        <a>Museums</a>
-                      </Link>
+                      <Link href="/listing-grid">Museums</Link>
                     </h4>
                     <p>Sed perspi ciaund natus</p>
                   </div>
@@ -271,8 +259,6 @@ const Index3 = () => {
           </div>
         </div>
       </section>
-      {/*====== End category Section ======*/}
-      {/*====== Start Listing Section ======*/}
       <section className="listing-grid-area light-bg pt-115 pb-90">
         <div className="container">
           <div className="row justify-content-center">
@@ -291,8 +277,6 @@ const Index3 = () => {
           {/* ------Fin Cards------ */}   
         </div> 
       </section>
-      {/*====== End Listing Section ======*/}
-      {/*====== Start Features Section ======*/}
       <section className="features-area">
         <div
           className="features-wrapper-two bg_cover pt-115 pb-80"
@@ -354,8 +338,8 @@ const Index3 = () => {
           </div>
         </div>
       </section>
-      {/*====== End Blog Section ======*/}
     </Layout>
   );
 };
+
 export default Index3;

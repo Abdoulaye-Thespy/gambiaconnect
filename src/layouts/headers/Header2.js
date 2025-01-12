@@ -11,7 +11,7 @@ const Header2 = () => {
             <div className="row align-items-center">
               <div className="col-lg-2 col-5">
                 <div className="site-branding">
-                  <Link href="/">
+                  <Link href="/" legacyBehavior>
                     <a className="brand-logo">
                       <img
                         src="assets/images/logo/logo-2.png"
@@ -29,7 +29,7 @@ const Header2 = () => {
                   <nav className="main-menu">
                     <ul>
                       <li className="menu-item has-children">
-                        <Link href="/">
+                        <Link href="/" legacyBehavior>
                           <a>Home</a>
                         </Link>
                         <ul className="sub-menu">
@@ -81,7 +81,7 @@ const Header2 = () => {
                 <div className="header-right-nav">
                   <ul className="d-flex align-items-center">
                     <li>
-                      <Link href="/">
+                      <Link href="/" legacyBehavior>
                         <a>
                           <i className="ti-heart"></i>
                           <span>Wishlist</span>
@@ -89,7 +89,7 @@ const Header2 = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/">
+                      <Link href="/" legacyBehavior>
                         <a>
                           <i className="ti-shopping-cart"></i>
                           <span>Cart</span>
@@ -97,14 +97,14 @@ const Header2 = () => {
                       </Link>
                     </li>
                     <li className="user-btn">
-                      <Link href="/">
+                      <Link href="/" legacyBehavior>
                         <a className="icon">
                           <i className="flaticon-avatar"></i>
                         </a>
                       </Link>
                     </li>
                     <li className="hero-nav-btn">
-                      <Link href="/newbusiness">
+                      <Link href="/newbusiness" legacyBehavior>
                         <a className="main-btn icon-btn">Add Listing</a>
                       </Link>
                     </li>

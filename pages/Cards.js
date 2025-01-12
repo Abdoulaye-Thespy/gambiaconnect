@@ -63,7 +63,7 @@ const OrganizationCards = () => {
               <div className="listing-content">
                 <h3 className="title">
                   <Link href="/product-details">
-                    <a>{org.OrganizationName}</a>
+                    {org.OrganizationName}
                   </Link>
                 </h3>
                 <p>{org.Address}</p>
@@ -84,7 +84,7 @@ const OrganizationCards = () => {
       <div className="row">
         <div className="col-12 d-flex justify-content-center mt-4">
           <Link href="/listing-grid">
-            <a className="btn btn-primary">SEE MORE</a>
+            SEE MORE
           </Link>
         </div>
       </div>

@@ -283,7 +283,7 @@ const Products = () => {
                   </div>
                   <div className="product-info text-center">
                     <h3 className="title">
-                      <Link href="/products-details">
+                      <Link href="/products-details" legacyBehavior>
                         <a>Hand Watch</a>
                       </Link>
                     </h3>
@@ -317,7 +317,7 @@ const Products = () => {
                   </div>
                   <div className="product-info text-center">
                     <h3 className="title">
-                      <Link href="/products-details">
+                      <Link href="/products-details" legacyBehavior>
                         <a>Realstic Dumbell</a>
                       </Link>
                     </h3>
@@ -351,7 +351,7 @@ const Products = () => {
                   </div>
                   <div className="product-info text-center">
                     <h3 className="title">
-                      <Link href="/products-details">
+                      <Link href="/products-details" legacyBehavior>
                         <a>Hand Speaker</a>
                       </Link>
                     </h3>

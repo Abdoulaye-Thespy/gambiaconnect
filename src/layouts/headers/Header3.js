@@ -53,7 +53,7 @@ const Header3 = () => {
               <div className="top-right">
                 <ul className="d-flex">
                   <li>
-                    <Link href="/">
+                    <Link href="/" legacyBehavior>
                       <a>
                         <i className="ti-search" />
                         <span>email{" info@gambiaconnect.com"}</span>
@@ -92,7 +92,7 @@ const Header3 = () => {
                       {/* --------------- Fin Element integrer ------------*/}
                       <Contact />
                       <li className="nav-btn">
-                        <Link href="/newbusiness">
+                        <Link href="/newbusiness" legacyBehavior>
                           <a className="main-btn icon-btn">Add Listing</a>
                         </Link>
                       </li>
@@ -104,14 +104,14 @@ const Header3 = () => {
                 <div className="header-right-nav">
                   <ul className="d-flex align-items-center">
                     <li className="user-btn">
-                      <Link href="/">
+                      <Link href="/" legacyBehavior>
                         <a className="icon">
                           <i className="flaticon-avatar" />
                         </a>
                       </Link>
                     </li>
                     <li className="hero-nav-btn">
-                      <Link href="/newbusiness">
+                      <Link href="/newbusiness" legacyBehavior>
                         <a className="main-btn icon-btn">Add Listing</a>
                       </Link>
                     </li>

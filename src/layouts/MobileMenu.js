@@ -52,7 +52,7 @@ const MobileMenu = () => {
               <div className="top-content text-center">
                 <p>
                   We Have Special Offers Every{" "}
-                  <Link href="/">
+                  <Link href="/" legacyBehavior>
                     <a>Find your offer</a>
                   </Link>
                 </p>
@@ -62,7 +62,7 @@ const MobileMenu = () => {
               <div className="top-right">
                 <ul className="d-flex">
                   <li>
-                    <Link href="/">
+                    <Link href="/" legacyBehavior>
                       <a>
                         <i className="ti-search"></i>
                         <span>Search here</span>
@@ -70,7 +70,7 @@ const MobileMenu = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/" legacyBehavior>
                       <a>
                         <i className="ti-heart"></i>
                         <span>Wishlist</span>
@@ -78,7 +78,7 @@ const MobileMenu = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/" legacyBehavior>
                       <a>
                         <i className="ti-shopping-cart"></i>
                         <span>Cart</span>
@@ -97,7 +97,7 @@ const MobileMenu = () => {
             <div className="row">
               <div className="col-lg-2 col-5">
                 <div className="site-branding">
-                  <Link href="/">
+                  <Link href="/" legacyBehavior>
                     <a className="brand-logo">
                       <img
                         src="assets/images/logo/logo-1.png"
@@ -118,7 +118,7 @@ const MobileMenu = () => {
                   <nav className="main-menu">
                     <ul>
                       <li className="menu-item has-children">
-                        <Link href="/">
+                        <Link href="/" legacyBehavior>
                           <a>Home</a>
                         </Link>
                         <ul className="sub-menu" style={activeLi("Home")}>
@@ -139,7 +139,7 @@ const MobileMenu = () => {
                         <ul className="sub-menu" style={activeLi("Event")}>
                           <Event />
                         </ul>
-                        {/* <span
+                        {/* <spans
                           className="dd-trigger"
                           onClick={() => activeMenuSet("Event")}
                         >
@@ -186,7 +186,7 @@ const MobileMenu = () => {
                       </li>
                       <Contact />
                       <li className="nav-btn">
-                        <Link href="/add-listing">
+                        <Link href="/newbusiness" legacyBehavior>
                           <a className="main-btn icon-btn">Add Listing</a>
                         </Link>
                       </li>
@@ -198,14 +198,14 @@ const MobileMenu = () => {
                 <div className="header-right-nav">
                   <ul className="d-flex align-items-center">
                     <li className="user-btn">
-                      <Link href="/">
+                      <Link href="/" legacyBehavior>
                         <a className="icon">
                           <i className="flaticon-avatar"></i>
                         </a>
                       </Link>
                     </li>
                     <li className="hero-nav-btn">
-                      <Link href="/add-listing">
+                      <Link href="/newbusiness" legacyBehavior>
                         <a className="main-btn icon-btn">Add Listing</a>
                       </Link>
                     </li>

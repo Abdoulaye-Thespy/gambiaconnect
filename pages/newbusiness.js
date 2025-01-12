@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import Layout from "../src/layouts/Layout";
 import Head from 'next/head';
+import Link from 'next/link'; // Import Link
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AddBusiness({ categories, cities }) {
@@ -76,7 +77,7 @@ export default function AddBusiness({ categories, cities }) {
         </Head>
         <h1 className="mb-4">Add New Business</h1>
         <form onSubmit={handleSubmit}>
-          <input type="hidden" name="Status"  value={session ? 'approved' : 'pending'}  />
+          <input type="hidden" name="Status" value={session ? 'approved' : 'pending'} />
 
           <div className="mb-3">
             <label htmlFor="OrganizationName" className="form-label">Organization Name</label>
@@ -139,7 +140,9 @@ export default function AddBusiness({ categories, cities }) {
             />
           </div>
 
-          {session &&  (<div className="mb-3">
+          {session && (
+
+          <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
             <select
               className="form-control"
@@ -149,55 +152,16 @@ export default function AddBusiness({ categories, cities }) {
               onChange={handleChange}
             >
               <option value="">Select a category</option>
-              <option value="Restaurant">Restaurant</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Hotel/Lodging">Hotel/Lodging</option>
-              <option value="Government">Government</option>
-              <option value="Health & Medical">Health & Medical</option>
-              <option value="Entertainment & Arts">Entertainment & Arts</option>
-              <option value="Automotive & Cars">Automotive & Cars</option>
-              <option value="Non Profit">Non Profit</option>
-              <option value="Money & Finance">Money & Finance</option>
-              <option value="Real Estate">Real Estate</option>
-              <option value="Professional Services">Professional Services</option>
-              <option value="Food & Beverage">Food & Beverage</option>
-              <option value="Employment">Employment</option>
-              <option value="News & Media">News & Media</option>
-              <option value="Community">Community</option>
-              <option value="Beauty & Fashion">Beauty & Fashion</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
             </select>
           </div>
-           )}
-           
-          {!session &&  (<div className="mb-3">
-            <label htmlFor="BusinessCategory" className="form-label">Category</label>
-            <select
-              className="form-control"
-              id="BusinessCategory"
-              name="BusinessCategory"
-              value={formData.BusinessCategory}
-              onChange={handleChange}
-            >
-              <option value="">Select a category</option>
-              <option value="Restaurant">Restaurant</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Hotel/Lodging">Hotel/Lodging</option>
-              <option value="Government">Government</option>
-              <option value="Health & Medical">Health & Medical</option>
-              <option value="Entertainment & Arts">Entertainment & Arts</option>
-              <option value="Automotive & Cars">Automotive & Cars</option>
-              <option value="Non Profit">Non Profit</option>
-              <option value="Money & Finance">Money & Finance</option>
-              <option value="Real Estate">Real Estate</option>
-              <option value="Professional Services">Professional Services</option>
-              <option value="Food & Beverage">Food & Beverage</option>
-              <option value="Employment">Employment</option>
-              <option value="News & Media">News & Media</option>
-              <option value="Community">Community</option>
-              <option value="Beauty & Fashion">Beauty & Fashion</option>
-            </select>
-          </div>
-           )}
+
+
+          )}
 
           {session && (
             <div className="mb-3">
@@ -215,7 +179,9 @@ export default function AddBusiness({ categories, cities }) {
             </div>
           )}
 
-{session &&  ( <div className="mb-3">
+
+{session && (
+          <div className="mb-3">
             <label htmlFor="Location" className="form-label">Location</label>
             <select
               className="form-control"
@@ -225,50 +191,14 @@ export default function AddBusiness({ categories, cities }) {
               onChange={handleChange}
             >
               <option value="">Select a location</option>
-              <option value="Banjul">Banjul</option>
-              <option value="Serrekunda">Serrekunda</option>
-              <option value="Bakau">Bakau</option>
-              <option value="Sukuta">Sukuta</option>
-              <option value="Brikama">Brikama</option>
-              <option value="Abuko">Abuko</option>
-              <option value="Farafenni">Farafenni</option>
-              <option value="Gunjur">Gunjur</option>
-              <option value="Lamin">Lamin</option>
-              <option value="Brufut">Brufut</option>
-              <option value="Kololi">Kololi</option>
-              <option value="Yundum">Yundum</option>
-              <option value="Brusubi">Brusubi</option>
-              <option value="Other">Other</option>
+              {cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
             </select>
           </div>
-          )}
-          {!session &&  ( <div className="mb-3">
-            <label htmlFor="Location" className="form-label">Location</label>
-            <select
-              className="form-control"
-              id="Location"
-              name="Location"
-              value={formData.Location}
-              onChange={handleChange}
-            >
-              <option value="">Select a location</option>
-              <option value="Banjul">Banjul</option>
-              <option value="Serrekunda">Serrekunda</option>
-              <option value="Bakau">Bakau</option>
-              <option value="Sukuta">Sukuta</option>
-              <option value="Brikama">Brikama</option>
-              <option value="Abuko">Abuko</option>
-              <option value="Farafenni">Farafenni</option>
-              <option value="Gunjur">Gunjur</option>
-              <option value="Lamin">Lamin</option>
-              <option value="Brufut">Brufut</option>
-              <option value="Kololi">Kololi</option>
-              <option value="Yundum">Yundum</option>
-              <option value="Brusubi">Brusubi</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          )}
+           )}
 
           <div className="mb-3">
             <label htmlFor="Description" className="form-label">Description</label>
@@ -303,6 +233,10 @@ export default function AddBusiness({ categories, cities }) {
             {isSubmitting ? 'Adding...' : 'Add Business'}
           </button>
         </form>
+        {/* Example Link to Admin Page */}
+        <Link href="/admin">
+          Go to Admin
+        </Link>
       </div>
     </Layout>
   );
@@ -328,4 +262,3 @@ export async function getServerSideProps() {
     },
   };
 }
-

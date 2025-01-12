@@ -83,14 +83,10 @@ const ListingDetails1 = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="button">
                   <Link href="/listing-grid">
-                    <a className="icon-btn">
                       <i className="ti-heart" />
-                    </a>
                   </Link>
                   <Link href="/listing-grid">
-                    <a className="icon-btn">
                       <i className="ti-share" />
-                    </a>
                   </Link>
                 </div>
               </div>
