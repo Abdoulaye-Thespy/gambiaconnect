@@ -31,7 +31,7 @@ const Index = () => {
                     here
                   </h1>
                   <h3 className="wow fadeInDown">
-                    People Don't Take,Trips Take People
+                    People Don&apost Take,Trips Take People
                   </h3>
                   <div
                     className="hero-search-wrapper wow fadeInUp"
