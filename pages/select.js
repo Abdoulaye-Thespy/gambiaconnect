@@ -28,7 +28,7 @@ function SelectAlternative({ options, value, onChange, className }) {
               </div>
               <div className="grid gap-1">
                 <div className="text-sm font-medium leading-none">
-                  {option.label}
+                  {option.value}
                 </div>
               </div>
             </div>

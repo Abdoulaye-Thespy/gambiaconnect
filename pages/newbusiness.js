@@ -17,8 +17,8 @@ export default function AddBusiness({ categories, cities }) {
     PhoneNumber: '',
     Email: '',
     CompanyWebsite: '',
-    BusinessCategory: '',
-    Location: '',
+    BusinessCategory: categories[0], // Set default to first category
+    Location: cities[0], // Set default to first city
     Description: '',
     Pictures: [],
     Status: session ? 'approved' : 'pending',
@@ -26,7 +26,6 @@ export default function AddBusiness({ categories, cities }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(formData);
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -77,6 +76,22 @@ export default function AddBusiness({ categories, cities }) {
       setIsSubmitting(false);
     }
   };
+
+  // Transform categories and cities into the format expected by SelectAlternative
+  const categoryOptions = categories.map(category => ({ 
+    value: category, 
+    label: category 
+  }));
+
+  const cityOptions = cities.map(city => ({ 
+    value: city, 
+    label: city 
+  }));
+
+  const statusOptions = [
+    { value: 'pending', label: 'Pending' },
+    { value: 'approved', label: 'Approved' }
+  ];
 
   return (
     <Layout>
@@ -152,7 +167,7 @@ export default function AddBusiness({ categories, cities }) {
           <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
             <SelectAlternative
-              options={categories.map(category => ({ value: category, label: category }))}
+              options={categoryOptions}
               value={formData.BusinessCategory}
               onChange={(value) => handleSelectChange('BusinessCategory', value)}
             />
@@ -161,7 +176,7 @@ export default function AddBusiness({ categories, cities }) {
           <div className="mb-3">
             <label htmlFor="Location" className="form-label">Location</label>
             <SelectAlternative
-              options={cities.map(city => ({ value: city, label: city }))}
+              options={cityOptions}
               value={formData.Location}
               onChange={(value) => handleSelectChange('Location', value)}
             />
@@ -171,10 +186,7 @@ export default function AddBusiness({ categories, cities }) {
             <div className="mb-3">
               <label htmlFor="Status" className="form-label">Status</label>
               <SelectAlternative
-                options={[
-                  { value: 'pending', label: 'Pending' },
-                  { value: 'approved', label: 'Approved' }
-                ]}
+                options={statusOptions}
                 value={formData.Status}
                 onChange={(value) => handleSelectChange('Status', value)}
               />
