@@ -3,7 +3,8 @@ import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import Layout from "../src/layouts/Layout";
 import Head from 'next/head';
-import Link from 'next/link'; // Import Link
+import Link from 'next/link';
+import SelectAlternative from './select';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AddBusiness({ categories, cities }) {
@@ -16,15 +17,23 @@ export default function AddBusiness({ categories, cities }) {
     PhoneNumber: '',
     Email: '',
     CompanyWebsite: '',
-    BusinessCategory: 'Select a category',
-    Location: 'Select a location',
+    BusinessCategory: '',
+    Location: '',
     Description: '',
     Pictures: [],
-    Status: 'pending',
+    Status: session ? 'approved' : 'pending',
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(formData);
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (name, value) => {
     console.log(formData);
     setFormData((prevData) => ({
       ...prevData,
@@ -77,7 +86,7 @@ export default function AddBusiness({ categories, cities }) {
         </Head>
         <h1 className="mb-4">Add New Business</h1>
         <form onSubmit={handleSubmit}>
-          <input type="hidden" name="Status" value={session ? 'approved' : 'pending'} />
+          <input type="hidden" name="Status" value={formData.Status} />
 
           <div className="mb-3">
             <label htmlFor="OrganizationName" className="form-label">Organization Name</label>
@@ -140,65 +149,37 @@ export default function AddBusiness({ categories, cities }) {
             />
           </div>
 
-          {session && (
-
           <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
-            <select
-              className="form-control"
-              id="BusinessCategory"
-              name="BusinessCategory"
+            <SelectAlternative
+              options={categories.map(category => ({ value: category, label: category }))}
               value={formData.BusinessCategory}
-              onChange={handleChange}
-            >
-              <option value="">Select a category</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
+              onChange={(value) => handleSelectChange('BusinessCategory', value)}
+            />
           </div>
 
-
-          )}
+          <div className="mb-3">
+            <label htmlFor="Location" className="form-label">Location</label>
+            <SelectAlternative
+              options={cities.map(city => ({ value: city, label: city }))}
+              value={formData.Location}
+              onChange={(value) => handleSelectChange('Location', value)}
+            />
+          </div>
 
           {session && (
             <div className="mb-3">
               <label htmlFor="Status" className="form-label">Status</label>
-              <select
-                className="form-control"
-                id="Status"
-                name="Status"
+              <SelectAlternative
+                options={[
+                  { value: 'pending', label: 'Pending' },
+                  { value: 'approved', label: 'Approved' }
+                ]}
                 value={formData.Status}
-                onChange={handleChange}
-              >
-                <option value="pending">pending</option>
-                <option value="approved">approved</option>
-              </select>
+                onChange={(value) => handleSelectChange('Status', value)}
+              />
             </div>
           )}
-
-
-{session && (
-          <div className="mb-3">
-            <label htmlFor="Location" className="form-label">Location</label>
-            <select
-              className="form-control"
-              id="Location"
-              name="Location"
-              value={formData.Location}
-              onChange={handleChange}
-            >
-              <option value="">Select a location</option>
-              {cities.map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-          </div>
-           )}
 
           <div className="mb-3">
             <label htmlFor="Description" className="form-label">Description</label>
@@ -233,8 +214,7 @@ export default function AddBusiness({ categories, cities }) {
             {isSubmitting ? 'Adding...' : 'Add Business'}
           </button>
         </form>
-        {/* Example Link to Admin Page */}
-        <Link href="/admin">
+        <Link href="/admin" className="btn btn-secondary mt-3">
           Go to Admin
         </Link>
       </div>
