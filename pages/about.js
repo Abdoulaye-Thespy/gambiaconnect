@@ -29,7 +29,7 @@ const About = () => {
                     <span className="sub-title">What we do</span>
                 </div>
                   <h5>
-                  At Gambia Connect, we unite businesses and customers, fostering growth within The Gambia&aposs vibrant commercial landscape.
+                  At Gambia Connect, we unite businesses and customers, fostering growth within The Gambia&apos;s vibrant commercial landscape.
                   </h5>
                   <ul className="features-list-one">
                     <li
@@ -70,7 +70,8 @@ const About = () => {
                       <div className="content">
                         <h5>Empowering Exploration</h5>
                         <p>
-                        With information readily available, GambiaConnect puts the essence of The Gambia&aposs commercial world within easy reach, enhancing experiences for all.</p>
+    With information readily available, GambiaConnect puts the essence of The Gambia&apos;s commercial world within easy reach, enhancing experiences for all.
+</p>
                       </div>
                     </li>
                   </ul>
@@ -98,7 +99,7 @@ const About = () => {
                   <p>
                   GambiaConnect: Your gateway to a wealth of organization and business details, tailored for both Gambians and visitors exploring The Smiling Coast.
                   </p>
-                  <Link href="/add-listing">
+                  <Link href="/add-listing" legacyBehavior>
                     <a className="main-btn icon-btn">ADD LISTING</a>
                   </Link>
                 </div>
@@ -113,7 +114,7 @@ const About = () => {
       {/*====== Start Newsletter Section ======*/}
       {/*====== End Newsletter Section ======*/}
       {/*====== Start Team Section ======*/}
-      <section className="team-area pt-115 pb-85">
+     {/* <section className="team-area pt-115 pb-85">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
@@ -234,7 +235,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>*/}
       {/*====== End Team Section ======*/}
     </Layout>
   );

@@ -27,7 +27,7 @@ const Contact = () => {
                   </div>
                   <div className="info">
                     <h5>Address</h5>
-                    <p>46 suvastu arcade 3rd Floor palace road, London.</p>
+                    <p>Brusubi, Gambia</p>
                   </div>
                 </div>
                 <div className="information-item mb-30 wow fadeInUp">
@@ -146,7 +146,7 @@ const Contact = () => {
       {/*====== Start Map section ======*/}
       <section className="contact-page-map">
         <div className="map-box">
-          <iframe src="https://maps.google.com/maps?q=new%20york&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+          <iframe src="https://maps.google.com/maps?q=banjul%20gambia&t=&z=13&ie=UTF8&iwloc=&output=embed" />
         </div>
       </section>
       {/*====== End Map section ======*/}

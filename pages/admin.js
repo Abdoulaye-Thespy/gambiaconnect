@@ -11,6 +11,7 @@ const AdminListingGrid = () => {
   const [originalData, setOriginalData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loadingData, setLoadingData] = useState(true); // Loading state for data
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -24,6 +25,7 @@ const AdminListingGrid = () => {
   }, [status, router]);
 
   const fetchData = async () => {
+    setLoadingData(true); // Start loading data
     try {
       const response = await fetch('/api/s3', { method: 'GET' });
       const dataResponse = await response.json();
@@ -32,6 +34,8 @@ const AdminListingGrid = () => {
       setFilteredData(data);
     } catch (error) {
       console.error('Error fetching data:', error);
+    } finally {
+      setLoadingData(false); // End loading data
     }
   };
 
@@ -72,11 +76,11 @@ const AdminListingGrid = () => {
   };
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; // Loader for session loading
   }
 
   if (!session || !Cookies.get('isAdminAuthenticated')) {
-    return null;
+    return null; // Redirect to login if unauthorized
   }
 
   return (
@@ -169,53 +173,55 @@ const AdminListingGrid = () => {
               </div>
 
               <div className="row">
-                {filteredData.map((org, index) => (
-                  <div key={index} className="col-lg-6 col-md-6 col-sm-12">
-                    <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
-                      <div className="listing-thumbnail listing-content">
-                        <img
-                          src="assets/images/listing/listing-grid-16.jpg"
-                          alt={`${org.OrganizationName} Listing Image`}
-                        />
-                      </div>
-                      <div className="listing-content">
-                        <h3 className="title">
-                          <Link href={`/modify/${org.id}`}>
-                            {org.OrganizationName}
-                          </Link>
-                        </h3>
-                        <p><strong>Address:</strong> {org.Address}</p>
-                        <p><strong>Town:</strong> {org.Location || "N/A"}</p>
-                        <p><strong>Phone:</strong> {org.PhoneNumber}</p>
-                        <p><strong>Email:</strong> {org.Email}</p>
-                        <p><strong>Website:</strong> {org.CompanyWebsite || "N/A"}</p>
-                        <p><strong>Facebook:</strong> {org.SocialMediaHandle || "N/A"}</p>
-                        <p><strong>Category:</strong> {org.BusinessCategory || "N/A"}</p>
-                        <p><strong>Description:</strong> {org.Description || "N/A"}</p>
-                        <p><strong>Status:</strong> {org.Status || "N/A"}</p>
-                        {org.Pictures && org.Pictures.length > 0 && (
-                          <div className="mt-3">
-                            <strong>Pictures:</strong>
-                            <div className="d-flex flex-wrap gap-2 mt-2">
-                              {org.Pictures.map((pic, picIndex) => (
-                                <img key={picIndex} src={pic} alt={`${org.OrganizationName} - ${picIndex + 1}`} className="img-thumbnail" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
-                              ))}
+                {loadingData ? ( // Conditional rendering based on loadingData
+                  <div>Loading data...</div> // Loader for data fetching
+                ) : (
+                  filteredData.map((org, index) => (
+                    <div key={index} className="col-lg-6 col-md-6 col-sm-12">
+                      <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
+                        <div className="listing-thumbnail listing-content">
+                          <img
+                            src="assets/images/listing/listing-grid-16.jpg"
+                            alt={`${org.OrganizationName} Listing Image`}
+                          />
+                        </div>
+                        <div className="listing-content">
+                          <h3 className="title">
+                            <Link href={`/modify/${org.id}`}>
+                              {org.OrganizationName}
+                            </Link>
+                          </h3>
+                          <p><strong>Address:</strong> {org.Address}</p>
+                          <p><strong>Town:</strong> {org.Location || "N/A"}</p>
+                          <p><strong>Phone:</strong> {org.PhoneNumber}</p>
+                          <p><strong>Email:</strong> {org.Email}</p>
+                          <p><strong>Website:</strong> {org.CompanyWebsite || "N/A"}</p>
+                          <p><strong>Facebook:</strong> {org.SocialMediaHandle || "N/A"}</p>
+                          <p><strong>Category:</strong> {org.BusinessCategory || "N/A"}</p>
+                          <p><strong>Description:</strong> {org.Description || "N/A"}</p>
+                          <p><strong>Status:</strong> {org.Status || "N/A"}</p>
+                          {org.Pictures && org.Pictures.length > 0 && (
+                            <div className="mt-3">
+                              <strong>Pictures:</strong>
+                              <div className="d-flex flex-wrap gap-2 mt-2">
+                                {org.Pictures.map((pic, picIndex) => (
+                                  <img key={picIndex} src={pic} alt={`${org.OrganizationName} - ${picIndex + 1}`} className="img-thumbnail" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                                ))}
+                              </div>
                             </div>
+                          )}
+                          <div className="d-flex justify-content-between p-3">
+                            <Link href={`/modify/${org.id}`} passHref>
+                              <Button as="a">Modify</Button>
+                            </Link>
+                            <Button variant="danger" onClick={() => handleDelete(org.id)}>Delete</Button>
                           </div>
-                        )}
-                      <div className="d-flex justify-content-between p-3">
-                        <Link href={`/modify/${org.id}`} passHref>
-                          <Button as="a">Modify</Button>
-                        </Link>
-                        <Button variant="danger" onClick={() => handleDelete(org.id)}>Delete</Button>
+                        </div>
                       </div>
-                      </div>
-
                     </div>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
-
             </div>
           </div>
         </div>

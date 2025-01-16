@@ -3,8 +3,9 @@ import { useRouter } from 'next/router';
 import Layout from "../../src/layouts/Layout";
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SelectAlternative from '../select';
 
-export default function ModifyBusiness({ businessData, id }) {
+export default function ModifyBusiness({ businessData, id, categories, cities }) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState(businessData);
@@ -52,6 +53,29 @@ export default function ModifyBusiness({ businessData, id }) {
   const handleCancel = () => {
     router.back();
   };
+
+  const handleSelectChange = (name, value) => {
+    console.log(formData);
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const categoryOptions = categories.map(category => ({ 
+    value: category, 
+    label: category 
+  }));
+
+  const cityOptions = cities.map(city => ({ 
+    value: city, 
+    label: city 
+  }));
+
+  const statusOptions = [
+    { value: 'pending', label: 'Pending' },
+    { value: 'approved', label: 'Approved' }
+  ];
 
   return (
     <Layout>
@@ -128,24 +152,36 @@ export default function ModifyBusiness({ businessData, id }) {
               onChange={handleInputChange}
             />
           </div>
+
+
           <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
-            <select
-              className="form-select"
-              id="BusinessCategory"
-              name="BusinessCategory"
+            <SelectAlternative
+              options={categoryOptions}
               value={formData.BusinessCategory}
-              onChange={handleInputChange}
-            >
-              <option value="">Select a category</option>
-              <option value="Technology">Technology</option>
-              <option value="Healthcare">Healthcare</option>
-              <option value="Education">Education</option>
-              <option value="Media">Media</option>
-              <option value="Finance">Finance</option>
-              <option value="Other">Other</option>
-            </select>
+              onChange={(value) => handleSelectChange('BusinessCategory', value)}
+            />
           </div>
+
+          <div className="mb-3">
+            <label htmlFor="Location" className="form-label">Location</label>
+            <SelectAlternative
+              options={cityOptions}
+              value={formData.Location}
+              onChange={(value) => handleSelectChange('Location', value)}
+            />
+          </div>
+
+          <div className="mb-3">
+              <label htmlFor="Status" className="form-label">Status</label>
+              <SelectAlternative
+                options={statusOptions}
+                value={formData.Status}
+                onChange={(value) => handleSelectChange('Status', value)}
+              />
+            </div>
+
+
           <div className="mb-3">
             <label htmlFor="Description" className="form-label">Description</label>
             <textarea
@@ -222,8 +258,22 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const categories = [
+    "Restaurant", "Hotel/Lodging", "Shopping", "Government", "Health & Medical",
+    "Entertainment & Arts", "Automotive & Cars", "Non Profit", "Money & Finance",
+    "Real Estate", "Professional Services", "Food & Beverage", "Employment",
+    "News & Media", "Community", "Beauty & Fashion"
+  ];
+
+  const cities = [
+    "Banjul", "Serrekunda", "Bakau", "Sukuta", "Brikama", "Abuko", "Farafenni",
+    "Gunjur", "Lamin", "Brufut", "Kololi", "Yundum", "Brusubi"
+  ];
+
   return {
     props: {
+      categories,
+      cities,
       businessData,
       id: idx,
     },
