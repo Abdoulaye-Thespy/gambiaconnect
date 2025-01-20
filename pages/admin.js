@@ -147,6 +147,8 @@ const AdminListingGrid = () => {
                           <option>Kololi</option>
                           <option>Yundum</option>
                           <option>Brusubi</option>
+                          <option>Kanifing</option>
+                          <option>Kotu</option>
                           <option>Other</option>
                         </select>
                       </div>

@@ -239,12 +239,17 @@ export async function getServerSideProps() {
     "Restaurant", "Hotel/Lodging", "Shopping", "Government", "Health & Medical",
     "Entertainment & Arts", "Automotive & Cars", "Non Profit", "Money & Finance",
     "Real Estate", "Professional Services", "Food & Beverage", "Employment",
-    "News & Media", "Community", "Beauty & Fashion"
+    "News & Media", "Community", "Beauty & Fashion", "Home Services",
+    "Education & Training",
+    "Travel & Tourism",
+    "Energy & Utilities",
+    "Shopping & Retail",
+    "Health & Wellness"
   ];
 
   const cities = [
     "Banjul", "Serrekunda", "Bakau", "Sukuta", "Brikama", "Abuko", "Farafenni",
-    "Gunjur", "Lamin", "Brufut", "Kololi", "Yundum", "Brusubi"
+    "Gunjur", "Lamin", "Brufut", "Kololi", "Yundum", "Brusubi", "Kotu", "Kanifing"
   ];
 
   return {
