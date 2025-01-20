@@ -211,8 +211,8 @@ const AdminListingGrid = () => {
                             </div>
                           )}
                           <div className="d-flex justify-content-between p-3">
-                            <Link href={`/modify/${org.id}`} passHref>
-                              <Button as="a">Modify</Button>
+                            <Link href={`/modify/${org.id}`}>
+                              <Button>Modify</Button>
                             </Link>
                             <Button variant="danger" onClick={() => handleDelete(org.id)}>Delete</Button>
                           </div>

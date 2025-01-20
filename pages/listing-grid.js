@@ -156,7 +156,7 @@ const ListingGrid = () => {
                     <div className="filter-right">
                       <ul className="filter-nav">
                         <li>
-                          <Link href="/listing-grid">
+                          <Link href="/listing-grid" legacyBehavior>
                             <a className="active">
                               <i className="ti-view-grid" />
                             </a>
@@ -180,7 +180,7 @@ const ListingGrid = () => {
                       </div>
                       <div className="listing-content">
                         <h3 className="title">
-                          <Link href={`/listing-details/${org.id}`}>
+                          <Link href={`/listing-details/${org.id}`} legacyBehavior>
                             <a>{org.OrganizationName}</a>
                           </Link>
                         </h3>
