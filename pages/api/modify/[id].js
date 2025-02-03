@@ -28,6 +28,7 @@ export default async function handler(req, res) {
 
       const fileContent = await streamToString(getObjectResponse.Body);
       const dataArray = JSON.parse(fileContent);
+      console.log(dataArray[3]);
 
       // Convert id to an integer
       const index = parseInt(id, 10);

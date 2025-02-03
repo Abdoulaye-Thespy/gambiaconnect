@@ -259,14 +259,15 @@ export async function getServerSideProps(context) {
   }
 
   const categories = [
-    "Restaurant", "Hotel/Lodging", "Shopping", "Government", "Health & Medical",
+    "Restaurant", "Hotel/Lodging", "Government", "Health & Medical",
     "Entertainment & Arts", "Automotive & Cars", "Non Profit", "Money & Finance",
     "Real Estate", "Professional Services", "Food & Beverage", "Employment",
     "News & Media", "Community", "Beauty & Fashion", "Education & Training",
     "Travel & Tourism",
     "Energy & Utilities",
     "Shopping & Retail",
-    "Health & Wellness"
+    "Health & Wellness",
+    "Other",
   ];
 
   const cities = [
