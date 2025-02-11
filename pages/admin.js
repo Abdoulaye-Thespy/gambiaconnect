@@ -1,5 +1,7 @@
+"use client"
+
 import Link from "next/link"
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useSession, signOut } from "next-auth/react"
 import { useRouter } from "next/router"
 import Layout from "../src/layouts/Layout"
@@ -8,7 +10,7 @@ import Form from "react-bootstrap/Form"
 
 const AdminListingGrid = () => {
   const [originalData, setOriginalData] = useState([])
-  const [filteredIndices, setFilteredIndices] = useState([])
+  const [filteredIds, setFilteredIds] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
   const [loadingData, setLoadingData] = useState(true)
   const { data: session, status } = useSession()
@@ -25,11 +27,11 @@ const AdminListingGrid = () => {
   const fetchData = async () => {
     setLoadingData(true)
     try {
-      const response = await fetch("/api/s3", { method: "GET" })
+      const response = await fetch("https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items")
       const dataResponse = await response.json()
-      const data = dataResponse.data
-      setOriginalData(data)
-      setFilteredIndices(data.map((_, index) => index))
+      console.log(dataResponse)
+      setOriginalData(dataResponse)
+      setFilteredIds(dataResponse.map((item) => item.id))
     } catch (error) {
       console.error("Error fetching data:", error)
     } finally {
@@ -38,31 +40,25 @@ const AdminListingGrid = () => {
   }
 
   useEffect(() => {
-    const filtered = originalData.reduce((acc, org, index) => {
-      if (org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase())) {
-        acc.push(index)
-      }
-      return acc
-    }, [])
-    setFilteredIndices(filtered)
+    const filtered = originalData.filter((org) => org.OrganizationName.toLowerCase().includes(searchTerm.toLowerCase()))
+    setFilteredIds(filtered.map((item) => item.id))
   }, [searchTerm, originalData])
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value)
   }
 
-  const handleDelete = async (id) => {
+  async function handleDelete(id) {
     const confirmDelete = window.confirm("Are you sure you want to delete this business?")
     if (confirmDelete) {
       try {
-        const response = await fetch(`/api/delete/${id}`, { method: "DELETE" })
+        const response = await fetch(`https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items/${id}`, {
+          method: "DELETE",
+        })
         if (response.ok) {
           alert("Business deleted successfully!")
-          const newOriginalData = originalData.filter((org) => org.id !== id)
-          setOriginalData(newOriginalData)
-          setFilteredIndices((prevIndices) =>
-            prevIndices.filter((index) => newOriginalData[index] && newOriginalData[index].id !== id),
-          )
+          setOriginalData((prevData) => prevData.filter((org) => org.id !== id))
+          setFilteredIds((prevIds) => prevIds.filter((prevId) => prevId !== id))
         } else {
           throw new Error("Failed to delete business")
         }
@@ -183,11 +179,11 @@ const AdminListingGrid = () => {
                 {loadingData ? (
                   <div>Loading data...</div>
                 ) : (
-                  filteredIndices.map((index) => {
-                    const org = originalData[index]
-                    console.log(org);
+                  filteredIds.map((id) => {
+                    const org = originalData.find((org) => org.id === id)
+                    console.log(org)
                     return (
-                      <div key={index} className="col-lg-6 col-md-6 col-sm-12">
+                      <div key={id} className="col-lg-6 col-md-6 col-sm-12">
                         <div className="listing-item listing-grid-item-two mb-30 wow fadeInUp">
                           <div className="listing-thumbnail listing-content">
                             <img
@@ -269,3 +265,4 @@ const AdminListingGrid = () => {
 }
 
 export default AdminListingGrid
+

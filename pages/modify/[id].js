@@ -23,33 +23,42 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsSubmitting(true);
+    event.preventDefault()
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.target)
+    const data = Object.fromEntries(formData)
+
+    // Ensure the id is included in the data
+    data.id = id
+
+    // Convert Pictures to an empty object if it's not provided
+    data.Pictures = data.Pictures || {}
 
     try {
-      const response = await fetch(`/api/modify/${id}`, {
-        method: 'PUT',
+      const response = await fetch("https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items", {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
-      });
+        body: JSON.stringify(data),
+      })
 
       if (response.ok) {
-        alert('Business updated successfully!');
-        router.push('/admin');
+        const result = await response.json()
+        alert("Business updated successfully!")
+        router.push("/admin")
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to update business');
+        const errorData = await response.json()
+        throw new Error(errorData.error || "Failed to update business")
       }
     } catch (error) {
-      console.error('Error updating business:', error);
-      alert('There was a problem updating the business.');
+      console.error("Error updating business:", error)
+      alert("There was a problem updating the business.")
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
-
+  }
   const handleCancel = () => {
     router.back();
   };
@@ -228,59 +237,86 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
 }
 
 export async function getServerSideProps(context) {
-  const { id } = context.params;
-  const idx = parseInt(id, 10);
-  let data = [];
-  let businessData = null;
+  const { id } = context.params
+  let businessData = null
+  let allData = []
 
   try {
-    const baseUrl = `http://${context.req.headers.host}`;
-    const response = await fetch(`${baseUrl}/api/s3`, { method: 'GET' });
+    const response = await fetch("https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        // Add any necessary authentication headers here
+      },
+    })
 
     if (!response.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error("Failed to fetch data")
     }
 
-    const result = await response.json();
-    data = result.data;
+    allData = await response.json()
+    businessData = allData.find((item) => item.id == id)
 
-    if (isNaN(idx) || idx < 0 || idx >= data.length) {
+    if (!businessData) {
       return {
         notFound: true,
-      };
+      }
     }
-
-    businessData = data[idx];
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error)
     return {
       notFound: true,
-    };
+    }
   }
 
   const categories = [
-    "Restaurant", "Hotel/Lodging", "Government", "Health & Medical",
-    "Entertainment & Arts", "Automotive & Cars", "Non Profit", "Money & Finance",
-    "Real Estate", "Professional Services", "Food & Beverage", "Employment",
-    "News & Media", "Community", "Beauty & Fashion", "Education & Training",
+    "Restaurant",
+    "Hotel/Lodging",
+    "Government",
+    "Health & Medical",
+    "Entertainment & Arts",
+    "Automotive & Cars",
+    "Non Profit",
+    "Money & Finance",
+    "Real Estate",
+    "Professional Services",
+    "Food & Beverage",
+    "Employment",
+    "News & Media",
+    "Community",
+    "Beauty & Fashion",
+    "Education & Training",
     "Travel & Tourism",
     "Energy & Utilities",
     "Shopping & Retail",
     "Health & Wellness",
     "Other",
-  ];
+  ]
 
   const cities = [
-    "Banjul", "Serrekunda", "Bakau", "Sukuta", "Brikama", "Abuko", "Farafenni",
-    "Gunjur", "Lamin", "Brufut", "Kololi", "Yundum", "Brusubi" , "Kotu", "Kanifing"
-  ];
+    "Banjul",
+    "Serrekunda",
+    "Bakau",
+    "Sukuta",
+    "Brikama",
+    "Abuko",
+    "Farafenni",
+    "Gunjur",
+    "Lamin",
+    "Brufut",
+    "Kololi",
+    "Yundum",
+    "Brusubi",
+    "Kotu",
+    "Kanifing",
+  ]
 
   return {
     props: {
       categories,
       cities,
       businessData,
-      id: idx,
+      id,
     },
-  };
+  }
 }

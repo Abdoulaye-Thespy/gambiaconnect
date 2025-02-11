@@ -1,148 +1,76 @@
-import { PutObjectCommand, GetObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3"
-import formidable from 'formidable'
-import { s3Client } from '../../utils/s3'
-
-// Disable the default body parser
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
-
-const BUCKET_NAME = process.env.MYAWS_S3_BUCKET_NAME
-const FILE_KEY = 'GambiaConnectDB.json'
-
-// Main handler function for all S3 operations
-export default async function handler(req, res) {
-  switch (req.method) {
-    case 'POST':
-      await handlePost(req, res)
-      break
-    case 'GET':
-      await handleGet(req, res)
-      break
-    case 'DELETE':
-      await handleDelete(req, res)
-      break
-    case 'PUT':
-      await handlePut(req, res)
-      break
-    default:
-      res.setHeader('Allow', ['POST', 'GET', 'DELETE', 'PUT'])
-      res.status(405).end(`Method ${req.method} Not Allowed`)
-  }
-}
-
-// Handle POST requests (Create operation)
-async function handlePost(req, res) {
-  const form = new formidable.IncomingForm()
-  form.parse(req, async (err, fields) => {
-    if (err) {
-      return res.status(500).json({ error: 'Error parsing form data' })
-    }
-
-    const jsonData = fields.jsonData
-
-    if (!jsonData) {
-      return res.status(400).json({ error: 'Missing JSON data' })
-    }
-
-    try {
-      await s3Client.send(new PutObjectCommand({
-        Bucket: BUCKET_NAME,
-        Key: FILE_KEY,
-        Body: jsonData,
-        ContentType: 'application/json',
-      }))
-
-      res.status(200).json({ success: true, message: 'File created successfully' })
-    } catch (error) {
-      console.error('Error uploading to S3:', error)
-      res.status(500).json({ error: 'Failed to upload to S3' })
-    }
-  })
-}
-
-// Handle GET requests (Read operation)
+// Update the handleGet function to make a GET request to the new API endpoint
 async function handleGet(req, res) {
   try {
-    const bucketName = process.env.MYAWS_S3_BUCKET_NAME;
-    const fileKey = 'GambiaConnectDB.json';
+    const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items');
+    const data = await response.json();
 
-    // Log the bucket name to ensure it's being retrieved correctly
-    console.log('Bucket Name:', bucketName);
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+    res.status(500).json({ error: 'Failed to fetch data', details: error.message });
+  }
+}
 
-    if (!bucketName) {
-      throw new Error('Bucket name is not defined. Please check your environment variables.');
-    }
+// Update the handlePost function to make a POST request to the new API endpoint
+async function handlePost(req, res) {
+  const jsonData = req.body.jsonData;
 
-    const command = new GetObjectCommand({
-      Bucket: bucketName,
-      Key: fileKey,
+  if (!jsonData) {
+    return res.status(400).json({ error: 'Missing JSON data' });
+  }
+
+  try {
+    const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items', {
+      method: 'POST',
+      body: JSON.stringify({ jsonData }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
-    const response = await s3Client.send(command);
-
-    // Read the stream from the response
-    const streamToString = (stream) =>
-      new Promise((resolve, reject) => {
-        const chunks = [];
-        stream.on("data", (chunk) => chunks.push(chunk));
-        stream.on("error", reject);
-        stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf-8")));
-      });
-
-    const jsonData = await streamToString(response.Body);
-
-    // Parse the JSON data and send it in the response
-    res.status(200).json({ success: true, data: JSON.parse(jsonData) });
+    res.status(200).json({ success: true, message: 'Data created successfully' });
   } catch (error) {
-    console.error('Error fetching object from S3:', error.message);
-    res.status(500).json({ error: 'Failed to fetch object from S3', details: error.message });
+    console.error('Error posting data:', error);
+    res.status(500).json({ error: 'Failed to post data' });
   }
 }
 
-// Handle DELETE requests (Delete operation)
+// Update the handleDelete function to make a DELETE request to the new API endpoint
 async function handleDelete(req, res) {
   try {
-    await s3Client.send(new DeleteObjectCommand({
-      Bucket: BUCKET_NAME,
-      Key: FILE_KEY,
-    }))
-    res.status(200).json({ success: true, message: 'File deleted successfully' })
+    const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items', {
+      method: 'DELETE',
+    });
+
+    res.status(200).json({ success: true, message: 'Data deleted successfully' });
   } catch (error) {
-    console.error('Error deleting object:', error)
-    res.status(500).json({ error: 'Failed to delete object' })
+    console.error('Error deleting data:', error);
+    res.status(500).json({ error: 'Failed to delete data' });
   }
 }
 
-// Handle PUT requests (Update operation)
+// Update the handlePut function to make a PUT request to the new API endpoint
 async function handlePut(req, res) {
-  const form = new formidable.IncomingForm()
-  form.parse(req, async (err, fields) => {
-    if (err) {
-      return res.status(500).json({ error: 'Error parsing form data' })
-    }
+  const jsonData = req.body.jsonData;
 
-    const jsonData = fields.jsonData
+  if (!jsonData) {
+    return res.status(400).json({ error: 'Missing JSON data' });
+  }
 
-    if (!jsonData) {
-      return res.status(400).json({ error: 'Missing JSON data' })
-    }
+  try {
+    const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items', {
+      method: 'PUT',
+      body: JSON.stringify({ jsonData }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-    try {
-      await s3Client.send(new PutObjectCommand({
-        Bucket: BUCKET_NAME,
-        Key: FILE_KEY,
-        Body: jsonData,
-        ContentType: 'application/json',
-      }))
-
-      res.status(200).json({ success: true, message: 'File updated successfully' })
-    } catch (error) {
-      console.error('Error updating object:', error)
-      res.status(500).json({ error: 'Failed to update object' })
-    }
-  })
+    res.status(200).json({ success: true, message: 'Data updated successfully' });
+  } catch (error) {
+    console.error('Error updating data:', error);
+    res.status(500).json({ error: 'Failed to update data' });
+  }
 }
 
+module.exports = { handleGet, handlePost, handleDelete, handlePut };

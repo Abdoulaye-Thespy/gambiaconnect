@@ -47,22 +47,30 @@ export default function AddBusiness({ categories, cities }) {
     }));
   };
 
+  const generateRandomId = () => {
+    return Math.floor(Math.random() * 1000); // Generate a random ID (you can adjust the range as needed)
+  };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-
+  
     const businessData = { ...formData };
     businessData.Pictures = formData.Pictures.map(file => file.name);
-
+    
+    // Generate a random ID and append it to the form data
+    const randomId = generateRandomId();
+    businessData.id = randomId;
+  
     try {
-      const response = await fetch('/api/add-business', {
+      const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(businessData),
       });
-
+  
       if (response.ok) {
         alert('Business added successfully!');
         router.push('/admin');

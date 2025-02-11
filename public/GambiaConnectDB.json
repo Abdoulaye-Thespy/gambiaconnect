@@ -163,10 +163,10 @@
     "Email": "Info@orbittravelagency.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/orbittravelagency/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Travel & Tourism",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 13,
@@ -241,10 +241,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/profile.php?id=100081254171150",
-    "BusinessCategory": null,
+    "BusinessCategory": "Real Estate",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Kololi"
   },
   {
     "id": 19,
@@ -254,10 +254,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/FofanaRentalAgency/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Real Estate",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 20,
@@ -289,14 +289,14 @@
     "id": 22,
     "OrganizationName": "GAM Engineering & Construction ",
     "Address": "Bertil Harding Highway, Sannehmentwreng, kombo North . West Coast Region., Banjul, The Gambia",
-    "PhoneNumber": "220 777 3691",
-    "Email": "gamengineering17@gmail.com",
-    "CompanyWebsite": null,
+    "PhoneNumber": "220 777 3691 / 921 7672",
+    "Email": "gamecs@qanet.gm",
+    "CompanyWebsite": "https://gamecs-ltd.com",
     "SocialMediaHandle": "https://www.facebook.com/EjC16/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Real Estate",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 23,
@@ -306,23 +306,23 @@
     "Email": "adama.e.jeng@gmail.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/profile.php?id=100063524164092&locale=ms_MY",
-    "BusinessCategory": null,
+    "BusinessCategory": "Shopping & Retail",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 24,
     "OrganizationName": "The Gambia Red Cross Society ",
     "Address": "C8WG+XJ2, Banjul-Serrekunda Hwy, Serrekunda, Kanifing Industrial Estate, The Gambia",
-    "PhoneNumber": null,
+    "PhoneNumber": "220 381 58 78",
     "Email": "info@redcross.gm",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/GambiaRedCross",
-    "BusinessCategory": null,
+    "BusinessCategory": "Non Profit",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Kanifing"
   },
   {
     "id": 25,
@@ -332,10 +332,10 @@
     "Email": null,
     "CompanyWebsite": "https://yamaha-moto.cfaomotors-gambia.com/en/dealership/yamaha-gambia-cfao-motors/cfao-motors-gambia-banjul",
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Automotive & Cars",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Kanifing"
   },
   {
     "id": 26,
@@ -345,10 +345,10 @@
     "Email": "info@lastingsolutions.gm",
     "CompanyWebsite": "http://lastingsolutions.gm/",
     "SocialMediaHandle": "https://www.facebook.com/solutionsthatlast/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Professional Services",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 27,
@@ -358,10 +358,10 @@
     "Email": "nemapropertymanagement@gmail.comm",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/SARJO3236107/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Professional Services",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Brikama"
   },
   {
     "id": 28,
@@ -369,12 +369,12 @@
     "Address": "71, Daniel Goddard Street (Hagan St.), Banjul, The Gambia",
     "PhoneNumber": "220 422 8473",
     "Email": null,
-    "CompanyWebsite": "banjultravelagency.com",
+    "CompanyWebsite": "",
     "SocialMediaHandle": "https://www.facebook.com/banjultravelagency/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Travel & Tourism",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 29,
@@ -397,10 +397,10 @@
     "Email": "info@rootsproject.gm",
     "CompanyWebsite": "https://rootsproject.gm/",
     "SocialMediaHandle": "https://www.facebook.com/Rootsprojectgambia?locale=ms_MY",
-    "BusinessCategory": null,
+    "BusinessCategory": "Travel & Tourism",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Abuko"
   },
   {
     "id": 31,
@@ -410,23 +410,23 @@
     "Email": "ahs@ahsholdings.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/Sfil87/photos/a.1543558942480094/1719187201583933/?type=3&paipv=0&eav=AfYogbE2gO8vU1YR6Z7U95G0xaOnMxNOOJwaqdvmyUhUOf90lN3Tj4DWpKkS8oQGmYQ&_rdr",
-    "BusinessCategory": null,
+    "BusinessCategory": "Health & Medical",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 32,
     "OrganizationName": "National Environment Agency Gambia ",
-    "Address": "Banjul, The Gambia",
-    "PhoneNumber": null,
+    "Address": "Jimpex Road, Kanifing, P.O.Box 48. Banjul. The Gambia",
+    "PhoneNumber": "220 4399422",
     "Email": "nea.gambia@gmail.com",
-    "CompanyWebsite": null,
+    "CompanyWebsite": "https://nea.gm/",
     "SocialMediaHandle": "https://www.facebook.com/profile.php?id=100051818991654",
-    "BusinessCategory": null,
-    "Description": "",
+    "BusinessCategory": "Government",
+    "Description": "The National Environment Agency (NEA) was established under the National Environment Management Act (NEMA), 1994 as a semi-autonomous agency with an independent structure to serve as the “principal body responsible for overall management of the environment” in The Gambia.",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 33,
@@ -436,10 +436,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Shopping & Retail",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 34,
@@ -448,11 +448,11 @@
     "PhoneNumber": "220 449 5069",
     "Email": "Butchers@qanet.gm",
     "CompanyWebsite": null,
-    "SocialMediaHandle": "https://www.facebook.com/TheButchersShopGambia?locale=sw_KE",
-    "BusinessCategory": null,
-    "Description": "",
+    "SocialMediaHandle": "https://www.facebook.com/TheButchersShopGambia/",
+    "BusinessCategory": "Restaurant",
+    "Description": "International restaurant open for breakfast, lunch, dinner, and catering services, with a classic contemporary menu drawing flavors from all around the world.",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 35,
@@ -462,10 +462,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
-    "Description": "",
+    "BusinessCategory": "Beauty & Fashion",
+    "Description": "Cosmetics and Hair",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 36,
@@ -475,23 +475,23 @@
     "Email": "Info.Ubuntu8@gmail.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/UbuntuTravelTours",
-    "BusinessCategory": null,
+    "BusinessCategory": "Travel & Tourism",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 37,
     "OrganizationName": "Gambia Horticultural Enterprise (GHE) ",
-    "Address": "16 Mamadi Manjang Highway , Banjul, The Gambia",
+    "Address": "16 Mamadi Manjang Highway, Old Jeshwang, Serrekunda, The Gambia",
     "PhoneNumber": "16 Mamadi Manjang Highway , Banjul, The Gambia",
     "Email": "gamhortmc@gmail.com",
     "CompanyWebsite": "https://gamhort.com/",
     "SocialMediaHandle": "https://www.facebook.com/Gamhort",
-    "BusinessCategory": null,
-    "Description": "",
+    "BusinessCategory": "Food & Beverage",
+    "Description": "Gambia Horticultural Enterprises (GHE) is a multi-purpose agri-business company engaged in the whole horticultural value chain.",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 38,
@@ -501,10 +501,10 @@
     "Email": "dimexbrothers@yahoo.co.uk",
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
-    "Description": "",
+    "BusinessCategory": "Automotive & Cars",
+    "Description": "Car Parts ",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 39,
@@ -514,10 +514,10 @@
     "Email": "taarplus@gmail.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/taarplusskincare?locale=ur_PK",
-    "BusinessCategory": null,
+    "BusinessCategory": "Beauty & Fashion",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 40,
@@ -527,10 +527,10 @@
     "Email": "kawairco@gmail.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/kawairenterprise/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Professional Services",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 41,
@@ -540,10 +540,10 @@
     "Email": "info@pointclick.net",
     "CompanyWebsite": "https://www.pointclick.net/",
     "SocialMediaHandle": "https://www.facebook.com/pointclickglobal/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Professional Services",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Bakau"
   },
   {
     "id": 42,
@@ -553,10 +553,10 @@
     "Email": "csgambia.life@enterprisegroup.com.gh",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/EntLifeGMB",
-    "BusinessCategory": null,
+    "BusinessCategory": "Professional Services",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 43,
@@ -566,10 +566,10 @@
     "Email": "josdesigngm@gamail.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": "https://www.facebook.com/josdesigngm/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Shopping & Retail",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 44,
@@ -579,10 +579,10 @@
     "Email": "hello@adequate.gm",
     "CompanyWebsite": "https://adequate.gm/",
     "SocialMediaHandle": "https://www.facebook.com/AdeQuateDigitalSolutions/",
-    "BusinessCategory": null,
+    "BusinessCategory": "Professional Services",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 45,
@@ -6341,7 +6341,7 @@
     "BusinessCategory": null,
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 488,
@@ -8990,10 +8990,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Shopping & Retail",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 692,
@@ -9006,7 +9006,7 @@
     "BusinessCategory": null,
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 693,
@@ -9016,10 +9016,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Beauty & Fashion",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 694,
@@ -9029,10 +9029,10 @@
     "Email": "afsaidy@gmail.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Beauty & Fashion",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
   },
   {
     "id": 695,
@@ -9042,10 +9042,10 @@
     "Email": null,
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Shopping & Retail",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Serrekunda"
   },
   {
     "id": 696,
@@ -9055,9 +9055,35 @@
     "Email": "hajsaho@yahoo.com",
     "CompanyWebsite": null,
     "SocialMediaHandle": null,
-    "BusinessCategory": null,
+    "BusinessCategory": "Shopping & Retail",
     "Description": "",
     "Status": "approved",
-    "Location": null
+    "Location": "Banjul"
+  },
+  {
+    "OrganizationName": "The Jana Caudill Team NW Indiana",
+    "Address": "503 E Summit St #2, Crown Point, IN 46307, United States",
+    "PhoneNumber": "+12196611256",
+    "Email": "janacaudillteam.seo@gmail.com",
+    "CompanyWebsite": "https://www.janacaudillteam.com/",
+    "BusinessCategory": "Real Estate",
+    "Location": "Banjul",
+    "Description": "The Jana Caudill Team Brokered by eXp Realty is Northwest Indianas most trusted partner for buying and selling real estate in the region. Let our agents help you too. For more details visit us @ https://www.janacaudillteam.com/",
+    "Pictures": [],
+    "Status": "approved",
+    "id": 697
+  },
+  {
+    "OrganizationName": "Tango Gambia",
+    "Address": "Fajara M Section PMB 392, Serrekunda The Gambia, West Africa",
+    "PhoneNumber": "(+220) 976 6660 or 307 6055",
+    "Email": "info@tango.gm",
+    "CompanyWebsite": "",
+    "BusinessCategory": "Restaurant",
+    "Location": "Serrekunda",
+    "Description": "The Association of Non-Governmental Organizations in the Gambia (TANGO), founded in 1983, is the umbrella organization for NGOs operating in The Gambia.",
+    "Pictures": [],
+    "Status": "approved",
+    "id": 698
   }
 ]
