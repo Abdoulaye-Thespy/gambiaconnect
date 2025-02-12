@@ -14,7 +14,7 @@ const OrganizationCards = () => {
     // Fetch data from the JSON file
     const fetchData = async () => {
       try {
-        const response = await fetch('/GambiaConnectDB.json');
+        const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items');
         if (!response.ok) {
           throw new Error(`Failed to fetch data: ${response.statusText}`);
         }

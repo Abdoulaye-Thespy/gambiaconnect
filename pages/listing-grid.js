@@ -16,9 +16,9 @@ const ListingGrid = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('/api/s3', { method: 'GET' });
+      const response = await fetch('https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items');
       const dataResponse = await response.json();
-      const data = dataResponse.data;
+      const data = dataResponse;
       setOriginalData(data);
       setFilteredData(data.filter(org => org.Status === 'Approved'));
       setLoading(false);
