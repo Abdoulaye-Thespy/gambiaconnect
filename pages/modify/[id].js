@@ -8,10 +8,36 @@ import SelectAlternative from '../select';
 export default function ModifyBusiness({ businessData, id, categories, cities }) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState(businessData);
+  const [formData, setFormData] = useState({
+    OrganizationName: '',
+    Address: '',
+    PhoneNumber: '',
+    Email: '',
+    CompanyWebsite: '',
+    SocialMediaHandle: '',
+    BusinessCategory: '',
+    Location: '',
+    Status: '',
+    Description: '',
+    Pictures: [],
+  });
 
   useEffect(() => {
-    setFormData(businessData);
+    if (businessData) {
+      setFormData({
+        OrganizationName: businessData.OrganizationName || '',
+        Address: businessData.Address || '',
+        PhoneNumber: businessData.PhoneNumber || '',
+        Email: businessData.Email || '',
+        CompanyWebsite: businessData.CompanyWebsite || '',
+        SocialMediaHandle: businessData.SocialMediaHandle || '',
+        BusinessCategory: businessData.BusinessCategory || '',
+        Location: businessData.Location || '',
+        Status: businessData.Status || '',
+        Description: businessData.Description || '',
+        Pictures: businessData.Pictures || [],
+      });
+    }
   }, [businessData]);
 
   const handleInputChange = (event) => {
@@ -22,53 +48,52 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
     }));
   };
 
+  const handleSelectChange = (name, value) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+    const picturesArray = Array.from(files).map(file => file.name); // Get file names
+    setFormData(prevData => ({
+      ...prevData,
+      Pictures: picturesArray,
+    }));
+  };
+
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-
-    const formData = new FormData(event.target)
-    const data = Object.fromEntries(formData)
-
-    // Ensure the id is included in the data
-    data.id = id
-
-    // Convert Pictures to an empty object if it's not provided
-    data.Pictures = data.Pictures || {}
+    event.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items", {
+      const response = await fetch(`https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
-      })
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
-        const result = await response.json()
-        alert("Business updated successfully!")
-        router.push("/admin")
+        alert("Business updated successfully!");
+        router.push("/admin");
       } else {
-        const errorData = await response.json()
-        throw new Error(errorData.error || "Failed to update business")
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to update business");
       }
     } catch (error) {
-      console.error("Error updating business:", error)
-      alert("There was a problem updating the business.")
+      console.error("Error updating business:", error);
+      alert("There was a problem updating the business.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
-  const handleCancel = () => {
-    router.back();
   };
 
-  const handleSelectChange = (name, value) => {
-    console.log(formData);
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const handleCancel = () => {
+    router.back();
   };
 
   const categoryOptions = categories.map(category => ({ 
@@ -162,7 +187,6 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
             />
           </div>
 
-
           <div className="mb-3">
             <label htmlFor="BusinessCategory" className="form-label">Category</label>
             <SelectAlternative
@@ -182,14 +206,13 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
           </div>
 
           <div className="mb-3">
-              <label htmlFor="Status" className="form-label">Status</label>
-              <SelectAlternative
-                options={statusOptions}
-                value={formData.Status}
-                onChange={(value) => handleSelectChange('Status', value)}
-              />
-            </div>
-
+            <label htmlFor="Status" className="form-label">Status</label>
+            <SelectAlternative
+              options={statusOptions}
+              value={formData.Status}
+              onChange={(value) => handleSelectChange('Status', value)}
+            />
+          </div>
 
           <div className="mb-3">
             <label htmlFor="Description" className="form-label">Description</label>
@@ -202,6 +225,7 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
               onChange={handleInputChange}
             ></textarea>
           </div>
+
           <div className="mb-3">
             <label htmlFor="Pictures" className="form-label">Pictures</label>
             <input
@@ -211,7 +235,7 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
               name="Pictures"
               multiple
               accept="image/*"
-              onChange={handleInputChange}
+              onChange={handleFileChange}
             />
           </div>
           <div className="d-flex justify-content-between">
@@ -237,79 +261,51 @@ export default function ModifyBusiness({ businessData, id, categories, cities })
 }
 
 export async function getServerSideProps(context) {
-  const { id } = context.params
-  let businessData = null
-  let allData = []
+  const { id } = context.params;
+  let businessData = null;
+  let allData = [];
 
   try {
     const response = await fetch("https://o6qj085j71.execute-api.us-east-1.amazonaws.com/dev/items", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        // Add any necessary authentication headers here
       },
-    })
+    });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch data")
+      throw new Error("Failed to fetch data");
     }
 
-    allData = await response.json()
-    businessData = allData.find((item) => item.id == id)
+    allData = await response.json();
+    businessData = allData.find((item) => item.id == id);
 
     if (!businessData) {
       return {
         notFound: true,
-      }
+      };
     }
   } catch (error) {
-    console.error("Error fetching data:", error)
+    console.error("Error fetching data:", error);
     return {
       notFound: true,
-    }
+    };
   }
 
   const categories = [
-    "Restaurant",
-    "Hotel/Lodging",
-    "Government",
-    "Health & Medical",
-    "Entertainment & Arts",
-    "Automotive & Cars",
-    "Non Profit",
-    "Money & Finance",
-    "Real Estate",
-    "Professional Services",
-    "Food & Beverage",
-    "Employment",
-    "News & Media",
-    "Community",
-    "Beauty & Fashion",
-    "Education & Training",
-    "Travel & Tourism",
-    "Energy & Utilities",
-    "Shopping & Retail",
-    "Health & Wellness",
+    "Restaurant", "Hotel/Lodging", "Government", "Health & Medical",
+    "Entertainment & Arts", "Automotive & Cars", "Non Profit", "Money & Finance",
+    "Real Estate", "Professional Services", "Food & Beverage", "Employment",
+    "News & Media", "Community", "Beauty & Fashion", "Education & Training",
+    "Travel & Tourism", "Energy & Utilities", "Shopping & Retail", "Health & Wellness",
     "Other",
-  ]
+  ];
 
   const cities = [
-    "Banjul",
-    "Serrekunda",
-    "Bakau",
-    "Sukuta",
-    "Brikama",
-    "Abuko",
-    "Farafenni",
-    "Gunjur",
-    "Lamin",
-    "Brufut",
-    "Kololi",
-    "Yundum",
-    "Brusubi",
-    "Kotu",
-    "Kanifing",
-  ]
+    "Banjul", "Serrekunda", "Bakau", "Sukuta", "Brikama", "Abuko",
+    "Farafenni", "Gunjur", "Lamin", "Brufut", "Kololi", "Yundum",
+    "Brusubi", "Kotu", "Kanifing",
+  ];
 
   return {
     props: {
@@ -318,5 +314,5 @@ export async function getServerSideProps(context) {
       businessData,
       id,
     },
-  }
+  };
 }

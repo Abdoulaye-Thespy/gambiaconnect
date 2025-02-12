@@ -48,7 +48,7 @@ export default function AddBusiness({ categories, cities }) {
   };
 
   const generateRandomId = () => {
-    return Math.floor(Math.random() * 1000); // Generate a random ID (you can adjust the range as needed)
+    return Math.floor(Math.random() * 10000000); // Generate a random ID (you can adjust the range as needed)
   };
   
   const handleSubmit = async (event) => {
