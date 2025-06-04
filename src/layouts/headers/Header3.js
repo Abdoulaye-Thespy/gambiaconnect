@@ -15,11 +15,11 @@ const Header3 = () => {
                     <span>Follow us:</span>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/GambiaConnect">
                       <i className="ti-facebook" />
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="#">
                       <i className="ti-twitter-alt" />
                     </a>
@@ -33,9 +33,9 @@ const Header3 = () => {
                     <a href="#">
                       <i className="ti-dribbble" />
                     </a>
-                  </li>
+                  </li> */}
                   <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/gambiaconnect/">
                       <i className="ti-instagram" />
                     </a>
                   </li>
@@ -45,7 +45,7 @@ const Header3 = () => {
             <div className="col-md-4">
               <div className="top-content text-center">
                 <p>
-                 email{" info@gambiaconnect.com"}
+                 email{": thegambiaconnect@gmail.com"}
                 </p>
               </div>
             </div>
@@ -56,7 +56,7 @@ const Header3 = () => {
                     <Link href="/" legacyBehavior>
                       <a>
                         <i className="ti-search" />
-                        <span>email{" info@gambiaconnect.com"}</span>
+                        <span>email{": thegambiaconnect@gmail.com"}</span>
                       </a>
                     </Link>
                   </li>

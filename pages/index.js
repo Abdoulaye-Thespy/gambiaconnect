@@ -1,25 +1,27 @@
-import Link from "next/link";
-import React, { useEffect } from "react";
-import { Nav, Tab } from "react-bootstrap";
-import Layout from "../src/layouts/Layout";
-import "bootstrap/dist/css/bootstrap.min.css";
-import OrganizationCards from './Cards';
+"use client"
+
+import Link from "next/link"
+import { useEffect } from "react"
+import { Nav, Tab } from "react-bootstrap"
+import Layout from "../src/layouts/Layout"
+import "bootstrap/dist/css/bootstrap.min.css"
+import OrganizationCards from "./Cards"
 
 const Index3 = () => {
   useEffect(() => {
     setTimeout(() => {
       if (typeof window !== "undefined") {
-        const Isotope = require("isotope-layout");
+        const Isotope = require("isotope-layout")
         new Isotope(".masonry-place-row", {
           itemSelector: ".place-column",
           percentPosition: true,
           masonry: {
             columnWidth: ".place-column",
           },
-        });
+        })
       }
-    }, 1000);
-  }, []);
+    }, 1000)
+  }, [])
 
   return (
     <Layout header={3}>
@@ -40,56 +42,40 @@ const Index3 = () => {
                   <h3 className="wow fadeInDown" data-wow-delay=".50s">
                     Linking Businesses, Empowering Communities - Welcome to Gambia Connect!
                   </h3>
-                  <div
-                    className="hero-search-wrapper wow fadeInUp"
-                    data-wow-delay=".70s"
-                  >
+                  <div className="hero-search-wrapper wow fadeInUp" data-wow-delay=".70s">
                     <Tab.Container defaultActiveKey={"flight"}>
                       <form onSubmit={(e) => e.preventDefault()}>
                         <div className="row align-items-center">
                           <div className="col-lg-6">
                             <div className="search-nav mb-10">
-                              <Nav as="ul" className="nav nav-tabs">
+                              {/* <Nav as="ul" className="nav nav-tabs">
                                 <Nav.Item>
-                                  <Nav.Link
-                                    as="a"
-                                    className="c-pointer"
-                                    eventKey="flight"
-                                  >
+                                  <Nav.Link as="a" className="c-pointer" eventKey="flight">
                                     <i className="far fa-plane-departure" />
                                     Flight
                                   </Nav.Link>
                                 </Nav.Item>
                                 <li className="nav-item">
-                                  <Nav.Link
-                                    as="a"
-                                    className="c-pointer"
-                                    eventKey="hotels"
-                                  >
+                                  <Nav.Link as="a" className="c-pointer" eventKey="hotels">
                                     <i className="far fa-building" />
                                     Hotels
                                   </Nav.Link>
                                 </li>
                                 <li className="nav-item">
-                                  <Nav.Link
-                                    as="a"
-                                    className="c-pointer"
-                                    eventKey="rentcar"
-                                  >
+                                  <Nav.Link as="a" className="c-pointer" eventKey="rentcar">
                                     <i className="far fa-car" />
                                     Rent a Car
                                   </Nav.Link>
                                 </li>
-                              </Nav>
+                              </Nav> */}
                             </div>
                           </div>
                           <div className="col-lg-6">
                             <p className="tags mb-15">
                               <span>Popular:</span>
-                              <Link href="#">Saloon</Link>, <Link href="#">Restaurant</Link>,
-                              <Link href="#">Game</Link>, <Link href="#">Counter</Link>,
-                              <Link href="#">Train Station</Link>,
-                              <Link href="#">Parking</Link>, <Link href="#">Shooping</Link>
+                              <Link href="#">Restaurant</Link>, <Link href="#">Hotel/Lodging</Link>,
+                              <Link href="#">Professional Services</Link>, <Link href="#">Home Services</Link>,
+                              <Link href="#">Arts & Entertainment</Link>,<Link href="#">Money & Finance</Link>
                             </p>
                           </div>
                         </div>
@@ -111,14 +97,12 @@ const Index3 = () => {
                               <div className="col-lg-3 col-md-6">
                                 <div className="form_group">
                                   <select className="wide">
-                                    <option value="01">Museums</option>
-                                    <option value="02">Restaurant</option>
-                                    <option value="03">Party Center</option>
-                                    <option value="04">Fitness Zone</option>
-                                    <option value="05">Game Field</option>
-                                    <option value="06">Job & Feeds</option>
-                                    <option value="07">Shooping</option>
-                                    <option value="08">Art Gallery</option>
+                                    <option value="01">Restaurant</option>
+                                    <option value="02">Hotel/Lodging</option>
+                                    <option value="03">Professional Services</option>
+                                    <option value="04">Home Services</option>
+                                    <option value="05">Arts & Entertainment</option>
+                                    <option value="06">Money & Finance</option>
                                   </select>
                                 </div>
                               </div>
@@ -136,9 +120,7 @@ const Index3 = () => {
                               </div>
                               <div className="col-lg-3 col-md-6">
                                 <div className="form_group">
-                                  <button className="main-btn icon-btn">
-                                    Search Now
-                                  </button>
+                                  <button className="main-btn icon-btn">Search Now</button>
                                 </div>
                               </div>
                             </div>
@@ -171,87 +153,78 @@ const Index3 = () => {
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="category-item category-item-three mb-30 wow fadeInUp">
                   <div className="icon">
-                    <i className="flaticon-government" />
-                  </div>
-                  <div className="info">
-                    <h4 className="title">
-                      <Link href="/listing-grid">Museums</Link>
-                    </h4>
-                    <p>Sed perspi ciaund natus</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-12">
-                <div className="category-item category-item-three mb-30 wow fadeInDown">
-                  <div className="icon">
                     <i className="flaticon-serving-dish" />
                   </div>
                   <div className="info">
                     <h4 className="title">
                       <Link href="/listing-grid">Restaurant</Link>
                     </h4>
-                    <p>Sed perspi ciaund natus</p>
+                    <p>Dining establishments offering local and international cuisine</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="category-item category-item-three mb-30 wow fadeInDown">
+                  <div className="icon">
+                    <i className="flaticon-government" />
+                  </div>
+                  <div className="info">
+                    <h4 className="title">
+                      <Link href="/listing-grid">Hotel/Lodging</Link>
+                    </h4>
+                    <p>Accommodation options from luxury hotels to budget-friendly stays</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="category-item category-item-three mb-30 wow fadeInUp">
                   <div className="icon">
-                    <i className="flaticon-game-controller" />
-                  </div>
-                  <div className="info">
-                    <h4 className="title">
-                      <Link href="/listing-grid">Game Field</Link>
-                    </h4>
-                    <p>Sed perspi ciaund natus</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-12">
-                <div
-                  className="category-item category-item-three mb-30 wow fadeInDown"
-                  data-wow-delay=".15s"
-                >
-                  <div className="icon">
                     <i className="flaticon-suitcase" />
                   </div>
                   <div className="info">
                     <h4 className="title">
-                      <Link href="/listing-grid">Job &amp; Feed</Link>
+                      <Link href="/listing-grid">Professional Services</Link>
                     </h4>
-                    <p>Sed perspi ciaund natus</p>
+                    <p>Legal, consulting, accounting and other professional expertise</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
-                <div
-                  className="category-item category-item-three mb-30 wow fadeInUp"
-                  data-wow-delay=".20s"
-                >
-                  <div className="icon">
-                    <i className="flaticon-gift-box" />
-                  </div>
-                  <div className="info">
-                    <h4 className="title">
-                      <Link href="/listing-grid">Party Center</Link>
-                    </h4>
-                    <p>Sed perspi ciaund natus</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-12">
-                <div
-                  className="category-item category-item-three mb-30 wow fadeInDown"
-                  data-wow-delay=".25s"
-                >
+                <div className="category-item category-item-three mb-30 wow fadeInDown" data-wow-delay=".15s">
                   <div className="icon">
                     <i className="flaticon-dumbbell" />
                   </div>
                   <div className="info">
                     <h4 className="title">
-                      <Link href="/listing-grid">Fitness Zone</Link>
+                      <Link href="/listing-grid">Home Services</Link>
                     </h4>
-                    <p>Sed perspi ciaund natus</p>
+                    <p>Maintenance, repair, cleaning and household service providers</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="category-item category-item-three mb-30 wow fadeInUp" data-wow-delay=".20s">
+                  <div className="icon">
+                    <i className="flaticon-gift-box" />
+                  </div>
+                  <div className="info">
+                    <h4 className="title">
+                      <Link href="/listing-grid">Arts & Entertainment</Link>
+                    </h4>
+                    <p>Cultural venues, galleries, theaters and entertainment facilities</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="category-item category-item-three mb-30 wow fadeInDown" data-wow-delay=".25s">
+                  <div className="icon">
+                    <i className="flaticon-game-controller" />
+                  </div>
+                  <div className="info">
+                    <h4 className="title">
+                      <Link href="/listing-grid">Money & Finance</Link>
+                    </h4>
+                    <p>Banks, financial institutions and money transfer services</p>
                   </div>
                 </div>
               </div>
@@ -274,8 +247,8 @@ const Index3 = () => {
 
           <OrganizationCards />
 
-          {/* ------Fin Cards------ */}   
-        </div> 
+          {/* ------Fin Cards------ */}
+        </div>
       </section>
       <section className="features-area">
         <div
@@ -299,24 +272,19 @@ const Index3 = () => {
                   </div>
                   <div className="content">
                     <h4>Explore Listings</h4>
-                    <p>
-                    Browse through our comprehensive directory of organizations and businesses in The Gambia.
-                    </p>
+                    <p>Browse through our comprehensive directory of organizations and businesses in The Gambia.</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
-                <div
-                  className="features-item features-item-one mb-40 wow fadeInUp"
-                  data-wow-delay="20ms"
-                >
+                <div className="features-item features-item-one mb-40 wow fadeInUp" data-wow-delay="20ms">
                   <div className="icon">
                     <i className="flaticon-star" />
                   </div>
                   <div className="content">
                     <h4>Search and Discover</h4>
                     <p>
-                    Utilize our search function to find specific information or simply explore various categories.
+                      Utilize our search function to find specific information or simply explore various categories.
                     </p>
                   </div>
                 </div>
@@ -329,7 +297,8 @@ const Index3 = () => {
                   <div className="content">
                     <h4>Connect and Engage</h4>
                     <p>
-                    Connect with businesses, access key details, and embark on a seamless journey through The Smiling Coast&aposs commercial landscape.
+                      Connect with businesses, access key details, and embark on a seamless journey through The Smiling
+                      Coast&aposs commercial landscape.
                     </p>
                   </div>
                 </div>
@@ -339,7 +308,7 @@ const Index3 = () => {
         </div>
       </section>
     </Layout>
-  );
-};
+  )
+}
 
-export default Index3;
+export default Index3
